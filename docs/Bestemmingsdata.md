@@ -1,0 +1,12 @@
+# Bestemmingsdata
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**enkelbestemming** | **str, none_type** |  | [optional] 
+**datum_bestemmingplan** | **datetime, none_type** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

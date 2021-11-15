@@ -23,7 +23,7 @@
 from setuptools import setup, find_namespace_packages  # noqa: H301
 
 NAME = "calcasa-api"
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 # To install the library, run the following
 #
 # python setup.py install
@@ -44,7 +44,7 @@ setup(
     author_email="info@calcasa.nl",
     url="https://github.com/calcasa/api-python",
     keywords=["OpenAPI", "OpenAPI-Generator", "Calcasa Public API"],
-    classifiers=["Programming Language :: Python :: 3 :: Only", "License :: OSI Approved :: Apple Public Source License"],
+    classifiers=["Programming Language :: Python :: 3 :: Only", "License :: OSI Approved :: Apache Software License"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_namespace_packages(include=['calcasa.*'],exclude=["test", "tests"]),
@@ -88,6 +88,8 @@ setup(
 
 - Initial release of v0
 
+## Client packages
+![Nuget](https://img.shields.io/nuget/v/Calcasa.Api?label&#x3D;Nuget) - ![Packagist Downloads](https://img.shields.io/packagist/v/calcasa/api?label&#x3D;Packagist) - ![PyPI - Downloads](https://img.shields.io/pypi/v/calcasa-api?label&#x3D;PyPi)
 ## Client implementation notes
 Clients should at all times be tolerant to the following:
 
@@ -107,6 +109,6 @@ All responses have a wildcard same-origin which makes them completely public and
 ## Authentication
 
 Authentication is done via [OAuth2](https://oauth.net/2/) and the [client credentials](https://oauth.net/2/grant-types/client-credentials/) grant type.
-  # noqa: E501
+  
     """
 )

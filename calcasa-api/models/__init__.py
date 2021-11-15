@@ -17,6 +17,7 @@ from calcasa-api.model.bodem_status_type import BodemStatusType
 from calcasa-api.model.bodemdata import Bodemdata
 from calcasa-api.model.business_rules_code import BusinessRulesCode
 from calcasa-api.model.business_rules_problem_details import BusinessRulesProblemDetails
+from calcasa-api.model.callback import Callback
 from calcasa-api.model.cbs_indeling import CbsIndeling
 from calcasa-api.model.energielabel import Energielabel
 from calcasa-api.model.factuur import Factuur

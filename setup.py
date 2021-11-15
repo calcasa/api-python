@@ -23,7 +23,7 @@
 from setuptools import setup, find_namespace_packages  # noqa: H301
 
 NAME = "calcasa-api"
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 # To install the library, run the following
 #
 # python setup.py install
@@ -35,6 +35,11 @@ REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
 ]
+
+# read the contents of your README file
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name=NAME,
@@ -50,65 +55,6 @@ setup(
     packages=find_namespace_packages(include=['calcasa.*'],exclude=["test", "tests"]),
     include_package_data=True,
     license="Apache-2.0",
-    long_description="""\
-    This is a preliminary version of the Calcasa Public API. This service is currently in development.
-
-## Changelog
-
-### 2021-11-11
-- Renamed /fundering endpoint to /funderingen to be more in line with other endpoints
-- Renamed &#x60;HerstelType&#x60; to &#x60;FunderingHerstelType&#x60;.
-- Added &#x60;FunderingType&#x60; values.
-
-### 2021-11-10
-- Adjusted OpenAPI Spec generation to fix some issues with certain generators. This also means that the nullable nature of certain fields is now correctly represented. Please refer to the Generation article for more information, the config files were updated aswell.
-### 2021-11-09
-- Added &#x60;Status&#x60; and &#x60;Taxatiedatum&#x60; to &#x60;Taxatiedata&#x60; model.
-
-### 2021-11-08
-
-- Renamed &#x60;id&#x60; field in &#x60;AdresInfo&#x60; model to &#x60;bagNummeraanduidingId&#x60;.
-- Added &#x60;GET /v0/fundering/{id}&#x60; endpoint with corresponding models.
-- Changed HTTP response code for the &#x60;BusinessRulesProblemDetails&#x60; error return type of &#x60;POST /v0/waardering&#x60; from &#x60;422 Unprocessable Entity&#x60; to &#x60;406 Not Acceptable&#x60; to fix a duplicate.
-
-### 2021-10-13
-
-- Added &#x60;taxatie&#x60; field to &#x60;Waardering&#x60; model.
-- Added &#x60;Taxatiedata&#x60; model containing the &#x60;taxatieorganisatie&#x60; field for desktop valuations.
-
-### 2021-09-29
-
-- Added &#x60;aangemaakt&#x60; timestamp field to &#x60;Waardering&#x60; model.
-- Added &#x60;WaarderingZoekParameters&#x60; model to replace &#x60;WaarderingInputParameters&#x60; in the &#x60;POST /v0/waarderingen/zoeken&#x60; endpoint.
-- Split &#x60;Omgevingsdata&#x60; model into a set of separate &#x60;Gebiedsdata&#x60; models that also contain extra statistics.
-- Added &#x60;bijzonderheden&#x60; field to &#x60;VorigeVerkoop&#x60; model.
-- Renamed &#x60;ReferentieBijzonderheden&#x60; model to &#x60;VerkoopBijzonderheden&#x60;.
-
-### 2021-09-22
-
-- Initial release of v0
-
-## Client packages
-![Nuget](https://img.shields.io/nuget/v/Calcasa.Api?label&#x3D;Nuget) - ![Packagist Downloads](https://img.shields.io/packagist/v/calcasa/api?label&#x3D;Packagist) - ![PyPI - Downloads](https://img.shields.io/pypi/v/calcasa-api?label&#x3D;PyPi)
-## Client implementation notes
-Clients should at all times be tolerant to the following:
-
-- Extra fields in responses
-- Empty or hidden fields in responses
-- Extra values in enumerations
-- Unexpected error responses in the form of [Problem Details](https://rfc-editor.org/rfc/rfc7807)
-
-## OpenAPI Specification
-This API is documented in **OpenAPI format version 3** you can use tools like the [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) to generate API clients.
-
-## Cross-Origin Resource Sharing
-This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with [W3C spec](https://www.w3.org/TR/cors/).
-And that allows cross-domain communication from the browser.
-All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
-
-## Authentication
-
-Authentication is done via [OAuth2](https://oauth.net/2/) and the [client credentials](https://oauth.net/2/grant-types/client-credentials/) grant type.
-  
-    """
+    long_description=long_description,
+    long_description_content_type='text/markdown; charset=UTF-8; variant=GFM'
 )

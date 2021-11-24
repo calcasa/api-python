@@ -64,6 +64,7 @@ class BodemApi(object):
             params_map={
                 'all': [
                     'id',
+                    'bag_nummeraanduiding_id',
                 ],
                 'required': [
                     'id',
@@ -82,13 +83,17 @@ class BodemApi(object):
                 },
                 'openapi_types': {
                     'id':
+                        (str,),
+                    'bag_nummeraanduiding_id':
                         (int,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'bag_nummeraanduiding_id': 'bagNummeraanduidingId',
                 },
                 'location_map': {
                     'id': 'path',
+                    'bag_nummeraanduiding_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -118,9 +123,10 @@ class BodemApi(object):
         >>> result = thread.get()
 
         Args:
-            id (int): Een BAG Nummeraanduiding ID om een adres te specificeren.
+            id (str):
 
         Keyword Args:
+            bag_nummeraanduiding_id (int): Een BAG Nummeraanduiding ID om een adres te specificeren.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

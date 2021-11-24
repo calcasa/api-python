@@ -219,7 +219,7 @@ class ConfiguratieApi(object):
     ):
         """Configureer callback URL voor een specifieke API versie voor de huidige client.  # noqa: E501
 
-        Indien er al een callback geconfigureerd is voor de opgegeven versie zal deze overschreven worden.  # noqa: E501
+        Indien er al een callback geconfigureerd is voor de opgegeven versie zal deze overschreven worden. Bij het aanroepen van de callback URL zal de CallbackName achter de URL toegevoegd worden. Een lege string  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -228,7 +228,7 @@ class ConfiguratieApi(object):
 
 
         Keyword Args:
-            callback (Callback): [optional]
+            callback (Callback): De te configureren callback.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

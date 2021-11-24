@@ -87,9 +87,9 @@ class WaarderingInputParameters(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'product_type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'bag_nummeraanduiding_id': (int,),  # noqa: E501
             'geldverstrekker': (str,),  # noqa: E501
-            'product_type': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'hypotheekwaarde': (int,),  # noqa: E501
             'aanvraagdoel': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'klantwaarde': (int,),  # noqa: E501
@@ -106,9 +106,9 @@ class WaarderingInputParameters(ModelNormal):
 
 
     attribute_map = {
+        'product_type': 'productType',  # noqa: E501
         'bag_nummeraanduiding_id': 'bagNummeraanduidingId',  # noqa: E501
         'geldverstrekker': 'geldverstrekker',  # noqa: E501
-        'product_type': 'productType',  # noqa: E501
         'hypotheekwaarde': 'hypotheekwaarde',  # noqa: E501
         'aanvraagdoel': 'aanvraagdoel',  # noqa: E501
         'klantwaarde': 'klantwaarde',  # noqa: E501
@@ -126,11 +126,12 @@ class WaarderingInputParameters(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, bag_nummeraanduiding_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, product_type, bag_nummeraanduiding_id, *args, **kwargs):  # noqa: E501
         """WaarderingInputParameters - a model defined in OpenAPI
 
         Args:
-            bag_nummeraanduiding_id (int):
+            product_type (bool, date, datetime, dict, float, int, list, str, none_type):  | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. |   
+            bag_nummeraanduiding_id (int): Het BAG (Basisregistratie Adressen en Gebouwen) nummeraanduiding id.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -164,15 +165,14 @@ class WaarderingInputParameters(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             geldverstrekker (str): [optional]  # noqa: E501
-            product_type (bool, date, datetime, dict, float, int, list, str, none_type):  | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag Desktop Taxatie rapport. |   . [optional]  # noqa: E501
             hypotheekwaarde (int): In hele euros.. [optional]  # noqa: E501
             aanvraagdoel (bool, date, datetime, dict, float, int, list, str, none_type): English: Request GoalEnglish: Request Goal | Waarde | Omschrijving | | --- | --- | | `onbekend` | English: Unknown | | `aankoopNieuweWoning` | English: New Home Purchase | | `overbruggingsfinanciering` | English: Bridge Financing | | `hypotheekOversluiten` | English: Refinancing Mortgage | | `hypotheekOphogen` | English: Increasing Mortage | | `hypotheekWijziging` | English: Changing Mortgage | | `hypotheekrenteWijzigen` | English: Change Mortgage Intrest |   . [optional]  # noqa: E501
-            klantwaarde (int): In hele euros.. [optional]  # noqa: E501
+            klantwaarde (int): In hele euros. De waarde zoals bekend bij de klant met bijbehorende KlantwaardeType.. [optional]  # noqa: E501
             klantwaarde_type (bool, date, datetime, dict, float, int, list, str, none_type):  | Waarde | Omschrijving | | --- | --- | | `onbekend` |  | | `koopsom` |  | | `taxatiewaarde` |  | | `wozWaarde` |  | | `eigenWaardeinschatting` |  |   . [optional]  # noqa: E501
-            is_bestaande_woning (bool): [optional]  # noqa: E501
-            is_nhg (bool): [optional]  # noqa: E501
-            is_bestaande_nhg_hypotheek (bool): [optional]  # noqa: E501
-            benodigde_overbrugging (int): In hele euros.. [optional]  # noqa: E501
+            is_bestaande_woning (bool): Geeft aan of het te waarderen object een bestaande koopwoning is.. [optional]  # noqa: E501
+            is_nhg (bool): Geeft aan of er gebruikt gemaakt wordt van de Nationale Hypotheekgarantie.. [optional]  # noqa: E501
+            is_bestaande_nhg_hypotheek (bool): Geeft aan of er bij de eventuele bestaande hypotheek gebruik is gemaakt van de Nationale Hypotheekgarantie.. [optional]  # noqa: E501
+            benodigde_overbrugging (int): In hele euros. Alleen van toepassing voor aanvraagdoel Overbruggingsfinanciering.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -200,6 +200,7 @@ class WaarderingInputParameters(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.product_type = product_type
         self.bag_nummeraanduiding_id = bag_nummeraanduiding_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -221,11 +222,12 @@ class WaarderingInputParameters(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, bag_nummeraanduiding_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, product_type, bag_nummeraanduiding_id, *args, **kwargs):  # noqa: E501
         """WaarderingInputParameters - a model defined in OpenAPI
 
         Args:
-            bag_nummeraanduiding_id (int):
+            product_type (bool, date, datetime, dict, float, int, list, str, none_type):  | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. |   
+            bag_nummeraanduiding_id (int): Het BAG (Basisregistratie Adressen en Gebouwen) nummeraanduiding id.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -259,15 +261,14 @@ class WaarderingInputParameters(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             geldverstrekker (str): [optional]  # noqa: E501
-            product_type (bool, date, datetime, dict, float, int, list, str, none_type):  | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag Desktop Taxatie rapport. |   . [optional]  # noqa: E501
             hypotheekwaarde (int): In hele euros.. [optional]  # noqa: E501
             aanvraagdoel (bool, date, datetime, dict, float, int, list, str, none_type): English: Request GoalEnglish: Request Goal | Waarde | Omschrijving | | --- | --- | | `onbekend` | English: Unknown | | `aankoopNieuweWoning` | English: New Home Purchase | | `overbruggingsfinanciering` | English: Bridge Financing | | `hypotheekOversluiten` | English: Refinancing Mortgage | | `hypotheekOphogen` | English: Increasing Mortage | | `hypotheekWijziging` | English: Changing Mortgage | | `hypotheekrenteWijzigen` | English: Change Mortgage Intrest |   . [optional]  # noqa: E501
-            klantwaarde (int): In hele euros.. [optional]  # noqa: E501
+            klantwaarde (int): In hele euros. De waarde zoals bekend bij de klant met bijbehorende KlantwaardeType.. [optional]  # noqa: E501
             klantwaarde_type (bool, date, datetime, dict, float, int, list, str, none_type):  | Waarde | Omschrijving | | --- | --- | | `onbekend` |  | | `koopsom` |  | | `taxatiewaarde` |  | | `wozWaarde` |  | | `eigenWaardeinschatting` |  |   . [optional]  # noqa: E501
-            is_bestaande_woning (bool): [optional]  # noqa: E501
-            is_nhg (bool): [optional]  # noqa: E501
-            is_bestaande_nhg_hypotheek (bool): [optional]  # noqa: E501
-            benodigde_overbrugging (int): In hele euros.. [optional]  # noqa: E501
+            is_bestaande_woning (bool): Geeft aan of het te waarderen object een bestaande koopwoning is.. [optional]  # noqa: E501
+            is_nhg (bool): Geeft aan of er gebruikt gemaakt wordt van de Nationale Hypotheekgarantie.. [optional]  # noqa: E501
+            is_bestaande_nhg_hypotheek (bool): Geeft aan of er bij de eventuele bestaande hypotheek gebruik is gemaakt van de Nationale Hypotheekgarantie.. [optional]  # noqa: E501
+            benodigde_overbrugging (int): In hele euros. Alleen van toepassing voor aanvraagdoel Overbruggingsfinanciering.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -293,6 +294,7 @@ class WaarderingInputParameters(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.product_type = product_type
         self.bag_nummeraanduiding_id = bag_nummeraanduiding_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

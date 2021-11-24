@@ -158,7 +158,7 @@ class Funderingdata(ModelNormal):
             optrekkend_vocht_risico (bool, date, datetime, dict, float, int, list, str, none_type): Risico-informatie over optrekkend vocht.. [optional]  # noqa: E501
             bio_infectie_risico (bool, date, datetime, dict, float, int, list, str, none_type): Risico-informatie over bacteriële infectie.. [optional]  # noqa: E501
             herstelkosten (float, none_type): Indicatieve herstelkosten van de fundering.. [optional]  # noqa: E501
-            bron (bool, date, datetime, dict, float, int, list, str, none_type): De bron van de data.Bron waar de funderingsinformatie opgehaald is. | Waarde | Omschrijving | | --- | --- | | `calcasa` | Eigen data. | | `fundermaps` | Fundermaps data. |   . [optional]  # noqa: E501
+            bron (bool, date, datetime, dict, float, int, list, str, none_type): De bron van de data.Bron waar de funderingsinformatie opgehaald is. | Waarde | Omschrijving | | --- | --- | | `calcasa` | Calcasa data. | | `fundermaps` | Fundermaps data. |   . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,7 +246,7 @@ class Funderingdata(ModelNormal):
             optrekkend_vocht_risico (bool, date, datetime, dict, float, int, list, str, none_type): Risico-informatie over optrekkend vocht.. [optional]  # noqa: E501
             bio_infectie_risico (bool, date, datetime, dict, float, int, list, str, none_type): Risico-informatie over bacteriële infectie.. [optional]  # noqa: E501
             herstelkosten (float, none_type): Indicatieve herstelkosten van de fundering.. [optional]  # noqa: E501
-            bron (bool, date, datetime, dict, float, int, list, str, none_type): De bron van de data.Bron waar de funderingsinformatie opgehaald is. | Waarde | Omschrijving | | --- | --- | | `calcasa` | Eigen data. | | `fundermaps` | Fundermaps data. |   . [optional]  # noqa: E501
+            bron (bool, date, datetime, dict, float, int, list, str, none_type): De bron van de data.Bron waar de funderingsinformatie opgehaald is. | Waarde | Omschrijving | | --- | --- | | `calcasa` | Calcasa data. | | `fundermaps` | Fundermaps data. |   . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

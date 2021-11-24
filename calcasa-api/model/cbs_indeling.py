@@ -146,10 +146,10 @@ class CbsIndeling(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            buurt_id (int): [optional]  # noqa: E501
-            buurtnaam (str): [optional]  # noqa: E501
-            wijknaam (str): [optional]  # noqa: E501
-            gemeentenaam (str): [optional]  # noqa: E501
+            buurt_id (int): Het buurt id zoals bekend bij het CBS (Centraal Bureau voor de Statistiek).. [optional]  # noqa: E501
+            buurtnaam (str): De naam van de buurt.. [optional]  # noqa: E501
+            wijknaam (str): De naam van de wijk.. [optional]  # noqa: E501
+            gemeentenaam (str): De naam van de gemeente.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,10 +231,10 @@ class CbsIndeling(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            buurt_id (int): [optional]  # noqa: E501
-            buurtnaam (str): [optional]  # noqa: E501
-            wijknaam (str): [optional]  # noqa: E501
-            gemeentenaam (str): [optional]  # noqa: E501
+            buurt_id (int): Het buurt id zoals bekend bij het CBS (Centraal Bureau voor de Statistiek).. [optional]  # noqa: E501
+            buurtnaam (str): De naam van de buurt.. [optional]  # noqa: E501
+            wijknaam (str): De naam van de wijk.. [optional]  # noqa: E501
+            gemeentenaam (str): De naam van de gemeente.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

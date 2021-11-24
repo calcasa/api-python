@@ -119,10 +119,10 @@ class Notitie(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):  | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |   ., must be one of ["geen", "gecorrigeerd", "onbekend", "ontbreekt", ]  # noqa: E501
+            args[0] (str):  | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |   ., must be one of ["geen", "gecorrigeerd", "onbekend", "ontbreekt", ]  # noqa: E501
 
         Keyword Args:
-            value (str):  | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |   ., must be one of ["geen", "gecorrigeerd", "onbekend", "ontbreekt", ]  # noqa: E501
+            value (str):  | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |   ., must be one of ["geen", "gecorrigeerd", "onbekend", "ontbreekt", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -209,10 +209,10 @@ class Notitie(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):  | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |   ., must be one of ["geen", "gecorrigeerd", "onbekend", "ontbreekt", ]  # noqa: E501
+            args[0] (str):  | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |   ., must be one of ["geen", "gecorrigeerd", "onbekend", "ontbreekt", ]  # noqa: E501
 
         Keyword Args:
-            value (str):  | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |   ., must be one of ["geen", "gecorrigeerd", "onbekend", "ontbreekt", ]  # noqa: E501
+            value (str):  | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |   ., must be one of ["geen", "gecorrigeerd", "onbekend", "ontbreekt", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

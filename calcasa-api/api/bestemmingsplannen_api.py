@@ -56,17 +56,17 @@ class BestemmingsplannenApi(object):
                 'auth': [
                     'oauth'
                 ],
-                'endpoint_path': '/api/v0/bestemmingsplannen/{id}',
+                'endpoint_path': '/api/v0/bestemmingsplannen/{bagNummeraanduidingId}',
                 'operation_id': 'get_bestemming_by_id',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'id',
+                    'bag_nummeraanduiding_id',
                 ],
                 'required': [
-                    'id',
+                    'bag_nummeraanduiding_id',
                 ],
                 'nullable': [
                 ],
@@ -81,14 +81,14 @@ class BestemmingsplannenApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'id':
+                    'bag_nummeraanduiding_id':
                         (int,),
                 },
                 'attribute_map': {
-                    'id': 'id',
+                    'bag_nummeraanduiding_id': 'bagNummeraanduidingId',
                 },
                 'location_map': {
-                    'id': 'path',
+                    'bag_nummeraanduiding_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -105,7 +105,7 @@ class BestemmingsplannenApi(object):
 
     def get_bestemming_by_id(
         self,
-        id,
+        bag_nummeraanduiding_id,
         **kwargs
     ):
         """Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).  # noqa: E501
@@ -114,11 +114,11 @@ class BestemmingsplannenApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_bestemming_by_id(id, async_req=True)
+        >>> thread = api.get_bestemming_by_id(bag_nummeraanduiding_id, async_req=True)
         >>> result = thread.get()
 
         Args:
-            id (int): Een BAG Nummeraanduiding ID om een adres te specificeren.
+            bag_nummeraanduiding_id (int): Een BAG Nummeraanduiding ID om een adres te specificeren.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -165,7 +165,7 @@ class BestemmingsplannenApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
+        kwargs['bag_nummeraanduiding_id'] = \
+            bag_nummeraanduiding_id
         return self.get_bestemming_by_id_endpoint.call_with_http_info(**kwargs)
 

@@ -108,7 +108,7 @@ class FotosApi(object):
         id,
         **kwargs
     ):
-        """Foto op basis van Id.  # noqa: E501
+        """Foto op basis van een foto Id.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -117,7 +117,7 @@ class FotosApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (str): De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

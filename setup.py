@@ -23,7 +23,7 @@
 from setuptools import setup, find_namespace_packages  # noqa: H301
 
 NAME = "calcasa-api"
-VERSION = "0.0.3"
+VERSION = "0.0.4"
 # To install the library, run the following
 #
 # python setup.py install

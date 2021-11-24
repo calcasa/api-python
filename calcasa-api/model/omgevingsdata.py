@@ -148,11 +148,11 @@ class Omgevingsdata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            buurt (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            wijk (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            gemeente (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            provincie (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            land (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            buurt (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op buurt-niveau.. [optional]  # noqa: E501
+            wijk (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op wijk-niveau.. [optional]  # noqa: E501
+            gemeente (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op gemeente-niveau.. [optional]  # noqa: E501
+            provincie (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op provincie-niveau.. [optional]  # noqa: E501
+            land (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op landelijk-niveau.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,11 +234,11 @@ class Omgevingsdata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            buurt (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            wijk (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            gemeente (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            provincie (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            land (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            buurt (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op buurt-niveau.. [optional]  # noqa: E501
+            wijk (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op wijk-niveau.. [optional]  # noqa: E501
+            gemeente (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op gemeente-niveau.. [optional]  # noqa: E501
+            provincie (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op provincie-niveau.. [optional]  # noqa: E501
+            land (bool, date, datetime, dict, float, int, list, str, none_type): Statistieken op landelijk-niveau.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

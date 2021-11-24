@@ -94,9 +94,13 @@ class WaarderingOntwikkeling(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'object_prijs_ontwikkeling': ([WaarderingOntwikkelingKwartaal],),  # noqa: E501
+            'object_prijs_ontwikkeling_per_vierkantemeter': ([WaarderingOntwikkelingKwartaal],),  # noqa: E501
             'buurt_prijs_ontwikkeling': ([WaarderingOntwikkelingKwartaal],),  # noqa: E501
+            'buurt_prijs_ontwikkeling_per_vierkantemeter': ([WaarderingOntwikkelingKwartaal],),  # noqa: E501
             'wijk_prijs_ontwikkeling': ([WaarderingOntwikkelingKwartaal],),  # noqa: E501
+            'wijk_prijs_ontwikkeling_per_vierkantemeter': ([WaarderingOntwikkelingKwartaal],),  # noqa: E501
             'gemeente_prijs_ontwikkeling': ([WaarderingOntwikkelingKwartaal],),  # noqa: E501
+            'gemeente_prijs_ontwikkeling_per_vierkantemeter': ([WaarderingOntwikkelingKwartaal],),  # noqa: E501
         }
 
     @cached_property
@@ -107,9 +111,13 @@ class WaarderingOntwikkeling(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'object_prijs_ontwikkeling': 'objectPrijsOntwikkeling',  # noqa: E501
+        'object_prijs_ontwikkeling_per_vierkantemeter': 'objectPrijsOntwikkelingPerVierkantemeter',  # noqa: E501
         'buurt_prijs_ontwikkeling': 'buurtPrijsOntwikkeling',  # noqa: E501
+        'buurt_prijs_ontwikkeling_per_vierkantemeter': 'buurtPrijsOntwikkelingPerVierkantemeter',  # noqa: E501
         'wijk_prijs_ontwikkeling': 'wijkPrijsOntwikkeling',  # noqa: E501
+        'wijk_prijs_ontwikkeling_per_vierkantemeter': 'wijkPrijsOntwikkelingPerVierkantemeter',  # noqa: E501
         'gemeente_prijs_ontwikkeling': 'gemeentePrijsOntwikkeling',  # noqa: E501
+        'gemeente_prijs_ontwikkeling_per_vierkantemeter': 'gemeentePrijsOntwikkelingPerVierkantemeter',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,10 +162,14 @@ class WaarderingOntwikkeling(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Id van de waardering of tracking Id.. [optional]  # noqa: E501
-            object_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): [optional]  # noqa: E501
-            buurt_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): [optional]  # noqa: E501
-            wijk_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): [optional]  # noqa: E501
-            gemeente_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): [optional]  # noqa: E501
+            object_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van het gewaardeerde object.. [optional]  # noqa: E501
+            object_prijs_ontwikkeling_per_vierkantemeter ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van het gewaardeerde object per vierkantemeter.. [optional]  # noqa: E501
+            buurt_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de buurt van het gewaardeerde object.. [optional]  # noqa: E501
+            buurt_prijs_ontwikkeling_per_vierkantemeter ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de buurt van het gewaardeerde object per vierkantemeter.. [optional]  # noqa: E501
+            wijk_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de wijk van het gewaardeerde object.. [optional]  # noqa: E501
+            wijk_prijs_ontwikkeling_per_vierkantemeter ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de wijk van het gewaardeerde object per vierkantemeter.. [optional]  # noqa: E501
+            gemeente_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de gemeente van het gewaardeerde object.. [optional]  # noqa: E501
+            gemeente_prijs_ontwikkeling_per_vierkantemeter ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de gemeente van het gewaardeerde object per vierkantemeter.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -240,10 +252,14 @@ class WaarderingOntwikkeling(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Id van de waardering of tracking Id.. [optional]  # noqa: E501
-            object_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): [optional]  # noqa: E501
-            buurt_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): [optional]  # noqa: E501
-            wijk_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): [optional]  # noqa: E501
-            gemeente_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): [optional]  # noqa: E501
+            object_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van het gewaardeerde object.. [optional]  # noqa: E501
+            object_prijs_ontwikkeling_per_vierkantemeter ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van het gewaardeerde object per vierkantemeter.. [optional]  # noqa: E501
+            buurt_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de buurt van het gewaardeerde object.. [optional]  # noqa: E501
+            buurt_prijs_ontwikkeling_per_vierkantemeter ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de buurt van het gewaardeerde object per vierkantemeter.. [optional]  # noqa: E501
+            wijk_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de wijk van het gewaardeerde object.. [optional]  # noqa: E501
+            wijk_prijs_ontwikkeling_per_vierkantemeter ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de wijk van het gewaardeerde object per vierkantemeter.. [optional]  # noqa: E501
+            gemeente_prijs_ontwikkeling ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de gemeente van het gewaardeerde object.. [optional]  # noqa: E501
+            gemeente_prijs_ontwikkeling_per_vierkantemeter ([WaarderingOntwikkelingKwartaal]): De prijsontwikkeling van de gemeente van het gewaardeerde object per vierkantemeter.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

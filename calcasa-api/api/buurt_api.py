@@ -56,17 +56,17 @@ class BuurtApi(object):
                 'auth': [
                     'oauth'
                 ],
-                'endpoint_path': '/api/v0/buurt/{id}',
+                'endpoint_path': '/api/v0/buurt/{buurtId}',
                 'operation_id': 'get_buurt',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'id',
+                    'buurt_id',
                 ],
                 'required': [
-                    'id',
+                    'buurt_id',
                 ],
                 'nullable': [
                 ],
@@ -81,14 +81,14 @@ class BuurtApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'id':
+                    'buurt_id':
                         (int,),
                 },
                 'attribute_map': {
-                    'id': 'id',
+                    'buurt_id': 'buurtId',
                 },
                 'location_map': {
-                    'id': 'path',
+                    'buurt_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -105,7 +105,7 @@ class BuurtApi(object):
 
     def get_buurt(
         self,
-        id,
+        buurt_id,
         **kwargs
     ):
         """Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.  # noqa: E501
@@ -114,11 +114,11 @@ class BuurtApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_buurt(id, async_req=True)
+        >>> thread = api.get_buurt(buurt_id, async_req=True)
         >>> result = thread.get()
 
         Args:
-            id (int):
+            buurt_id (int): Een CBS buurt ID.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -165,7 +165,7 @@ class BuurtApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
+        kwargs['buurt_id'] = \
+            buurt_id
         return self.get_buurt_endpoint.call_with_http_info(**kwargs)
 

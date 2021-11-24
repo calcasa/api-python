@@ -328,7 +328,7 @@ class WaarderingenApi(object):
     ):
         """Creërt een waardering.  # noqa: E501
 
-        Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De velden die nodig zijn voor creatie het flow veld de parameters.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}/waardering | [WaarderingWebhookPayload](/api/v0/reference/schemas/WaarderingWebhookPayload) |    # noqa: E501
+        Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}/waardering | [WaarderingWebhookPayload](/api/v0/reference/schemas/WaarderingWebhookPayload) |    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -399,7 +399,7 @@ class WaarderingenApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (str): De waardering Id in de vorm van een UUID.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -455,7 +455,7 @@ class WaarderingenApi(object):
         id,
         **kwargs
     ):
-        """Waardering ontwikkeling op basis van Id.  # noqa: E501
+        """Waardering ontwikkeling op basis van waardering Id.  # noqa: E501
 
         Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -465,7 +465,7 @@ class WaarderingenApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (str): De waardering Id in de vorm van een UUID.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -523,7 +523,7 @@ class WaarderingenApi(object):
     ):
         """Patcht een waardering.  # noqa: E501
 
-        Op dit moment kan alleen de waarderingsstatus gepatcht worden.  Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestingen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}/waardering | [WaarderingWebhookPayload](/api/v0/reference/schemas/WaarderingWebhookPayload) |    # noqa: E501
+        Op dit moment kan alleen de waarderingsstatus gepatcht worden.  Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}/waardering | [WaarderingWebhookPayload](/api/v0/reference/schemas/WaarderingWebhookPayload) |    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -531,7 +531,7 @@ class WaarderingenApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): Het waarderings Id in de vorm van een UUID.
+            id (str): De waardering Id in de vorm van een UUID.
 
         Keyword Args:
             json_patch_document (JsonPatchDocument): Het JsonPatch document voor de operatie.. [optional]
@@ -589,7 +589,7 @@ class WaarderingenApi(object):
     ):
         """Zoek waardering op basis van input parameters.  # noqa: E501
 
-        Alle items kunnen gebruikt worden voor het zoeken,  ProductType en BagNummeraanduidingId zijn verplicht.  Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.  # noqa: E501
+        Alle items kunnen gebruikt worden voor het zoeken, ProductType en BagNummeraanduidingId zijn verplicht.  Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -598,7 +598,7 @@ class WaarderingenApi(object):
 
 
         Keyword Args:
-            waardering_zoek_parameters (WaarderingZoekParameters): [optional]
+            waardering_zoek_parameters (WaarderingZoekParameters): De parameters voor deze zoekopdracht.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

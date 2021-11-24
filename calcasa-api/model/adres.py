@@ -148,11 +148,11 @@ class Adres(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            straat (str): De straatnaam zoals geschreven in de BAG.. [optional]  # noqa: E501
+            straat (str): De straatnaam zoals geschreven in de BAG (Basisregistratie Adressen en Gebouwen).. [optional]  # noqa: E501
             huisnummer (int): Het huisnummer.. [optional]  # noqa: E501
             huisnummertoevoeging (str, none_type): De huisnummertoevoeging.. [optional]  # noqa: E501
             postcode (str): De postcode met 4 cijfers en 2 letters zonder spatie.. [optional]  # noqa: E501
-            woonplaats (str): De woonplaats zoals geschreven in de BAG.. [optional]  # noqa: E501
+            woonplaats (str): De woonplaats zoals geschreven in de BAG (Basisregistratie Adressen en Gebouwen).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,11 +234,11 @@ class Adres(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            straat (str): De straatnaam zoals geschreven in de BAG.. [optional]  # noqa: E501
+            straat (str): De straatnaam zoals geschreven in de BAG (Basisregistratie Adressen en Gebouwen).. [optional]  # noqa: E501
             huisnummer (int): Het huisnummer.. [optional]  # noqa: E501
             huisnummertoevoeging (str, none_type): De huisnummertoevoeging.. [optional]  # noqa: E501
             postcode (str): De postcode met 4 cijfers en 2 letters zonder spatie.. [optional]  # noqa: E501
-            woonplaats (str): De woonplaats zoals geschreven in de BAG.. [optional]  # noqa: E501
+            woonplaats (str): De woonplaats zoals geschreven in de BAG (Basisregistratie Adressen en Gebouwen).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

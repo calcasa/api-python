@@ -146,7 +146,7 @@ class Callback(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             version (str): De API versie waarvoor deze callback aangeroepen wordt.. [optional]  # noqa: E501
-            url (str): De URL van de callback.. [optional]  # noqa: E501
+            url (str): De URL van de callback. Bij het aanroepen zal de CallbackName hier achter geplaatst worden. English: when making the call, the CallbackName will be appended to this Url.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,7 +229,7 @@ class Callback(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             version (str): De API versie waarvoor deze callback aangeroepen wordt.. [optional]  # noqa: E501
-            url (str): De URL van de callback.. [optional]  # noqa: E501
+            url (str): De URL van de callback. Bij het aanroepen zal de CallbackName hier achter geplaatst worden. English: when making the call, the CallbackName will be appended to this Url.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

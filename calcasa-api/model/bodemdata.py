@@ -144,9 +144,9 @@ class Bodemdata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (bool, date, datetime, dict, float, int, list, str, none_type):  | Waarde | Omschrijving | | --- | --- | | `geenData` |  | | `onbekend` |  | | `nietVervuild` |  | | `nietErnstig` |  | | `potentieelErnstig` |  | | `ernstig` |  |   . [optional]  # noqa: E501
-            datum_laatste_onderzoek (datetime, none_type): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
+            status (bool, date, datetime, dict, float, int, list, str, none_type): De staat van de bodem, geeft aan of en in welke mate er sprake is van vervuiling. | Waarde | Omschrijving | | --- | --- | | `geenData` | Er is geen data beschikbaar over deze bodem. | | `onbekend` | De status van deze bodem is niet bekend. | | `nietVervuild` | De bodem is niet vervuild. | | `nietErnstig` | De bodem is niet ernstig vervuild. | | `potentieelErnstig` | De bodem is potentieel ernstig veruild. | | `ernstig` | De bodem is ernstig veruild. |   . [optional]  # noqa: E501
+            datum_laatste_onderzoek (datetime, none_type): De datum van het laatste bodemonderzoek.. [optional]  # noqa: E501
+            url (str, none_type): De url met informatie over het bodemonderzoek.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,9 +228,9 @@ class Bodemdata(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (bool, date, datetime, dict, float, int, list, str, none_type):  | Waarde | Omschrijving | | --- | --- | | `geenData` |  | | `onbekend` |  | | `nietVervuild` |  | | `nietErnstig` |  | | `potentieelErnstig` |  | | `ernstig` |  |   . [optional]  # noqa: E501
-            datum_laatste_onderzoek (datetime, none_type): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
+            status (bool, date, datetime, dict, float, int, list, str, none_type): De staat van de bodem, geeft aan of en in welke mate er sprake is van vervuiling. | Waarde | Omschrijving | | --- | --- | | `geenData` | Er is geen data beschikbaar over deze bodem. | | `onbekend` | De status van deze bodem is niet bekend. | | `nietVervuild` | De bodem is niet vervuild. | | `nietErnstig` | De bodem is niet ernstig vervuild. | | `potentieelErnstig` | De bodem is potentieel ernstig veruild. | | `ernstig` | De bodem is ernstig veruild. |   . [optional]  # noqa: E501
+            datum_laatste_onderzoek (datetime, none_type): De datum van het laatste bodemonderzoek.. [optional]  # noqa: E501
+            url (str, none_type): De url met informatie over het bodemonderzoek.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

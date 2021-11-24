@@ -107,7 +107,7 @@ class RapportenApi(object):
         id,
         **kwargs
     ):
-        """Rapport op basis van Id.  # noqa: E501
+        """Rapport op basis van waardering Id.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -116,7 +116,7 @@ class RapportenApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str):
+            id (str): De Id van een waardering.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

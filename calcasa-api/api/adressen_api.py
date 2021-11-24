@@ -160,7 +160,7 @@ class AdressenApi(object):
         bag_nummeraanduiding_id,
         **kwargs
     ):
-        """Adres info op met het BAG Nummeraanduiding Id.  # noqa: E501
+        """Adres info op basis van BAG Nummeraanduiding Id.  # noqa: E501
 
         De Notities zullen leeg blijven voor dit endpoint.  Het adres object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -170,7 +170,7 @@ class AdressenApi(object):
         >>> result = thread.get()
 
         Args:
-            bag_nummeraanduiding_id (int):
+            bag_nummeraanduiding_id (int): Een BAG Nummeraanduiding ID om een adres te specificeren.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -236,7 +236,7 @@ class AdressenApi(object):
 
 
         Keyword Args:
-            adres (Adres): [optional]
+            adres (Adres): De adres zoekopdracht.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

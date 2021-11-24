@@ -120,7 +120,7 @@ class WaarderingZoekParameters(ModelNormal):
         """WaarderingZoekParameters - a model defined in OpenAPI
 
         Args:
-            product_type (bool, date, datetime, dict, float, int, list, str, none_type): Verplicht. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag Desktop Taxatie rapport. |   
+            product_type (bool, date, datetime, dict, float, int, list, str, none_type): Verplicht. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. |   
             bag_nummeraanduiding_id (int): Verplicht.
 
         Keyword Args:
@@ -154,8 +154,8 @@ class WaarderingZoekParameters(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            aangemaakt (datetime, none_type): [optional]  # noqa: E501
-            geldverstrekker (str, none_type): [optional]  # noqa: E501
+            aangemaakt (datetime, none_type): De datum waarop de waardering is aangemaakt, in UTC.. [optional]  # noqa: E501
+            geldverstrekker (str, none_type): De naam van de geldverstrekker voor de waardering.. [optional]  # noqa: E501
             aanvraagdoel (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             waardering_status (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
@@ -211,7 +211,7 @@ class WaarderingZoekParameters(ModelNormal):
         """WaarderingZoekParameters - a model defined in OpenAPI
 
         Args:
-            product_type (bool, date, datetime, dict, float, int, list, str, none_type): Verplicht. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag Desktop Taxatie rapport. |   
+            product_type (bool, date, datetime, dict, float, int, list, str, none_type): Verplicht. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. |   
             bag_nummeraanduiding_id (int): Verplicht.
 
         Keyword Args:
@@ -245,8 +245,8 @@ class WaarderingZoekParameters(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            aangemaakt (datetime, none_type): [optional]  # noqa: E501
-            geldverstrekker (str, none_type): [optional]  # noqa: E501
+            aangemaakt (datetime, none_type): De datum waarop de waardering is aangemaakt, in UTC.. [optional]  # noqa: E501
+            geldverstrekker (str, none_type): De naam van de geldverstrekker voor de waardering.. [optional]  # noqa: E501
             aanvraagdoel (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             waardering_status (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """

@@ -145,8 +145,8 @@ class Taxatiedata(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             taxatieorganisatie (str): De naam van de taxatieorganisatie.. [optional]  # noqa: E501
-            status (bool, date, datetime, dict, float, int, list, str, none_type): De status van een taxatie (alleen van toepassing voor desktop taxaties). | Waarde | Omschrijving | | --- | --- | | `nietGecontroleerd` | Status is onbekend of niet van toepassing. | | `goedgekeurd` | De waardering is geaccepteerd. | | `afgekeurd` | De waardering is afgewezen. |   . [optional]  # noqa: E501
-            taxatiedatum (datetime): De datum/tijd waarop de waardering getaxeerd is.. [optional]  # noqa: E501
+            status (bool, date, datetime, dict, float, int, list, str, none_type): De status van een taxatie (alleen van toepassing voor desktop taxaties). | Waarde | Omschrijving | | --- | --- | | `nietGecontroleerd` | Status is onbekend of niet van toepassing. | | `goedgekeurd` | De waardering is geaccepteerd door een taxateur. | | `afgekeurd` | De waardering is afgewezen door een taxateur. |   . [optional]  # noqa: E501
+            taxatiedatum (datetime): De datum/tijd waarop de waardering getaxeerd is, in UTC.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,8 +229,8 @@ class Taxatiedata(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             taxatieorganisatie (str): De naam van de taxatieorganisatie.. [optional]  # noqa: E501
-            status (bool, date, datetime, dict, float, int, list, str, none_type): De status van een taxatie (alleen van toepassing voor desktop taxaties). | Waarde | Omschrijving | | --- | --- | | `nietGecontroleerd` | Status is onbekend of niet van toepassing. | | `goedgekeurd` | De waardering is geaccepteerd. | | `afgekeurd` | De waardering is afgewezen. |   . [optional]  # noqa: E501
-            taxatiedatum (datetime): De datum/tijd waarop de waardering getaxeerd is.. [optional]  # noqa: E501
+            status (bool, date, datetime, dict, float, int, list, str, none_type): De status van een taxatie (alleen van toepassing voor desktop taxaties). | Waarde | Omschrijving | | --- | --- | | `nietGecontroleerd` | Status is onbekend of niet van toepassing. | | `goedgekeurd` | De waardering is geaccepteerd door een taxateur. | | `afgekeurd` | De waardering is afgewezen door een taxateur. |   . [optional]  # noqa: E501
+            taxatiedatum (datetime): De datum/tijd waarop de waardering getaxeerd is, in UTC.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

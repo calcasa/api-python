@@ -58,6 +58,5 @@ from calcasa-api.model.waardering_input_parameters import WaarderingInputParamet
 from calcasa-api.model.waardering_ontwikkeling import WaarderingOntwikkeling
 from calcasa-api.model.waardering_ontwikkeling_kwartaal import WaarderingOntwikkelingKwartaal
 from calcasa-api.model.waardering_status import WaarderingStatus
-from calcasa-api.model.waardering_webhook_payload import WaarderingWebhookPayload
 from calcasa-api.model.waardering_zoek_parameters import WaarderingZoekParameters
 from calcasa-api.model.woning_type import WoningType

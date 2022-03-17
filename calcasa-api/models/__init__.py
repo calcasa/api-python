@@ -31,6 +31,7 @@ from calcasa-api.model.fundering_type import FunderingType
 from calcasa-api.model.fundering_typering import FunderingTypering
 from calcasa-api.model.funderingdata import Funderingdata
 from calcasa-api.model.gebiedsdata import Gebiedsdata
+from calcasa-api.model.geldverstrekker import Geldverstrekker
 from calcasa-api.model.http_validation_problem_details import HttpValidationProblemDetails
 from calcasa-api.model.invalid_argument_problem_details import InvalidArgumentProblemDetails
 from calcasa-api.model.json_patch_document import JsonPatchDocument

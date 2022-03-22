@@ -50,6 +50,7 @@ from calcasa-api.model.problem_details import ProblemDetails
 from calcasa-api.model.product_type import ProductType
 from calcasa-api.model.rapport import Rapport
 from calcasa-api.model.referentieobject import Referentieobject
+from calcasa-api.model.resource_exhausted_problem_details import ResourceExhaustedProblemDetails
 from calcasa-api.model.taxatiedata import Taxatiedata
 from calcasa-api.model.taxatiestatus import Taxatiestatus
 from calcasa-api.model.validation_problem_details import ValidationProblemDetails

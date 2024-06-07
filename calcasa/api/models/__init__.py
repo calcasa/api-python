@@ -20,6 +20,7 @@ from calcasa.api.model.business_rules_problem_details import BusinessRulesProble
 from calcasa.api.model.callback import Callback
 from calcasa.api.model.callback_inschrijving import CallbackInschrijving
 from calcasa.api.model.cbs_indeling import CbsIndeling
+from calcasa.api.model.deel_waardering_webhook_payload import DeelWaarderingWebhookPayload
 from calcasa.api.model.energielabel import Energielabel
 from calcasa.api.model.energielabel_data import EnergielabelData
 from calcasa.api.model.factuur import Factuur

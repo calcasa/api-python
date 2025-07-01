@@ -1,68 +1,86 @@
+# coding: utf-8
+
 # flake8: noqa
+"""
+    Copyright 2025 Calcasa B.V.
 
-# import all models into this package
-# if you have many models here with many references from one model to another this may
-# raise a RecursionError
-# to avoid this, import only the models that you directly need like:
-# from from calcasa.api.model.pet import Pet
-# or import this package, but before doing it, use:
-# import sys
-# sys.setrecursionlimit(n)
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-from calcasa.api.model.aanvraagdoel import Aanvraagdoel
-from calcasa.api.model.adres import Adres
-from calcasa.api.model.adres_info import AdresInfo
-from calcasa.api.model.bestemmingsdata import Bestemmingsdata
-from calcasa.api.model.bodem_status_type import BodemStatusType
-from calcasa.api.model.bodemdata import Bodemdata
-from calcasa.api.model.business_rules_code import BusinessRulesCode
-from calcasa.api.model.business_rules_problem_details import BusinessRulesProblemDetails
-from calcasa.api.model.callback import Callback
-from calcasa.api.model.callback_inschrijving import CallbackInschrijving
-from calcasa.api.model.cbs_indeling import CbsIndeling
-from calcasa.api.model.deel_waardering_webhook_payload import DeelWaarderingWebhookPayload
-from calcasa.api.model.energielabel import Energielabel
-from calcasa.api.model.energielabel_data import EnergielabelData
-from calcasa.api.model.factuur import Factuur
-from calcasa.api.model.foto import Foto
-from calcasa.api.model.fundering_data_bron import FunderingDataBron
-from calcasa.api.model.fundering_herstel_type import FunderingHerstelType
-from calcasa.api.model.fundering_risico import FunderingRisico
-from calcasa.api.model.fundering_risico_label import FunderingRisicoLabel
-from calcasa.api.model.fundering_soort_bron import FunderingSoortBron
-from calcasa.api.model.fundering_type import FunderingType
-from calcasa.api.model.fundering_typering import FunderingTypering
-from calcasa.api.model.funderingdata import Funderingdata
-from calcasa.api.model.gebiedsdata import Gebiedsdata
-from calcasa.api.model.geldverstrekker import Geldverstrekker
-from calcasa.api.model.invalid_argument_problem_details import InvalidArgumentProblemDetails
-from calcasa.api.model.json_patch_document import JsonPatchDocument
-from calcasa.api.model.klantwaarde_type import KlantwaardeType
-from calcasa.api.model.kwartaal import Kwartaal
-from calcasa.api.model.modeldata import Modeldata
-from calcasa.api.model.not_found_problem_details import NotFoundProblemDetails
-from calcasa.api.model.notitie import Notitie
-from calcasa.api.model.notities import Notities
-from calcasa.api.model.objectdata import Objectdata
-from calcasa.api.model.omgevingsdata import Omgevingsdata
-from calcasa.api.model.operation import Operation
-from calcasa.api.model.operation_type import OperationType
-from calcasa.api.model.permissions_denied_problem_details import PermissionsDeniedProblemDetails
-from calcasa.api.model.problem_details import ProblemDetails
-from calcasa.api.model.product_type import ProductType
-from calcasa.api.model.rapport import Rapport
-from calcasa.api.model.referentieobject import Referentieobject
-from calcasa.api.model.resource_exhausted_problem_details import ResourceExhaustedProblemDetails
-from calcasa.api.model.taxatiedata import Taxatiedata
-from calcasa.api.model.taxatiestatus import Taxatiestatus
-from calcasa.api.model.validation_problem_details import ValidationProblemDetails
-from calcasa.api.model.verkoop_bijzonderheden import VerkoopBijzonderheden
-from calcasa.api.model.vorige_verkoop import VorigeVerkoop
-from calcasa.api.model.waardering import Waardering
-from calcasa.api.model.waardering_input_parameters import WaarderingInputParameters
-from calcasa.api.model.waardering_ontwikkeling import WaarderingOntwikkeling
-from calcasa.api.model.waardering_ontwikkeling_kwartaal import WaarderingOntwikkelingKwartaal
-from calcasa.api.model.waardering_status import WaarderingStatus
-from calcasa.api.model.waardering_webhook_payload import WaarderingWebhookPayload
-from calcasa.api.model.waardering_zoek_parameters import WaarderingZoekParameters
-from calcasa.api.model.woning_type import WoningType
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Calcasa Public API
+    The Calcasa API is used to connect to Calcasa provided services. For more information, please visit [Documentation](https://docs.calcasa.nl) or [GitHub](https://github.com/calcasa/api).
+
+    The version of the OpenAPI document: 1.4.0-rc1
+    Contact: info@calcasa.nl
+    Generated by: https://openapi-generator.tech
+"""
+
+# import models into model package
+from calcasa.api.models.aanvraagdoel import Aanvraagdoel
+from calcasa.api.models.adres import Adres
+from calcasa.api.models.adres_info import AdresInfo
+from calcasa.api.models.bestemmingsdata import Bestemmingsdata
+from calcasa.api.models.bodem_status_type import BodemStatusType
+from calcasa.api.models.bodemdata import Bodemdata
+from calcasa.api.models.business_rules_code import BusinessRulesCode
+from calcasa.api.models.business_rules_problem_details import BusinessRulesProblemDetails
+from calcasa.api.models.callback import Callback
+from calcasa.api.models.callback_inschrijving import CallbackInschrijving
+from calcasa.api.models.cbs_indeling import CbsIndeling
+from calcasa.api.models.deel_waardering_webhook_payload import DeelWaarderingWebhookPayload
+from calcasa.api.models.energielabel import Energielabel
+from calcasa.api.models.energielabel_data import EnergielabelData
+from calcasa.api.models.factuur import Factuur
+from calcasa.api.models.foto import Foto
+from calcasa.api.models.fundering_data_bron import FunderingDataBron
+from calcasa.api.models.fundering_herstel_type import FunderingHerstelType
+from calcasa.api.models.fundering_risico import FunderingRisico
+from calcasa.api.models.fundering_risico_label import FunderingRisicoLabel
+from calcasa.api.models.fundering_soort_bron import FunderingSoortBron
+from calcasa.api.models.fundering_type import FunderingType
+from calcasa.api.models.fundering_typering import FunderingTypering
+from calcasa.api.models.funderingdata import Funderingdata
+from calcasa.api.models.gebiedsdata import Gebiedsdata
+from calcasa.api.models.geldverstrekker import Geldverstrekker
+from calcasa.api.models.invalid_argument_problem_details import InvalidArgumentProblemDetails
+from calcasa.api.models.klantwaarde_type import KlantwaardeType
+from calcasa.api.models.kwartaal import Kwartaal
+from calcasa.api.models.modeldata import Modeldata
+from calcasa.api.models.not_found_problem_details import NotFoundProblemDetails
+from calcasa.api.models.notitie import Notitie
+from calcasa.api.models.notities import Notities
+from calcasa.api.models.objectdata import Objectdata
+from calcasa.api.models.omgevingsdata import Omgevingsdata
+from calcasa.api.models.operation import Operation
+from calcasa.api.models.operation_type import OperationType
+from calcasa.api.models.permissions_denied_problem_details import PermissionsDeniedProblemDetails
+from calcasa.api.models.problem_details import ProblemDetails
+from calcasa.api.models.product_type import ProductType
+from calcasa.api.models.rapport import Rapport
+from calcasa.api.models.referentieobject import Referentieobject
+from calcasa.api.models.resource_exhausted_problem_details import ResourceExhaustedProblemDetails
+from calcasa.api.models.taxatiedata import Taxatiedata
+from calcasa.api.models.taxatiestatus import Taxatiestatus
+from calcasa.api.models.unauthorized_problem_details import UnauthorizedProblemDetails
+from calcasa.api.models.validation_problem_details import ValidationProblemDetails
+from calcasa.api.models.verkoop_bijzonderheden import VerkoopBijzonderheden
+from calcasa.api.models.version_names import VersionNames
+from calcasa.api.models.vorige_verkoop import VorigeVerkoop
+from calcasa.api.models.waardering import Waardering
+from calcasa.api.models.waardering_input_parameters import WaarderingInputParameters
+from calcasa.api.models.waardering_ontwikkeling import WaarderingOntwikkeling
+from calcasa.api.models.waardering_ontwikkeling_kwartaal import WaarderingOntwikkelingKwartaal
+from calcasa.api.models.waardering_status import WaarderingStatus
+from calcasa.api.models.waardering_webhook_payload import WaarderingWebhookPayload
+from calcasa.api.models.waardering_zoek_parameters import WaarderingZoekParameters
+from calcasa.api.models.webhook_payload import WebhookPayload
+from calcasa.api.models.woning_type import WoningType

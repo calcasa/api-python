@@ -27,50 +27,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from calcasa.api.models.energielabel import Energielabel
-from calcasa.api.models.energielabel_data import EnergielabelData
-from calcasa.api.models.woning_type import WoningType
+from calcasa.api.models.onderhoud_staat import OnderhoudStaat
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class Objectdata(BaseModel):
+class Opnamedata(BaseModel):
     """
-    Objectdata
+    Opnamedata
     """  # noqa: E501
 
-    woning_type: Optional[WoningType] = Field(default=None, alias="woningType")
-    bouwjaar: Optional[StrictInt] = None
-    oppervlak: Optional[StrictInt] = Field(
-        default=None, description="Het woonoppervlak in hele vierkante meters."
+    algemeen_onderhoud_buiten: Optional[OnderhoudStaat] = Field(
+        default=None,
+        description="De algemene staat van onderhoud buiten.",
+        alias="algemeenOnderhoudBuiten",
     )
-    perceeloppervlak: Optional[StrictInt] = Field(
-        default=None, description="Het perceeloppervlak in hele vierkante meters."
-    )
-    inhoud: Optional[StrictInt] = Field(
-        default=None, description="De inhoud in hele kubieke meters."
-    )
-    energielabel: Optional[Energielabel] = None
-    energielabel_data: Optional[EnergielabelData] = Field(
-        default=None, alias="energielabelData"
-    )
-    bag_pand_id: Optional[StrictInt] = Field(default=None, alias="bagPandId")
-    bag_verblijfsobject_id: Optional[StrictInt] = Field(
-        default=None, alias="bagVerblijfsobjectId"
-    )
-    __properties: ClassVar[List[str]] = [
-        "woningType",
-        "bouwjaar",
-        "oppervlak",
-        "perceeloppervlak",
-        "inhoud",
-        "energielabel",
-        "energielabelData",
-        "bagPandId",
-        "bagVerblijfsobjectId",
-    ]
+    __properties: ClassVar[List[str]] = ["algemeenOnderhoudBuiten"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +63,7 @@ class Objectdata(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Objectdata from a JSON string"""
+        """Create an instance of Opnamedata from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -109,14 +83,11 @@ class Objectdata(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of energielabel_data
-        if self.energielabel_data:
-            _dict["energielabelData"] = self.energielabel_data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Objectdata from a dict"""
+        """Create an instance of Opnamedata from a dict"""
         if obj is None:
             return None
 
@@ -124,20 +95,6 @@ class Objectdata(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate(
-            {
-                "woningType": obj.get("woningType"),
-                "bouwjaar": obj.get("bouwjaar"),
-                "oppervlak": obj.get("oppervlak"),
-                "perceeloppervlak": obj.get("perceeloppervlak"),
-                "inhoud": obj.get("inhoud"),
-                "energielabel": obj.get("energielabel"),
-                "energielabelData": (
-                    EnergielabelData.from_dict(obj["energielabelData"])
-                    if obj.get("energielabelData") is not None
-                    else None
-                ),
-                "bagPandId": obj.get("bagPandId"),
-                "bagVerblijfsobjectId": obj.get("bagVerblijfsobjectId"),
-            }
+            {"algemeenOnderhoudBuiten": obj.get("algemeenOnderhoudBuiten")}
         )
         return _obj

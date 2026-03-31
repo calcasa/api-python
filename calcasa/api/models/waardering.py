@@ -37,6 +37,7 @@ from calcasa.api.models.factuur import Factuur
 from calcasa.api.models.foto import Foto
 from calcasa.api.models.modeldata import Modeldata
 from calcasa.api.models.objectdata import Objectdata
+from calcasa.api.models.opnamedata import Opnamedata
 from calcasa.api.models.rapport import Rapport
 from calcasa.api.models.referentieobject import Referentieobject
 from calcasa.api.models.taxatiedata import Taxatiedata
@@ -62,6 +63,7 @@ class Waardering(BaseModel):
     model: Optional[Modeldata] = None
     taxatie: Optional[Taxatiedata] = None
     object: Optional[Objectdata] = None
+    opname: Optional[Opnamedata] = None
     cbs_indeling: Optional[CbsIndeling] = Field(default=None, alias="cbsIndeling")
     fotos: Optional[List[Foto]] = None
     referenties: Optional[List[Referentieobject]] = None
@@ -79,6 +81,7 @@ class Waardering(BaseModel):
         "model",
         "taxatie",
         "object",
+        "opname",
         "cbsIndeling",
         "fotos",
         "referenties",
@@ -139,6 +142,9 @@ class Waardering(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of object
         if self.object:
             _dict["object"] = self.object.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of opname
+        if self.opname:
+            _dict["opname"] = self.opname.to_dict()
         # override the default output from pydantic by calling `to_dict()` of cbs_indeling
         if self.cbs_indeling:
             _dict["cbsIndeling"] = self.cbs_indeling.to_dict()
@@ -223,6 +229,11 @@ class Waardering(BaseModel):
                 "object": (
                     Objectdata.from_dict(obj["object"])
                     if obj.get("object") is not None
+                    else None
+                ),
+                "opname": (
+                    Opnamedata.from_dict(obj["opname"])
+                    if obj.get("opname") is not None
                     else None
                 ),
                 "cbsIndeling": (

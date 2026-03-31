@@ -99,6 +99,16 @@ class WaarderingInputParameters(BaseModel):
         default=None,
         description="Vrij veld voor het opslaan van een klantkenmerk, zoals bijvoorbeeld een dossiernummer of andere interne referentie. Dit veld komt later weer terug in het `origineleInput` veld in het `waardering` object.",
     )
+    heeft_aflossingsvrij_deel: Optional[StrictBool] = Field(
+        default=None,
+        description="True als de lening een aflossingsvrij deel heeft.",
+        alias="heeftAflossingsvrijDeel",
+    )
+    aflossingsvrij_deel: Optional[StrictInt] = Field(
+        default=None,
+        description="De hoogte van het aflossingsvrije deel van het veld `hypotheekwaarde` van de lening. Alleen relevant als `heeftAflossingsvrijDeel` true is. In hele euros.",
+        alias="aflossingsvrijDeel",
+    )
     __properties: ClassVar[List[str]] = [
         "geldverstrekker",
         "productType",
@@ -114,6 +124,8 @@ class WaarderingInputParameters(BaseModel):
         "peildatum",
         "isErfpacht",
         "klantkenmerk",
+        "heeftAflossingsvrijDeel",
+        "aflossingsvrijDeel",
     ]
 
     model_config = ConfigDict(
@@ -163,6 +175,22 @@ class WaarderingInputParameters(BaseModel):
         if self.is_erfpacht is None and "is_erfpacht" in self.model_fields_set:
             _dict["isErfpacht"] = None
 
+        # set to None if heeft_aflossingsvrij_deel (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.heeft_aflossingsvrij_deel is None
+            and "heeft_aflossingsvrij_deel" in self.model_fields_set
+        ):
+            _dict["heeftAflossingsvrijDeel"] = None
+
+        # set to None if aflossingsvrij_deel (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.aflossingsvrij_deel is None
+            and "aflossingsvrij_deel" in self.model_fields_set
+        ):
+            _dict["aflossingsvrijDeel"] = None
+
         return _dict
 
     @classmethod
@@ -190,6 +218,8 @@ class WaarderingInputParameters(BaseModel):
                 "peildatum": obj.get("peildatum"),
                 "isErfpacht": obj.get("isErfpacht"),
                 "klantkenmerk": obj.get("klantkenmerk"),
+                "heeftAflossingsvrijDeel": obj.get("heeftAflossingsvrijDeel"),
+                "aflossingsvrijDeel": obj.get("aflossingsvrijDeel"),
             }
         )
         return _obj

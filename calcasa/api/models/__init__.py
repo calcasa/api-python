@@ -64,8 +64,10 @@ from calcasa.api.models.notitie import Notitie
 from calcasa.api.models.notities import Notities
 from calcasa.api.models.objectdata import Objectdata
 from calcasa.api.models.omgevingsdata import Omgevingsdata
+from calcasa.api.models.onderhoud_staat import OnderhoudStaat
 from calcasa.api.models.operation import Operation
 from calcasa.api.models.operation_type import OperationType
+from calcasa.api.models.opnamedata import Opnamedata
 from calcasa.api.models.permissions_denied_problem_details import (
     PermissionsDeniedProblemDetails,
 )

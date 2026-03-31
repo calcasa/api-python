@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class ProductType(str, Enum):
     """
-    Het product type voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentails. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Geen geldige invoer. Onbekend product type. | | `modelwaardeCalcasa` | Niet beschikbaar op dit moment.<br>            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | `desktopTaxatieHerwaardering` | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. |
+    Het product type voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentails. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Geen geldige invoer. Onbekend product type. | | `modelwaardeCalcasa` | Niet beschikbaar op dit moment.<br>            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | `desktopTaxatieHerwaardering` | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. | | `desktopTaxatiePlus` | Desktop taxatie plus aanvraag met Desktop Taxatie Plus rapport. |
     """
 
     """
@@ -42,6 +42,7 @@ class ProductType(str, Enum):
     MODELWAARDEDESKTOPTAXATIE = "modelwaardeDesktopTaxatie"
     DESKTOPTAXATIE = "desktopTaxatie"
     DESKTOPTAXATIEHERWAARDERING = "desktopTaxatieHerwaardering"
+    DESKTOPTAXATIEPLUS = "desktopTaxatiePlus"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

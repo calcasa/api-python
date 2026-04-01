@@ -30,6 +30,8 @@ from pydantic import Field
 from typing import List
 from typing_extensions import Annotated
 from uuid import UUID
+from calcasa.api.models.product_check import ProductCheck
+from calcasa.api.models.product_check_parameters import ProductCheckParameters
 from calcasa.api.models.waardering import Waardering
 from calcasa.api.models.waardering_input_parameters import WaarderingInputParameters
 from calcasa.api.models.waardering_ontwikkeling import WaarderingOntwikkeling
@@ -54,6 +56,270 @@ class WaarderingenApi:
         self.api_client = api_client
 
     @validate_call
+    def check_producten(
+        self,
+        product_check_parameters: ProductCheckParameters,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ProductCheck:
+        """Controleert mogelijke producten.
+
+        Geeft de mogelijke en afgekeurde producten terug voor een waardering op basis van de input parameters. Het BagNummeraanduidingId veld is (ten minste) verplicht. Als er geen enkel product geconfigureerd komt er een exception terug.
+
+        :param product_check_parameters: (required)
+        :type product_check_parameters: ProductCheckParameters
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._check_producten_serialize(
+            product_check_parameters=product_check_parameters,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "ProductCheck",
+            "400": "InvalidArgumentProblemDetails",
+            "401": "UnauthorizedProblemDetails",
+            "403": "PermissionsDeniedProblemDetails",
+            "422": "ValidationProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def check_producten_with_http_info(
+        self,
+        product_check_parameters: ProductCheckParameters,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ProductCheck]:
+        """Controleert mogelijke producten.
+
+        Geeft de mogelijke en afgekeurde producten terug voor een waardering op basis van de input parameters. Het BagNummeraanduidingId veld is (ten minste) verplicht. Als er geen enkel product geconfigureerd komt er een exception terug.
+
+        :param product_check_parameters: (required)
+        :type product_check_parameters: ProductCheckParameters
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._check_producten_serialize(
+            product_check_parameters=product_check_parameters,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "ProductCheck",
+            "400": "InvalidArgumentProblemDetails",
+            "401": "UnauthorizedProblemDetails",
+            "403": "PermissionsDeniedProblemDetails",
+            "422": "ValidationProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def check_producten_without_preload_content(
+        self,
+        product_check_parameters: ProductCheckParameters,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Controleert mogelijke producten.
+
+        Geeft de mogelijke en afgekeurde producten terug voor een waardering op basis van de input parameters. Het BagNummeraanduidingId veld is (ten minste) verplicht. Als er geen enkel product geconfigureerd komt er een exception terug.
+
+        :param product_check_parameters: (required)
+        :type product_check_parameters: ProductCheckParameters
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._check_producten_serialize(
+            product_check_parameters=product_check_parameters,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "ProductCheck",
+            "400": "InvalidArgumentProblemDetails",
+            "401": "UnauthorizedProblemDetails",
+            "403": "PermissionsDeniedProblemDetails",
+            "422": "ValidationProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _check_producten_serialize(
+        self,
+        product_check_parameters,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if product_check_parameters is not None:
+            _body_params = product_check_parameters
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = ["oauth"]
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/waarderingen/check",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def create_waardering(
         self,
         waardering_input_parameters: WaarderingInputParameters,
@@ -71,7 +337,7 @@ class WaarderingenApi:
     ) -> Waardering:
         """Creërt een waardering.
 
-        Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
 
         :param waardering_input_parameters: (required)
         :type waardering_input_parameters: WaarderingInputParameters
@@ -140,7 +406,7 @@ class WaarderingenApi:
     ) -> ApiResponse[Waardering]:
         """Creërt een waardering.
 
-        Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
 
         :param waardering_input_parameters: (required)
         :type waardering_input_parameters: WaarderingInputParameters
@@ -209,7 +475,7 @@ class WaarderingenApi:
     ) -> RESTResponseType:
         """Creërt een waardering.
 
-        Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waardering object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
 
         :param waardering_input_parameters: (required)
         :type waardering_input_parameters: WaarderingInputParameters

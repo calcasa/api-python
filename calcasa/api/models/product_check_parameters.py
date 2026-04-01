@@ -33,17 +33,15 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from calcasa.api.models.aanvraagdoel import Aanvraagdoel
 from calcasa.api.models.klantwaarde_type import KlantwaardeType
-from calcasa.api.models.product_type import ProductType
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class WaarderingInputParameters(BaseModel):
+class ProductCheckParameters(BaseModel):
     """
-    WaarderingInputParameters
+    ProductCheckParameters
     """  # noqa: E501
 
-    product_type: ProductType = Field(alias="productType")
     geldverstrekker: Optional[StrictStr] = Field(
         default=None,
         description="Ongebruikt voor de meeste client typen op dit moment. Deze informatie komt uit de credentials. Als dit veld wel verplicht is dan is dit gecommuniceerd.",
@@ -110,7 +108,6 @@ class WaarderingInputParameters(BaseModel):
         alias="aflossingsvrijDeel",
     )
     __properties: ClassVar[List[str]] = [
-        "productType",
         "geldverstrekker",
         "hypotheekwaarde",
         "aanvraagdoel",
@@ -145,7 +142,7 @@ class WaarderingInputParameters(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of WaarderingInputParameters from a JSON string"""
+        """Create an instance of ProductCheckParameters from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -195,7 +192,7 @@ class WaarderingInputParameters(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of WaarderingInputParameters from a dict"""
+        """Create an instance of ProductCheckParameters from a dict"""
         if obj is None:
             return None
 
@@ -204,7 +201,6 @@ class WaarderingInputParameters(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "productType": obj.get("productType"),
                 "geldverstrekker": obj.get("geldverstrekker"),
                 "hypotheekwaarde": obj.get("hypotheekwaarde"),
                 "aanvraagdoel": obj.get("aanvraagdoel"),

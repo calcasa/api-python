@@ -72,6 +72,9 @@ from calcasa.api.models.permissions_denied_problem_details import (
     PermissionsDeniedProblemDetails,
 )
 from calcasa.api.models.problem_details import ProblemDetails
+from calcasa.api.models.product_check import ProductCheck
+from calcasa.api.models.product_check_item import ProductCheckItem
+from calcasa.api.models.product_check_parameters import ProductCheckParameters
 from calcasa.api.models.product_type import ProductType
 from calcasa.api.models.rapport import Rapport
 from calcasa.api.models.referentieobject import Referentieobject

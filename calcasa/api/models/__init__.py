@@ -34,6 +34,7 @@ from calcasa.api.models.business_rules_problem_details import (
     BusinessRulesProblemDetails,
 )
 from calcasa.api.models.callback import Callback
+from calcasa.api.models.callback_authentication import CallbackAuthentication
 from calcasa.api.models.callback_inschrijving import CallbackInschrijving
 from calcasa.api.models.cbs_indeling import CbsIndeling
 from calcasa.api.models.deel_waardering_webhook_payload import (
@@ -58,6 +59,7 @@ from calcasa.api.models.invalid_argument_problem_details import (
 )
 from calcasa.api.models.klantwaarde_type import KlantwaardeType
 from calcasa.api.models.kwartaal import Kwartaal
+from calcasa.api.models.mtls_type import MTLSType
 from calcasa.api.models.modeldata import Modeldata
 from calcasa.api.models.not_found_problem_details import NotFoundProblemDetails
 from calcasa.api.models.notitie import Notitie

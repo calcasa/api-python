@@ -42,9 +42,7 @@ class WaarderingOntwikkeling(BaseModel):
     WaarderingOntwikkeling
     """  # noqa: E501
 
-    id: Optional[UUID] = Field(
-        default=None, description="Id van de waardering of tracking Id."
-    )
+    id: Optional[UUID] = Field(default=None, description="Id van de waardering.")
     object_prijs_ontwikkeling: Optional[List[WaarderingOntwikkelingKwartaal]] = Field(
         default=None,
         description="De prijsontwikkeling van het gewaardeerde object.",

@@ -33,6 +33,7 @@ from calcasa.api.models.fundering_data_bron import FunderingDataBron
 from calcasa.api.models.fundering_herstel_type import FunderingHerstelType
 from calcasa.api.models.fundering_risico import FunderingRisico
 from calcasa.api.models.fundering_typering import FunderingTypering
+from calcasa.api.models.funderingsrisico import Funderingsrisico
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -56,9 +57,11 @@ class Funderingdata(BaseModel):
         default=None, alias="bioInfectieRisico"
     )
     herstelkosten: Optional[Union[StrictFloat, StrictInt]] = Field(
-        default=None, description="Indicatieve herstelkosten van de fundering."
+        default=None,
+        description='Indicatieve herstelkosten van de fundering. Voor consumenten doeleinden ronden gebruiken we de volgende regels om tot een orijsrange te komen: < 5_000: "Minder dan 5000" < 50_000: "afronden op 5000, min: floor, max: ceil" else: min: x * 0.9, max: x * 1.1, beiden afgerond op 5000',
     )
     bron: Optional[FunderingDataBron] = None
+    risicolabel: Optional[Funderingsrisico] = None
     __properties: ClassVar[List[str]] = [
         "typering",
         "herstelType",
@@ -67,6 +70,7 @@ class Funderingdata(BaseModel):
         "bioInfectieRisico",
         "herstelkosten",
         "bron",
+        "risicolabel",
     ]
 
     model_config = ConfigDict(
@@ -159,6 +163,7 @@ class Funderingdata(BaseModel):
                 ),
                 "herstelkosten": obj.get("herstelkosten"),
                 "bron": obj.get("bron"),
+                "risicolabel": obj.get("risicolabel"),
             }
         )
         return _obj

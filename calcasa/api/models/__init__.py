@@ -52,6 +52,7 @@ from calcasa.api.models.fundering_soort_bron import FunderingSoortBron
 from calcasa.api.models.fundering_type import FunderingType
 from calcasa.api.models.fundering_typering import FunderingTypering
 from calcasa.api.models.funderingdata import Funderingdata
+from calcasa.api.models.funderingsrisico import Funderingsrisico
 from calcasa.api.models.gebiedsdata import Gebiedsdata
 from calcasa.api.models.geldverstrekker import Geldverstrekker
 from calcasa.api.models.invalid_argument_problem_details import (

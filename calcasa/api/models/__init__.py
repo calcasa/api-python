@@ -44,6 +44,7 @@ from calcasa.api.models.energielabel import Energielabel
 from calcasa.api.models.energielabel_data import EnergielabelData
 from calcasa.api.models.factuur import Factuur
 from calcasa.api.models.foto import Foto
+from calcasa.api.models.frontend_deeplinks import FrontendDeeplinks
 from calcasa.api.models.fundering_data_bron import FunderingDataBron
 from calcasa.api.models.fundering_herstel_type import FunderingHerstelType
 from calcasa.api.models.fundering_risico import FunderingRisico

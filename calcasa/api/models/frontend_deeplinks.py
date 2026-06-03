@@ -27,35 +27,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from calcasa.api.models.business_rules_code import BusinessRulesCode
-from calcasa.api.models.frontend_deeplinks import FrontendDeeplinks
-from calcasa.api.models.product_type import ProductType
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class ProductCheckItem(BaseModel):
+class FrontendDeeplinks(BaseModel):
     """
-    ProductCheckItem
+    FrontendDeeplinks
     """  # noqa: E501
 
-    product_type: ProductType = Field(
-        description="De producttypen waarvoor deze waardering geldt.",
-        alias="productType",
-    )
-    business_rules_code: Optional[BusinessRulesCode] = Field(
+    logged_in: Optional[StrictStr] = Field(
         default=None,
-        description="Indien deze waardering niet voldoet aan de eisen voor dit product type, dan is dit veld ingevuld met de reden waarom deze is afgekeurd.",
-        alias="businessRulesCode",
+        description="De URL van de frontend deeplink om deze waardering aan te vragen. Deze link is voor gebruikers met een account.",
+        alias="loggedIn",
     )
-    deeplinks: Optional[FrontendDeeplinks] = None
-    __properties: ClassVar[List[str]] = [
-        "productType",
-        "businessRulesCode",
-        "deeplinks",
-    ]
+    __properties: ClassVar[List[str]] = ["loggedIn"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,7 +62,7 @@ class ProductCheckItem(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProductCheckItem from a JSON string"""
+        """Create an instance of FrontendDeeplinks from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -94,42 +82,21 @@ class ProductCheckItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of deeplinks
-        if self.deeplinks:
-            _dict["deeplinks"] = self.deeplinks.to_dict()
-        # set to None if business_rules_code (nullable) is None
+        # set to None if logged_in (nullable) is None
         # and model_fields_set contains the field
-        if (
-            self.business_rules_code is None
-            and "business_rules_code" in self.model_fields_set
-        ):
-            _dict["businessRulesCode"] = None
-
-        # set to None if deeplinks (nullable) is None
-        # and model_fields_set contains the field
-        if self.deeplinks is None and "deeplinks" in self.model_fields_set:
-            _dict["deeplinks"] = None
+        if self.logged_in is None and "logged_in" in self.model_fields_set:
+            _dict["loggedIn"] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProductCheckItem from a dict"""
+        """Create an instance of FrontendDeeplinks from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "productType": obj.get("productType"),
-                "businessRulesCode": obj.get("businessRulesCode"),
-                "deeplinks": (
-                    FrontendDeeplinks.from_dict(obj["deeplinks"])
-                    if obj.get("deeplinks") is not None
-                    else None
-                ),
-            }
-        )
+        _obj = cls.model_validate({"loggedIn": obj.get("loggedIn")})
         return _obj

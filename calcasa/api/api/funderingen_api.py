@@ -68,7 +68,7 @@ class FunderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Funderingdata:
-        """Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+        """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
 
         Het funderingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
 
@@ -95,6 +95,10 @@ class FunderingenApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """  # noqa: E501
+        warnings.warn(
+            "GET /funderingen/{bagNummeraanduidingId} is deprecated.",
+            DeprecationWarning,
+        )
 
         _param = self._get_fundering_by_id_serialize(
             bag_nummeraanduiding_id=bag_nummeraanduiding_id,
@@ -140,7 +144,7 @@ class FunderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Funderingdata]:
-        """Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+        """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
 
         Het funderingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
 
@@ -167,6 +171,10 @@ class FunderingenApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """  # noqa: E501
+        warnings.warn(
+            "GET /funderingen/{bagNummeraanduidingId} is deprecated.",
+            DeprecationWarning,
+        )
 
         _param = self._get_fundering_by_id_serialize(
             bag_nummeraanduiding_id=bag_nummeraanduiding_id,
@@ -212,7 +220,7 @@ class FunderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+        """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
 
         Het funderingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
 
@@ -239,6 +247,10 @@ class FunderingenApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """  # noqa: E501
+        warnings.warn(
+            "GET /funderingen/{bagNummeraanduidingId} is deprecated.",
+            DeprecationWarning,
+        )
 
         _param = self._get_fundering_by_id_serialize(
             bag_nummeraanduiding_id=bag_nummeraanduiding_id,

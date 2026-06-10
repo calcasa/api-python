@@ -35,6 +35,7 @@ from calcasa.api.models.adres import Adres
 from calcasa.api.models.cbs_indeling import CbsIndeling
 from calcasa.api.models.factuur import Factuur
 from calcasa.api.models.foto import Foto
+from calcasa.api.models.funderingdata import Funderingdata
 from calcasa.api.models.modeldata import Modeldata
 from calcasa.api.models.objectdata import Objectdata
 from calcasa.api.models.opnamedata import Opnamedata
@@ -72,6 +73,7 @@ class Waardering(BaseModel):
     )
     rapport: Optional[Rapport] = None
     factuur: Optional[Factuur] = None
+    fundering: Optional[Funderingdata] = None
     __properties: ClassVar[List[str]] = [
         "id",
         "aangemaakt",
@@ -88,6 +90,7 @@ class Waardering(BaseModel):
         "vorigeVerkopen",
         "rapport",
         "factuur",
+        "fundering",
     ]
 
     model_config = ConfigDict(
@@ -175,6 +178,9 @@ class Waardering(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of factuur
         if self.factuur:
             _dict["factuur"] = self.factuur.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of fundering
+        if self.fundering:
+            _dict["fundering"] = self.fundering.to_dict()
         # set to None if fotos (nullable) is None
         # and model_fields_set contains the field
         if self.fotos is None and "fotos" in self.model_fields_set:
@@ -264,6 +270,11 @@ class Waardering(BaseModel):
                 "factuur": (
                     Factuur.from_dict(obj["factuur"])
                     if obj.get("factuur") is not None
+                    else None
+                ),
+                "fundering": (
+                    Funderingdata.from_dict(obj["fundering"])
+                    if obj.get("fundering") is not None
                     else None
                 ),
             }

@@ -32,6 +32,9 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from calcasa.api.models.fundering_data_bron import FunderingDataBron
 from calcasa.api.models.fundering_herstel_type import FunderingHerstelType
 from calcasa.api.models.fundering_risico import FunderingRisico
+from calcasa.api.models.fundering_technisch_herstel_type import (
+    FunderingTechnischHerstelType,
+)
 from calcasa.api.models.fundering_typering import FunderingTypering
 from calcasa.api.models.funderingsrisico import Funderingsrisico
 from typing import Optional, Set
@@ -46,6 +49,9 @@ class Funderingdata(BaseModel):
     typering: Optional[FunderingTypering] = None
     herstel_type: Optional[FunderingHerstelType] = Field(
         default=None, alias="herstelType"
+    )
+    technisch_herstel_type: Optional[FunderingTechnischHerstelType] = Field(
+        default=None, alias="technischHerstelType"
     )
     droogstand_risico: Optional[FunderingRisico] = Field(
         default=None, alias="droogstandRisico"
@@ -65,6 +71,7 @@ class Funderingdata(BaseModel):
     __properties: ClassVar[List[str]] = [
         "typering",
         "herstelType",
+        "technischHerstelType",
         "droogstandRisico",
         "optrekkendVochtRisico",
         "bioInfectieRisico",
@@ -146,6 +153,7 @@ class Funderingdata(BaseModel):
                     else None
                 ),
                 "herstelType": obj.get("herstelType"),
+                "technischHerstelType": obj.get("technischHerstelType"),
                 "droogstandRisico": (
                     FunderingRisico.from_dict(obj["droogstandRisico"])
                     if obj.get("droogstandRisico") is not None

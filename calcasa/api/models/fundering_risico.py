@@ -31,6 +31,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from calcasa.api.models.fundering_risico_label import FunderingRisicoLabel
 from calcasa.api.models.fundering_soort_bron import FunderingSoortBron
+from calcasa.api.models.funderingsrisico import Funderingsrisico
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -41,11 +42,12 @@ class FunderingRisico(BaseModel):
     """  # noqa: E501
 
     label: Optional[FunderingRisicoLabel] = None
+    risicolabel: Optional[Funderingsrisico] = None
     bron: Optional[FunderingSoortBron] = None
     omschrijving: Optional[StrictStr] = Field(
         default=None, description="De omschrijving van het risico."
     )
-    __properties: ClassVar[List[str]] = ["label", "bron", "omschrijving"]
+    __properties: ClassVar[List[str]] = ["label", "risicolabel", "bron", "omschrijving"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,6 +100,7 @@ class FunderingRisico(BaseModel):
         _obj = cls.model_validate(
             {
                 "label": obj.get("label"),
+                "risicolabel": obj.get("risicolabel"),
                 "bron": obj.get("bron"),
                 "omschrijving": obj.get("omschrijving"),
             }

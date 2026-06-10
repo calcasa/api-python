@@ -42,6 +42,9 @@ from calcasa.api.models.deel_waardering_webhook_payload import (
 )
 from calcasa.api.models.energielabel import Energielabel
 from calcasa.api.models.energielabel_data import EnergielabelData
+from calcasa.api.models.expired_valuation_problem_details import (
+    ExpiredValuationProblemDetails,
+)
 from calcasa.api.models.factuur import Factuur
 from calcasa.api.models.foto import Foto
 from calcasa.api.models.frontend_deeplinks import FrontendDeeplinks
@@ -50,6 +53,9 @@ from calcasa.api.models.fundering_herstel_type import FunderingHerstelType
 from calcasa.api.models.fundering_risico import FunderingRisico
 from calcasa.api.models.fundering_risico_label import FunderingRisicoLabel
 from calcasa.api.models.fundering_soort_bron import FunderingSoortBron
+from calcasa.api.models.fundering_technisch_herstel_type import (
+    FunderingTechnischHerstelType,
+)
 from calcasa.api.models.fundering_type import FunderingType
 from calcasa.api.models.fundering_typering import FunderingTypering
 from calcasa.api.models.funderingdata import Funderingdata

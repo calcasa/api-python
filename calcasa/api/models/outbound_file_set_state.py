@@ -28,18 +28,19 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class FunderingDataBron(str, Enum):
+class OutboundFileSetState(str, Enum):
     """
-    FunderingDataBron
+    Outbound file set states.  | Value | Description | | --- | --- | | `ready` | File set is ready and is waiting for the files to be downloaded. | | `deleted` | File set has been downloaded and has been deleted. | | `expired` | File set has expired and all its contents have been deleted. |
     """
 
     """
     allowed enum values
     """
-    CALCASA = "calcasa"
-    FUNDERMAPS = "fundermaps"
+    READY = "ready"
+    DELETED = "deleted"
+    EXPIRED = "expired"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of FunderingDataBron from a JSON string"""
+        """Create an instance of OutboundFileSetState from a JSON string"""
         return cls(json.loads(json_str))

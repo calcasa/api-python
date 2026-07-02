@@ -8,6 +8,7 @@ from calcasa.api.api.buurt_api import BuurtApi
 from calcasa.api.api.callbacks_api import CallbacksApi
 from calcasa.api.api.configuratie_api import ConfiguratieApi
 from calcasa.api.api.facturen_api import FacturenApi
+from calcasa.api.api.file_sets_api import FileSetsApi
 from calcasa.api.api.fotos_api import FotosApi
 from calcasa.api.api.funderingen_api import FunderingenApi
 from calcasa.api.api.geldverstrekkers_api import GeldverstrekkersApi

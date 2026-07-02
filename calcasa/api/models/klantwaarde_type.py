@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class KlantwaardeType(str, Enum):
     """
-    | Waarde | Omschrijving | | --- | --- | | `onbekend` |  | | `koopsom` |  | | `taxatiewaarde` |  | | `wozWaarde` |  | | `eigenWaardeinschatting` |  |
+    KlantwaardeType
     """
 
     """

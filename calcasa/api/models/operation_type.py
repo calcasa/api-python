@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class OperationType(str, Enum):
     """
-    | Waarde | Omschrijving | | --- | --- | | `add` |  | | `remove` |  | | `replace` |  | | `move` |  | | `copy` |  | | `test` |  | | `invalid` |  |
+    OperationType
     """
 
     """

@@ -88,7 +88,7 @@ class ProductCheckParameters(BaseModel):
     )
     is_erfpacht: Optional[StrictBool] = Field(
         default=None,
-        description="Potentieel verplicht voor de product typen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie.",
+        description="Potentieel verplicht voor de producttypen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie.",
         alias="isErfpacht",
     )
     klantkenmerk: Optional[
@@ -99,13 +99,31 @@ class ProductCheckParameters(BaseModel):
     )
     heeft_aflossingsvrij_deel: Optional[StrictBool] = Field(
         default=None,
-        description="True als de lening een aflossingsvrij deel heeft. Potentieel verplicht voor de product typen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie.",
+        description="True als de lening een aflossingsvrij deel heeft. Potentieel verplicht voor de producttypen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie.",
         alias="heeftAflossingsvrijDeel",
     )
     aflossingsvrij_deel: Optional[StrictInt] = Field(
         default=None,
-        description="De hoogte van het aflossingsvrije deel van het veld `hypotheekwaarde` van de lening. Alleen relevant als `heeftAflossingsvrijDeel` true is. Potentieel verplicht voor de product typen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie. In hele euros.",
+        description="De hoogte van het aflossingsvrije deel van het veld `hypotheekwaarde` van de lening. Alleen relevant als `heeftAflossingsvrijDeel` true is. Potentieel verplicht voor de producttypen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie. In hele euros.",
         alias="aflossingsvrijDeel",
+    )
+    verdieping: Optional[StrictInt] = Field(
+        default=None,
+        description="Dit is de verdieping waarop de woning gelegen is (bel-etage), voor een eengezinswoning is dit de begane grond (=0). In de toekomst verplicht voor de producttypen `desktopTaxatie` en `desktopTaxatiePlus`.",
+    )
+    woonadres_in_buitenland: Optional[StrictBool] = Field(
+        default=None,
+        description="Geeft aan of het woonadres van de aanvrager in het buitenland ligt. In de toekomst verplicht voor de producttypen `desktopTaxatie` en `desktopTaxatiePlus`.",
+        alias="woonadresInBuitenland",
+    )
+    woonadres_bag_nummeraanduiding_id: Optional[StrictInt] = Field(
+        default=None,
+        description="Het BAG Id van het woonadres van de aanvrager. Alleen als woonadresInBuitenland false is. In de toekomst verplicht voor de producttypen `desktopTaxatie` en `desktopTaxatiePlus`.",
+        alias="woonadresBagNummeraanduidingId",
+    )
+    opdrachtgever: Optional[StrictStr] = Field(
+        default=None,
+        description="De volledige naam van de opdrachtgever. In de toekomst verplicht voor de producttypen `desktopTaxatie` en `desktopTaxatiePlus`.",
     )
     __properties: ClassVar[List[str]] = [
         "geldverstrekker",
@@ -123,6 +141,10 @@ class ProductCheckParameters(BaseModel):
         "klantkenmerk",
         "heeftAflossingsvrijDeel",
         "aflossingsvrijDeel",
+        "verdieping",
+        "woonadresInBuitenland",
+        "woonadresBagNummeraanduidingId",
+        "opdrachtgever",
     ]
 
     model_config = ConfigDict(
@@ -188,6 +210,32 @@ class ProductCheckParameters(BaseModel):
         ):
             _dict["aflossingsvrijDeel"] = None
 
+        # set to None if verdieping (nullable) is None
+        # and model_fields_set contains the field
+        if self.verdieping is None and "verdieping" in self.model_fields_set:
+            _dict["verdieping"] = None
+
+        # set to None if woonadres_in_buitenland (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.woonadres_in_buitenland is None
+            and "woonadres_in_buitenland" in self.model_fields_set
+        ):
+            _dict["woonadresInBuitenland"] = None
+
+        # set to None if woonadres_bag_nummeraanduiding_id (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.woonadres_bag_nummeraanduiding_id is None
+            and "woonadres_bag_nummeraanduiding_id" in self.model_fields_set
+        ):
+            _dict["woonadresBagNummeraanduidingId"] = None
+
+        # set to None if opdrachtgever (nullable) is None
+        # and model_fields_set contains the field
+        if self.opdrachtgever is None and "opdrachtgever" in self.model_fields_set:
+            _dict["opdrachtgever"] = None
+
         return _dict
 
     @classmethod
@@ -216,6 +264,12 @@ class ProductCheckParameters(BaseModel):
                 "klantkenmerk": obj.get("klantkenmerk"),
                 "heeftAflossingsvrijDeel": obj.get("heeftAflossingsvrijDeel"),
                 "aflossingsvrijDeel": obj.get("aflossingsvrijDeel"),
+                "verdieping": obj.get("verdieping"),
+                "woonadresInBuitenland": obj.get("woonadresInBuitenland"),
+                "woonadresBagNummeraanduidingId": obj.get(
+                    "woonadresBagNummeraanduidingId"
+                ),
+                "opdrachtgever": obj.get("opdrachtgever"),
             }
         )
         return _obj

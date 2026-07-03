@@ -41,16 +41,16 @@ class FileError(BaseModel):
 
     index: StrictInt
     name: StrictStr
-    expected_sha256hash: Annotated[str, Field(strict=True)] = Field(
+    expected_content_hash: Annotated[str, Field(strict=True)] = Field(
         description="The expected SHA256 hash of the file contents, represented as an uppercase hexadecimal string.",
-        alias="expectedSha256hash",
+        alias="expectedContentHash",
     )
     expected_file_size: StrictInt = Field(
         description="The expected file size in bytes.", alias="expectedFileSize"
     )
-    actual_sha256hash: Annotated[str, Field(strict=True)] = Field(
+    actual_content_hash: Annotated[str, Field(strict=True)] = Field(
         description="The actual SHA256 hash of the file contents, represented as an uppercase hexadecimal string.",
-        alias="actualSha256hash",
+        alias="actualContentHash",
     )
     actual_file_size: StrictInt = Field(
         description="The actual file size in bytes.", alias="actualFileSize"
@@ -58,21 +58,21 @@ class FileError(BaseModel):
     __properties: ClassVar[List[str]] = [
         "index",
         "name",
-        "expectedSha256hash",
+        "expectedContentHash",
         "expectedFileSize",
-        "actualSha256hash",
+        "actualContentHash",
         "actualFileSize",
     ]
 
-    @field_validator("expected_sha256hash")
-    def expected_sha256hash_validate_regular_expression(cls, value):
+    @field_validator("expected_content_hash")
+    def expected_content_hash_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[A-F0-9]{64}$", value):
             raise ValueError(r"must validate the regular expression /^[A-F0-9]{64}$/")
         return value
 
-    @field_validator("actual_sha256hash")
-    def actual_sha256hash_validate_regular_expression(cls, value):
+    @field_validator("actual_content_hash")
+    def actual_content_hash_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[A-F0-9]{64}$", value):
             raise ValueError(r"must validate the regular expression /^[A-F0-9]{64}$/")
@@ -130,9 +130,9 @@ class FileError(BaseModel):
             {
                 "index": obj.get("index"),
                 "name": obj.get("name"),
-                "expectedSha256hash": obj.get("expectedSha256hash"),
+                "expectedContentHash": obj.get("expectedContentHash"),
                 "expectedFileSize": obj.get("expectedFileSize"),
-                "actualSha256hash": obj.get("actualSha256hash"),
+                "actualContentHash": obj.get("actualContentHash"),
                 "actualFileSize": obj.get("actualFileSize"),
             }
         )

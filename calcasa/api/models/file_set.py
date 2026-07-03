@@ -48,19 +48,19 @@ class FileSet(BaseModel):
     created_on: datetime = Field(alias="createdOn")
     expires_after: Optional[datetime] = Field(
         default=None,
-        description="If specified the file set will expire after this date and time. If no appropiate action is taken before this date and time, the file set and all its contents will be deleted.",
+        description="If specified, the file set will expire after this date and time. If no appropriate action is taken before this date and time, the file set and all its contents will be deleted.",
         alias="expiresAfter",
     )
     modified_on: datetime = Field(alias="modifiedOn")
     type: StrictStr = Field(
-        description="The type of the file set. This value should be constant for a given type of file set and should be agreed upon with Calcasa before use. It is used to ensure that the correct processing logic is applied to the file set based on its intended purpose."
+        description="The type of the file set. This value should be constant for a given type of file set and should be agreed upon with Calcasa before use. It is used to ensure that the correct processing logic is applied to the file set based on its intended purpose.  The tuple type, revision and period should always be unique."
     )
     revision: StrictInt = Field(
-        description="A revision number for the file set that is incremented for every retry or redelivery."
+        description="A revision number for the file set that is incremented for every retry or redelivery. The tuple type, revision and period should always be unique."
     )
     period: Optional[date] = Field(
         default=None,
-        description="The period of the inbound file set. This is a string that represents the time period for which the file set is relevant. It is used to categorize and identify the time frame of the data contained in the file set. The first day of the period is used when the period is a year, quarter or month. For example use the first of April for Q2. The period is represented in the format YYYY-MM-DD, where YYYY is the year, MM is the month, and DD is the day. If the period is not applicable, it can be set to null, only do this after consulting with Calcasa.",
+        description="The period of the inbound file set. This is a string that represents the time period for which the file set is relevant. It is used to categorize and identify the time frame of the data contained in the file set. The first day of the period is used when the period is a year, quarter or month. For example use the first of April for Q2. The period is represented in the format YYYY-MM-DD, where YYYY is the year, MM is the month, and DD is the day. If the period is not applicable, it can be set to null, only do this after consulting with Calcasa. The tuple type, revision and period should always be unique.",
     )
     __properties: ClassVar[List[str]] = [
         "id",

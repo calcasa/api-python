@@ -44,12 +44,12 @@ class CallbackInschrijving(BaseModel):
         alias="bagNummeraanduidingId",
     )
     geldig_tot: datetime = Field(
-        description="Verplicht. De datum tot wanneer deze inschrijving effect moet hebben. Als deze inschrijving verloopt wordt deze automatisch opgeruimt. De maximale termijn is afhankelijk van de gebruikte client.",
+        description="Verplicht. De datum tot wanneer deze inschrijving effect moet hebben. Als deze inschrijving verloopt, wordt deze automatisch opgeruimd. De maximale termijn is afhankelijk van de gebruikte client.",
         alias="geldigTot",
     )
     externe_referentie: Optional[StrictStr] = Field(
         default=None,
-        description="Een vrij veld dat terug komt met de callback payload om callbacks aan de juiste callback inschrijving te koppelen.",
+        description="Een vrij veld dat terugkomt met de callback payload om callbacks aan de juiste callbackinschrijving te koppelen.",
         alias="externeReferentie",
     )
     geldverstrekker: Optional[StrictStr] = Field(

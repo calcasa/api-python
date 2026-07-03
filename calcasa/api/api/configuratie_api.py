@@ -66,7 +66,7 @@ class ConfiguratieApi:
     ) -> CallbackAuthentication:
         """Haal de geconfigureerde callback authenticatie op voor de huidige client.
 
-        Het callback authentication object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -128,7 +128,7 @@ class ConfiguratieApi:
     ) -> ApiResponse[CallbackAuthentication]:
         """Haal de geconfigureerde callback authenticatie op voor de huidige client.
 
-        Het callback authentication object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -190,7 +190,7 @@ class ConfiguratieApi:
     ) -> RESTResponseType:
         """Haal de geconfigureerde callback authenticatie op voor de huidige client.
 
-        Het callback authentication object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -299,7 +299,7 @@ class ConfiguratieApi:
     ) -> List[Callback]:
         """Haal de geconfigureerde callback URL's op voor de huidige client.
 
-        Het callback object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -361,7 +361,7 @@ class ConfiguratieApi:
     ) -> ApiResponse[List[Callback]]:
         """Haal de geconfigureerde callback URL's op voor de huidige client.
 
-        Het callback object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -423,7 +423,7 @@ class ConfiguratieApi:
     ) -> RESTResponseType:
         """Haal de geconfigureerde callback URL's op voor de huidige client.
 
-        Het callback object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -999,7 +999,7 @@ class ConfiguratieApi:
     ) -> CallbackAuthentication:
         """Update de geconfigureerde callback authenticatie voor de huidige client.
 
-        Update callback authentication object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param callback_authentication: (required)
         :type callback_authentication: CallbackAuthentication
@@ -1066,7 +1066,7 @@ class ConfiguratieApi:
     ) -> ApiResponse[CallbackAuthentication]:
         """Update de geconfigureerde callback authenticatie voor de huidige client.
 
-        Update callback authentication object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param callback_authentication: (required)
         :type callback_authentication: CallbackAuthentication
@@ -1133,7 +1133,7 @@ class ConfiguratieApi:
     ) -> RESTResponseType:
         """Update de geconfigureerde callback authenticatie voor de huidige client.
 
-        Update callback authentication object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param callback_authentication: (required)
         :type callback_authentication: CallbackAuthentication

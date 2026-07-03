@@ -56,7 +56,7 @@ class GeldverstrekkersApi:
         product_type: Annotated[
             ProductType,
             Field(
-                description="Een parameter om de lijst te filteren op gesupporte producttypen."
+                description="Een parameter om de lijst te filteren op ondersteunde producttypen."
             ),
         ],
         _request_timeout: Union[
@@ -74,7 +74,7 @@ class GeldverstrekkersApi:
         """Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
 
 
-        :param product_type: Een parameter om de lijst te filteren op gesupporte producttypen. (required)
+        :param product_type: Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
         :type product_type: ProductType
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -126,7 +126,7 @@ class GeldverstrekkersApi:
         product_type: Annotated[
             ProductType,
             Field(
-                description="Een parameter om de lijst te filteren op gesupporte producttypen."
+                description="Een parameter om de lijst te filteren op ondersteunde producttypen."
             ),
         ],
         _request_timeout: Union[
@@ -144,7 +144,7 @@ class GeldverstrekkersApi:
         """Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
 
 
-        :param product_type: Een parameter om de lijst te filteren op gesupporte producttypen. (required)
+        :param product_type: Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
         :type product_type: ProductType
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -196,7 +196,7 @@ class GeldverstrekkersApi:
         product_type: Annotated[
             ProductType,
             Field(
-                description="Een parameter om de lijst te filteren op gesupporte producttypen."
+                description="Een parameter om de lijst te filteren op ondersteunde producttypen."
             ),
         ],
         _request_timeout: Union[
@@ -214,7 +214,7 @@ class GeldverstrekkersApi:
         """Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
 
 
-        :param product_type: Een parameter om de lijst te filteren op gesupporte producttypen. (required)
+        :param product_type: Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
         :type product_type: ProductType
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

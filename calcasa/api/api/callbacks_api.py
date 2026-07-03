@@ -70,7 +70,7 @@ class CallbacksApi:
     ) -> CallbackInschrijving:
         """Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
 
-        De callback objecten zullen gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimt als ze verlopen.
+        De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimd als ze verlopen.
 
         :param callback_inschrijving: De te configureren callback inschrijving. (required)
         :type callback_inschrijving: CallbackInschrijving
@@ -140,7 +140,7 @@ class CallbacksApi:
     ) -> ApiResponse[CallbackInschrijving]:
         """Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
 
-        De callback objecten zullen gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimt als ze verlopen.
+        De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimd als ze verlopen.
 
         :param callback_inschrijving: De te configureren callback inschrijving. (required)
         :type callback_inschrijving: CallbackInschrijving
@@ -210,7 +210,7 @@ class CallbacksApi:
     ) -> RESTResponseType:
         """Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
 
-        De callback objecten zullen gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimt als ze verlopen.
+        De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimd als ze verlopen.
 
         :param callback_inschrijving: De te configureren callback inschrijving. (required)
         :type callback_inschrijving: CallbackInschrijving
@@ -643,7 +643,7 @@ class CallbacksApi:
     ) -> CallbackInschrijving:
         """Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
 
-        Het callback object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -724,7 +724,7 @@ class CallbacksApi:
     ) -> ApiResponse[CallbackInschrijving]:
         """Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
 
-        Het callback object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -805,7 +805,7 @@ class CallbacksApi:
     ) -> RESTResponseType:
         """Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
 
-        Het callback object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -929,7 +929,7 @@ class CallbacksApi:
     ) -> List[CallbackInschrijving]:
         """Haal de callback inschrijvingen binnen voor deze client.
 
-        De callback objecten zullen gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -991,7 +991,7 @@ class CallbacksApi:
     ) -> ApiResponse[List[CallbackInschrijving]]:
         """Haal de callback inschrijvingen binnen voor deze client.
 
-        De callback objecten zullen gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1053,7 +1053,7 @@ class CallbacksApi:
     ) -> RESTResponseType:
         """Haal de callback inschrijvingen binnen voor deze client.
 
-        De callback objecten zullen gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

@@ -45,8 +45,9 @@ class FileInfo(BaseModel):
     name: StrictStr = Field(
         description="The name of the file, including its extension. This needs to be unique within the file set."
     )
-    sha256hash: Annotated[str, Field(strict=True)] = Field(
-        description="The SHA256 hash of the file contents, represented as an uppercase hexadecimal string. For the outbound file sets this is the expected hash, for inbound file sets this is the actual hash of the file contents."
+    content_hash: Annotated[str, Field(strict=True)] = Field(
+        description="The SHA256 hash of the file contents, represented as an uppercase hexadecimal string. For the outbound file sets this is the expected hash, for inbound file sets this is the actual hash of the file contents.",
+        alias="contentHash",
     )
     size: StrictInt = Field(
         description="The file size in bytes. For the outbound file sets this is the expected size, for inbound file sets this is the actual size of the file contents."
@@ -58,13 +59,13 @@ class FileInfo(BaseModel):
     __properties: ClassVar[List[str]] = [
         "index",
         "name",
-        "sha256hash",
+        "contentHash",
         "size",
         "contentType",
     ]
 
-    @field_validator("sha256hash")
-    def sha256hash_validate_regular_expression(cls, value):
+    @field_validator("content_hash")
+    def content_hash_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[A-F0-9]{64}$", value):
             raise ValueError(r"must validate the regular expression /^[A-F0-9]{64}$/")
@@ -122,7 +123,7 @@ class FileInfo(BaseModel):
             {
                 "index": obj.get("index"),
                 "name": obj.get("name"),
-                "sha256hash": obj.get("sha256hash"),
+                "contentHash": obj.get("contentHash"),
                 "size": obj.get("size"),
                 "contentType": obj.get("contentType"),
             }

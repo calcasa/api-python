@@ -72,7 +72,7 @@ class AdressenApi:
     ) -> AdresInfo:
         """Adres info op basis van BAG Nummeraanduiding Id.
 
-        De Notities zullen leeg blijven voor dit endpoint. Het adres object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        De Notities zullen leeg blijven voor dit endpoint. Het adresobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -144,7 +144,7 @@ class AdressenApi:
     ) -> ApiResponse[AdresInfo]:
         """Adres info op basis van BAG Nummeraanduiding Id.
 
-        De Notities zullen leeg blijven voor dit endpoint. Het adres object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        De Notities zullen leeg blijven voor dit endpoint. Het adresobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -216,7 +216,7 @@ class AdressenApi:
     ) -> RESTResponseType:
         """Adres info op basis van BAG Nummeraanduiding Id.
 
-        De Notities zullen leeg blijven voor dit endpoint. Het adres object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        De Notities zullen leeg blijven voor dit endpoint. Het adresobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -321,7 +321,7 @@ class AdressenApi:
         adres: Annotated[
             Adres,
             Field(
-                description="Het adres object dat gebruikt wordt om te zoeken naar adres informatie."
+                description="Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken."
             ),
         ],
         _request_timeout: Union[
@@ -336,11 +336,11 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AdresInfo:
-        """Zoek adres info op basis van het gegeven adres.
+        """Zoek adresinformatie op basis van het opgegeven adres.
 
-        De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummer toevoeging.
+        De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummertoevoeging.
 
-        :param adres: Het adres object dat gebruikt wordt om te zoeken naar adres informatie. (required)
+        :param adres: Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
         :type adres: Adres
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -393,7 +393,7 @@ class AdressenApi:
         adres: Annotated[
             Adres,
             Field(
-                description="Het adres object dat gebruikt wordt om te zoeken naar adres informatie."
+                description="Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken."
             ),
         ],
         _request_timeout: Union[
@@ -408,11 +408,11 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AdresInfo]:
-        """Zoek adres info op basis van het gegeven adres.
+        """Zoek adresinformatie op basis van het opgegeven adres.
 
-        De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummer toevoeging.
+        De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummertoevoeging.
 
-        :param adres: Het adres object dat gebruikt wordt om te zoeken naar adres informatie. (required)
+        :param adres: Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
         :type adres: Adres
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -465,7 +465,7 @@ class AdressenApi:
         adres: Annotated[
             Adres,
             Field(
-                description="Het adres object dat gebruikt wordt om te zoeken naar adres informatie."
+                description="Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken."
             ),
         ],
         _request_timeout: Union[
@@ -480,11 +480,11 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Zoek adres info op basis van het gegeven adres.
+        """Zoek adresinformatie op basis van het opgegeven adres.
 
-        De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummer toevoeging.
+        De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummertoevoeging.
 
-        :param adres: Het adres object dat gebruikt wordt om te zoeken naar adres informatie. (required)
+        :param adres: Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
         :type adres: Adres
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

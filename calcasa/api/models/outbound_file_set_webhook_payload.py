@@ -44,10 +44,10 @@ class OutboundFileSetWebhookPayload(BaseModel):
     callback_name: StrictStr = Field(alias="callbackName")
     event_id: UUID = Field(description="Uniek Id voor deze callback.", alias="eventId")
     timestamp: datetime = Field(description="Het tijdstip van het event, in UTC.")
-    file_set_id: Optional[UUID] = Field(
+    outbound_file_set_id: Optional[UUID] = Field(
         default=None,
-        description="The Id of the file set to which this callback pertains.",
-        alias="fileSetId",
+        description="The ID of the file set to which this callback pertains.",
+        alias="outboundFileSetId",
     )
     old_status: Optional[OutboundFileSetState] = Field(default=None, alias="oldStatus")
     new_status: Optional[OutboundFileSetState] = Field(default=None, alias="newStatus")
@@ -55,7 +55,7 @@ class OutboundFileSetWebhookPayload(BaseModel):
         "callbackName",
         "eventId",
         "timestamp",
-        "fileSetId",
+        "outboundFileSetId",
         "oldStatus",
         "newStatus",
     ]
@@ -118,7 +118,7 @@ class OutboundFileSetWebhookPayload(BaseModel):
                 "callbackName": obj.get("callbackName"),
                 "eventId": obj.get("eventId"),
                 "timestamp": obj.get("timestamp"),
-                "fileSetId": obj.get("fileSetId"),
+                "outboundFileSetId": obj.get("outboundFileSetId"),
                 "oldStatus": obj.get("oldStatus"),
                 "newStatus": obj.get("newStatus"),
             }

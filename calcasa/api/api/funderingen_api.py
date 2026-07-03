@@ -71,7 +71,7 @@ class FunderingenApi:
     ) -> Funderingdata:
         """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
 
-        Het funderingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -147,7 +147,7 @@ class FunderingenApi:
     ) -> ApiResponse[Funderingdata]:
         """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
 
-        Het funderingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -223,7 +223,7 @@ class FunderingenApi:
     ) -> RESTResponseType:
         """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
 
-        Het funderingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int

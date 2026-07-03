@@ -66,7 +66,7 @@ class BuurtApi:
     ) -> Omgevingsdata:
         """Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
 
-        Het omgevingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param buurt_code: Een CBS buurt code. (required)
         :type buurt_code: str
@@ -133,7 +133,7 @@ class BuurtApi:
     ) -> ApiResponse[Omgevingsdata]:
         """Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
 
-        Het omgevingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param buurt_code: Een CBS buurt code. (required)
         :type buurt_code: str
@@ -200,7 +200,7 @@ class BuurtApi:
     ) -> RESTResponseType:
         """Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
 
-        Het omgevingdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param buurt_code: Een CBS buurt code. (required)
         :type buurt_code: str

@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class Aanvraagdoel(str, Enum):
     """
-    English: Request Goal. | Waarde | Omschrijving | | --- | --- | | `onbekend` | English: Unknown. | | `aankoopNieuweWoning` | English: New Home Purchase. | | `overbruggingsfinanciering` | English: Bridge Financing. | | `hypotheekOversluiten` | English: Refinancing Mortgage. | | `hypotheekOphogen` | English: Increasing Mortage. | | `hypotheekWijziging` | English: Changing Mortgage. | | `hypotheekrenteWijzigen` | English: Change Mortgage Intrest. |
+    English: Request Goal. | Waarde | Omschrijving | | --- | --- | | `onbekend` | English: Unknown. | | `aankoopNieuweWoning` | English: New Home Purchase. | | `overbruggingsfinanciering` | English: Bridge Financing. | | `hypotheekOversluiten` | English: Refinancing Mortgage. | | `hypotheekOphogen` | English: Increasing Mortgage. | | `hypotheekWijziging` | English: Changing Mortgage. | | `hypotheekrenteWijzigen` | English: Change Mortgage Interest. |
     """
 
     """

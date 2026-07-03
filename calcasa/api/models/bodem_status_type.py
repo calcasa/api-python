@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class BodemStatusType(str, Enum):
     """
-    | Waarde | Omschrijving | | --- | --- | | `geenData` | Er is geen data beschikbaar over deze bodem. | | `onbekend` | De status van deze bodem is niet bekend. | | `nietVervuild` | De bodem is niet vervuild. | | `nietErnstig` | De bodem is niet ernstig vervuild. | | `potentieelErnstig` | De bodem is potentieel ernstig veruild. | | `ernstig` | De bodem is ernstig veruild. |
+    | Waarde | Omschrijving | | --- | --- | | `geenData` | Er is geen data beschikbaar over deze bodem. | | `onbekend` | De status van deze bodem is niet bekend. | | `nietVervuild` | De bodem is niet vervuild. | | `nietErnstig` | De bodem is niet ernstig vervuild. | | `potentieelErnstig` | De bodem is potentieel ernstig vervuild. | | `ernstig` | De bodem is ernstig vervuild. |
     """
 
     """

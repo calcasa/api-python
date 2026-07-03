@@ -71,7 +71,7 @@ class BodemApi:
     ) -> Bodemdata:
         """Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
 
-        Het bodemdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -143,7 +143,7 @@ class BodemApi:
     ) -> ApiResponse[Bodemdata]:
         """Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
 
-        Het bodemdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -215,7 +215,7 @@ class BodemApi:
     ) -> RESTResponseType:
         """Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
 
-        Het bodemdata object zal gefilterd terug komen afhankelijk van het client_id wat gebruikt is voor de authenticatie.
+        Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int

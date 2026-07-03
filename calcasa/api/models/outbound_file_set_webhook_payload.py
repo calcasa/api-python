@@ -36,7 +36,7 @@ from typing import Optional, Set
 from typing_extensions import Self
 
 
-class FileSetsOutboundFileSetWebhookPayload(BaseModel):
+class OutboundFileSetWebhookPayload(BaseModel):
     """
     The payload for the webhooks for the outbound file sets.
     """  # noqa: E501
@@ -77,7 +77,7 @@ class FileSetsOutboundFileSetWebhookPayload(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FileSetsOutboundFileSetWebhookPayload from a JSON string"""
+        """Create an instance of OutboundFileSetWebhookPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -106,7 +106,7 @@ class FileSetsOutboundFileSetWebhookPayload(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FileSetsOutboundFileSetWebhookPayload from a dict"""
+        """Create an instance of OutboundFileSetWebhookPayload from a dict"""
         if obj is None:
             return None
 

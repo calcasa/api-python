@@ -34,9 +34,9 @@ from typing import Optional, Set
 from typing_extensions import Self
 
 
-class FileSetsFileInfo(BaseModel):
+class FileInfo(BaseModel):
     """
-    FileSetsFileInfo
+    FileInfo
     """  # noqa: E501
 
     index: StrictInt = Field(
@@ -48,11 +48,20 @@ class FileSetsFileInfo(BaseModel):
     sha256hash: Annotated[str, Field(strict=True)] = Field(
         description="The SHA256 hash of the file contents, represented as an uppercase hexadecimal string. For the outbound file sets this is the expected hash, for inbound file sets this is the actual hash of the file contents."
     )
-    file_size: StrictInt = Field(
-        description="The file size in bytes. For the outbound file sets this is the expected size, for inbound file sets this is the actual size of the file contents.",
-        alias="fileSize",
+    size: StrictInt = Field(
+        description="The file size in bytes. For the outbound file sets this is the expected size, for inbound file sets this is the actual size of the file contents."
     )
-    __properties: ClassVar[List[str]] = ["index", "name", "sha256hash", "fileSize"]
+    content_type: StrictStr = Field(
+        description='The content type of the file, which indicates the media type of the file contents. This is used to determine how to handle and process the file. For example, "application/pdf" for PDF files, "image/jpeg" for JPEG images, etc. Refer to [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) for possible values.',
+        alias="contentType",
+    )
+    __properties: ClassVar[List[str]] = [
+        "index",
+        "name",
+        "sha256hash",
+        "size",
+        "contentType",
+    ]
 
     @field_validator("sha256hash")
     def sha256hash_validate_regular_expression(cls, value):
@@ -78,7 +87,7 @@ class FileSetsFileInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FileSetsFileInfo from a JSON string"""
+        """Create an instance of FileInfo from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -102,7 +111,7 @@ class FileSetsFileInfo(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FileSetsFileInfo from a dict"""
+        """Create an instance of FileInfo from a dict"""
         if obj is None:
             return None
 
@@ -114,7 +123,8 @@ class FileSetsFileInfo(BaseModel):
                 "index": obj.get("index"),
                 "name": obj.get("name"),
                 "sha256hash": obj.get("sha256hash"),
-                "fileSize": obj.get("fileSize"),
+                "size": obj.get("size"),
+                "contentType": obj.get("contentType"),
             }
         )
         return _obj

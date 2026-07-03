@@ -30,12 +30,13 @@ from typing_extensions import Self
 
 class OutboundFileSetState(str, Enum):
     """
-    Outbound file set states.  | Value | Description | | --- | --- | | `ready` | File set is ready and is waiting for the files to be downloaded. | | `deleted` | File set has been downloaded and has been deleted. | | `expired` | File set has expired and all its contents have been deleted. |
+    Outbound file set states.  | Value | Description | | --- | --- | | `preparing` | File set is being prepared for download. | | `ready` | File set is ready and is waiting for the files to be downloaded. | | `deleted` | File set has been downloaded and has been deleted. | | `expired` | File set has expired and all its contents have been deleted. |
     """
 
     """
     allowed enum values
     """
+    PREPARING = "preparing"
     READY = "ready"
     DELETED = "deleted"
     EXPIRED = "expired"

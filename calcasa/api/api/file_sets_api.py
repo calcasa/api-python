@@ -30,8 +30,8 @@ from typing_extensions import Annotated
 from pydantic import StrictBytes, StrictInt, StrictStr
 from typing import List, Optional, Tuple, Union
 from uuid import UUID
-from calcasa.api.models.file_sets_inbound_file_set import FileSetsInboundFileSet
-from calcasa.api.models.file_sets_outbound_file_set import FileSetsOutboundFileSet
+from calcasa.api.models.inbound_file_set import InboundFileSet
+from calcasa.api.models.outbound_file_set import OutboundFileSet
 
 from calcasa.api.api_client import ApiClient, RequestSerialized
 from calcasa.api.api_response import ApiResponse
@@ -65,7 +65,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FileSetsInboundFileSet:
+    ) -> InboundFileSet:
         """confirm_inbound_file_set_by_id
 
         Confirm inbound file set after it's has been fully uploaded. This will start the verification of the fileset, when the status is updated the callback will be triggered with the new status. When validation fails, a new file set will need to be created. If the file set is not confirmed within 24 hours, it will expire and all it's uploaded ocntents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
@@ -103,10 +103,10 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
-            "409": "InboundFileSetAlreadyCompletedProblemDetails",
+            "409": "InboundFileSetAlreadyConfirmedProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -132,7 +132,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FileSetsInboundFileSet]:
+    ) -> ApiResponse[InboundFileSet]:
         """confirm_inbound_file_set_by_id
 
         Confirm inbound file set after it's has been fully uploaded. This will start the verification of the fileset, when the status is updated the callback will be triggered with the new status. When validation fails, a new file set will need to be created. If the file set is not confirmed within 24 hours, it will expire and all it's uploaded ocntents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
@@ -170,10 +170,10 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
-            "409": "InboundFileSetAlreadyCompletedProblemDetails",
+            "409": "InboundFileSetAlreadyConfirmedProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -237,10 +237,10 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
-            "409": "InboundFileSetAlreadyCompletedProblemDetails",
+            "409": "InboundFileSetAlreadyConfirmedProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -304,7 +304,7 @@ class FileSetsApi:
     @validate_call
     def create_inbound_file_set(
         self,
-        file_sets_inbound_file_set: FileSetsInboundFileSet,
+        inbound_file_set: InboundFileSet,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -316,13 +316,13 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FileSetsInboundFileSet:
+    ) -> InboundFileSet:
         """create_inbound_file_set
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, a InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all it's uploaded ocntents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
-        :param file_sets_inbound_file_set: (required)
-        :type file_sets_inbound_file_set: FileSetsInboundFileSet
+        :param inbound_file_set: (required)
+        :type inbound_file_set: InboundFileSet
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -346,7 +346,7 @@ class FileSetsApi:
         """  # noqa: E501
 
         _param = self._create_inbound_file_set_serialize(
-            file_sets_inbound_file_set=file_sets_inbound_file_set,
+            inbound_file_set=inbound_file_set,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -354,7 +354,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "400": "InvalidArgumentProblemDetails",
             "401": "UnauthorizedProblemDetails",
             "409": "InboundFileSetAlreadyExistsProblemDetails",
@@ -371,7 +371,7 @@ class FileSetsApi:
     @validate_call
     def create_inbound_file_set_with_http_info(
         self,
-        file_sets_inbound_file_set: FileSetsInboundFileSet,
+        inbound_file_set: InboundFileSet,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -383,13 +383,13 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FileSetsInboundFileSet]:
+    ) -> ApiResponse[InboundFileSet]:
         """create_inbound_file_set
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, a InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all it's uploaded ocntents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
-        :param file_sets_inbound_file_set: (required)
-        :type file_sets_inbound_file_set: FileSetsInboundFileSet
+        :param inbound_file_set: (required)
+        :type inbound_file_set: InboundFileSet
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -413,7 +413,7 @@ class FileSetsApi:
         """  # noqa: E501
 
         _param = self._create_inbound_file_set_serialize(
-            file_sets_inbound_file_set=file_sets_inbound_file_set,
+            inbound_file_set=inbound_file_set,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -421,7 +421,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "400": "InvalidArgumentProblemDetails",
             "401": "UnauthorizedProblemDetails",
             "409": "InboundFileSetAlreadyExistsProblemDetails",
@@ -438,7 +438,7 @@ class FileSetsApi:
     @validate_call
     def create_inbound_file_set_without_preload_content(
         self,
-        file_sets_inbound_file_set: FileSetsInboundFileSet,
+        inbound_file_set: InboundFileSet,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -455,8 +455,8 @@ class FileSetsApi:
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, a InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all it's uploaded ocntents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
-        :param file_sets_inbound_file_set: (required)
-        :type file_sets_inbound_file_set: FileSetsInboundFileSet
+        :param inbound_file_set: (required)
+        :type inbound_file_set: InboundFileSet
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -480,7 +480,7 @@ class FileSetsApi:
         """  # noqa: E501
 
         _param = self._create_inbound_file_set_serialize(
-            file_sets_inbound_file_set=file_sets_inbound_file_set,
+            inbound_file_set=inbound_file_set,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -488,7 +488,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "400": "InvalidArgumentProblemDetails",
             "401": "UnauthorizedProblemDetails",
             "409": "InboundFileSetAlreadyExistsProblemDetails",
@@ -500,7 +500,7 @@ class FileSetsApi:
 
     def _create_inbound_file_set_serialize(
         self,
-        file_sets_inbound_file_set,
+        inbound_file_set,
         _request_auth,
         _content_type,
         _headers,
@@ -525,8 +525,8 @@ class FileSetsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if file_sets_inbound_file_set is not None:
-            _body_params = file_sets_inbound_file_set
+        if inbound_file_set is not None:
+            _body_params = inbound_file_set
 
         # set the HTTP header `Accept`
         if "Accept" not in _header_params:
@@ -822,7 +822,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FileSetsInboundFileSet:
+    ) -> InboundFileSet:
         """Get a specific inbound file set by its ID.
 
 
@@ -859,7 +859,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -887,7 +887,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FileSetsInboundFileSet]:
+    ) -> ApiResponse[InboundFileSet]:
         """Get a specific inbound file set by its ID.
 
 
@@ -924,7 +924,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -989,7 +989,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsInboundFileSet",
+            "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -1066,7 +1066,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[FileSetsInboundFileSet]:
+    ) -> List[InboundFileSet]:
         """Get all inbound file sets.
 
 
@@ -1100,7 +1100,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "List[FileSetsInboundFileSet]",
+            "200": "List[InboundFileSet]",
             "401": "UnauthorizedProblemDetails",
         }
         response_data = self.api_client.call_api(
@@ -1126,7 +1126,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[FileSetsInboundFileSet]]:
+    ) -> ApiResponse[List[InboundFileSet]]:
         """Get all inbound file sets.
 
 
@@ -1160,7 +1160,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "List[FileSetsInboundFileSet]",
+            "200": "List[InboundFileSet]",
             "401": "UnauthorizedProblemDetails",
         }
         response_data = self.api_client.call_api(
@@ -1220,7 +1220,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "List[FileSetsInboundFileSet]",
+            "200": "List[InboundFileSet]",
             "401": "UnauthorizedProblemDetails",
         }
         response_data = self.api_client.call_api(
@@ -1569,7 +1569,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FileSetsOutboundFileSet:
+    ) -> OutboundFileSet:
         """Get a specific outbound file set by its ID.
 
 
@@ -1606,7 +1606,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsOutboundFileSet",
+            "200": "OutboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -1634,7 +1634,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FileSetsOutboundFileSet]:
+    ) -> ApiResponse[OutboundFileSet]:
         """Get a specific outbound file set by its ID.
 
 
@@ -1671,7 +1671,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsOutboundFileSet",
+            "200": "OutboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -1736,7 +1736,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FileSetsOutboundFileSet",
+            "200": "OutboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -1813,7 +1813,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[FileSetsOutboundFileSet]:
+    ) -> List[OutboundFileSet]:
         """Get all outbound file sets.
 
 
@@ -1847,7 +1847,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "List[FileSetsOutboundFileSet]",
+            "200": "List[OutboundFileSet]",
             "401": "UnauthorizedProblemDetails",
         }
         response_data = self.api_client.call_api(
@@ -1873,7 +1873,7 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[FileSetsOutboundFileSet]]:
+    ) -> ApiResponse[List[OutboundFileSet]]:
         """Get all outbound file sets.
 
 
@@ -1907,7 +1907,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "List[FileSetsOutboundFileSet]",
+            "200": "List[OutboundFileSet]",
             "401": "UnauthorizedProblemDetails",
         }
         response_data = self.api_client.call_api(
@@ -1967,7 +1967,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "List[FileSetsOutboundFileSet]",
+            "200": "List[OutboundFileSet]",
             "401": "UnauthorizedProblemDetails",
         }
         response_data = self.api_client.call_api(

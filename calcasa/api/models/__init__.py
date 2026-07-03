@@ -48,16 +48,8 @@ from calcasa.api.models.expired_valuation_problem_details import (
 )
 from calcasa.api.models.factuur import Factuur
 from calcasa.api.models.file_error import FileError
-from calcasa.api.models.file_sets_file_info import FileSetsFileInfo
-from calcasa.api.models.file_sets_file_set import FileSetsFileSet
-from calcasa.api.models.file_sets_inbound_file_set import FileSetsInboundFileSet
-from calcasa.api.models.file_sets_inbound_file_set_webhook_payload import (
-    FileSetsInboundFileSetWebhookPayload,
-)
-from calcasa.api.models.file_sets_outbound_file_set import FileSetsOutboundFileSet
-from calcasa.api.models.file_sets_outbound_file_set_webhook_payload import (
-    FileSetsOutboundFileSetWebhookPayload,
-)
+from calcasa.api.models.file_info import FileInfo
+from calcasa.api.models.file_set import FileSet
 from calcasa.api.models.file_warning import FileWarning
 from calcasa.api.models.foto import Foto
 from calcasa.api.models.frontend_deeplinks import FrontendDeeplinks
@@ -75,13 +67,17 @@ from calcasa.api.models.funderingdata import Funderingdata
 from calcasa.api.models.funderingsrisico import Funderingsrisico
 from calcasa.api.models.gebiedsdata import Gebiedsdata
 from calcasa.api.models.geldverstrekker import Geldverstrekker
-from calcasa.api.models.inbound_file_set_already_completed_problem_details import (
-    InboundFileSetAlreadyCompletedProblemDetails,
+from calcasa.api.models.inbound_file_set import InboundFileSet
+from calcasa.api.models.inbound_file_set_already_confirmed_problem_details import (
+    InboundFileSetAlreadyConfirmedProblemDetails,
 )
 from calcasa.api.models.inbound_file_set_already_exists_problem_details import (
     InboundFileSetAlreadyExistsProblemDetails,
 )
 from calcasa.api.models.inbound_file_set_state import InboundFileSetState
+from calcasa.api.models.inbound_file_set_webhook_payload import (
+    InboundFileSetWebhookPayload,
+)
 from calcasa.api.models.invalid_argument_problem_details import (
     InvalidArgumentProblemDetails,
 )
@@ -98,7 +94,11 @@ from calcasa.api.models.onderhoud_staat import OnderhoudStaat
 from calcasa.api.models.operation import Operation
 from calcasa.api.models.operation_type import OperationType
 from calcasa.api.models.opnamedata import Opnamedata
+from calcasa.api.models.outbound_file_set import OutboundFileSet
 from calcasa.api.models.outbound_file_set_state import OutboundFileSetState
+from calcasa.api.models.outbound_file_set_webhook_payload import (
+    OutboundFileSetWebhookPayload,
+)
 from calcasa.api.models.permissions_denied_problem_details import (
     PermissionsDeniedProblemDetails,
 )

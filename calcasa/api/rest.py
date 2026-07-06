@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -58,12 +58,17 @@ class RESTResponse(io.IOBase):
             self.data = self.response.data
         return self.data
 
+    @property
+    def headers(self):
+        """Returns a dictionary of response headers."""
+        return self.response.headers
+
     def getheaders(self):
-        """Returns a dictionary of the response headers."""
+        """Returns a dictionary of the response headers; use ``headers`` instead."""
         return self.response.headers
 
     def getheader(self, name, default=None):
-        """Returns a given response header."""
+        """Returns a given response header; use ``headers.get()`` instead."""
         return self.response.headers.get(name, default)
 
 

@@ -27,48 +27,35 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from calcasa.api.models.file_info import FileInfo
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
 
-class ResourceExhaustedProblemDetails(BaseModel):
+class CreateInboundFileSetRequest(BaseModel):
     """
-    Resource exhausted.
+    CreateInboundFileSetRequest
     """  # noqa: E501
 
-    resource: Optional[StrictStr] = Field(
-        default=None, json_schema_extra={"examples": ["entity:1234123"]}
+    files: Optional[List[FileInfo]] = Field(
+        default=None, description="The files associated with the file set."
     )
-    type: Optional[StrictStr] = Field(
+    type: StrictStr = Field(
+        description="The type of the file set. This value should be constant for a given type of file set and should be agreed upon with Calcasa before use. It is used to ensure that the correct processing logic is applied to the file set based on its intended purpose.  The tuple type, revision and period should always be unique."
+    )
+    revision: StrictInt = Field(
+        description="A revision number for the file set that is incremented for every retry or redelivery. The tuple type, revision and period should always be unique."
+    )
+    period: Optional[date] = Field(
         default=None,
-        description="A URI reference [RFC3986] that identifies the problem type.",
+        description="The period of the inbound file set. This is a string that represents the time period for which the file set is relevant. It is used to categorize and identify the time frame of the data contained in the file set. The first day of the period is used when the period is a year, quarter or month. For example use the first of April for Q2. The period is represented in the format YYYY-MM-DD, where YYYY is the year, MM is the month, and DD is the day. If the period is not applicable, it can be set to null, only do this after consulting with Calcasa. The tuple type, revision and period should always be unique.",
+        json_schema_extra={"examples": ["2021-04-28"]},
     )
-    title: Optional[StrictStr] = Field(
-        default=None, description="A short, human-readable summary of the problem type."
-    )
-    status: Optional[StrictInt] = Field(
-        default=None,
-        description="The HTTP status code for this occurrence of the problem.",
-    )
-    detail: Optional[StrictStr] = Field(
-        default=None,
-        description="A human-readable explanation specific to this occurrence of the problem.",
-    )
-    instance: Optional[StrictStr] = Field(
-        default=None,
-        description="A URI reference that identifies the specific occurrence of the problem.",
-    )
-    __properties: ClassVar[List[str]] = [
-        "resource",
-        "type",
-        "title",
-        "status",
-        "detail",
-        "instance",
-    ]
+    __properties: ClassVar[List[str]] = ["files", "type", "revision", "period"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,7 +74,7 @@ class ResourceExhaustedProblemDetails(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ResourceExhaustedProblemDetails from a JSON string"""
+        """Create an instance of CreateInboundFileSetRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -107,36 +94,28 @@ class ResourceExhaustedProblemDetails(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if type (nullable) is None
+        # override the default output from pydantic by calling `to_dict()` of each item in files (list)
+        _items = []
+        if self.files:
+            for _item_files in self.files:
+                if _item_files:
+                    _items.append(_item_files.to_dict())
+            _dict["files"] = _items
+        # set to None if files (nullable) is None
         # and model_fields_set contains the field
-        if self.type is None and "type" in self.model_fields_set:
-            _dict["type"] = None
+        if self.files is None and "files" in self.model_fields_set:
+            _dict["files"] = None
 
-        # set to None if title (nullable) is None
+        # set to None if period (nullable) is None
         # and model_fields_set contains the field
-        if self.title is None and "title" in self.model_fields_set:
-            _dict["title"] = None
-
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict["status"] = None
-
-        # set to None if detail (nullable) is None
-        # and model_fields_set contains the field
-        if self.detail is None and "detail" in self.model_fields_set:
-            _dict["detail"] = None
-
-        # set to None if instance (nullable) is None
-        # and model_fields_set contains the field
-        if self.instance is None and "instance" in self.model_fields_set:
-            _dict["instance"] = None
+        if self.period is None and "period" in self.model_fields_set:
+            _dict["period"] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ResourceExhaustedProblemDetails from a dict"""
+        """Create an instance of CreateInboundFileSetRequest from a dict"""
         if obj is None:
             return None
 
@@ -145,12 +124,14 @@ class ResourceExhaustedProblemDetails(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "resource": obj.get("resource"),
+                "files": (
+                    [FileInfo.from_dict(_item) for _item in obj["files"]]
+                    if obj.get("files") is not None
+                    else None
+                ),
                 "type": obj.get("type"),
-                "title": obj.get("title"),
-                "status": obj.get("status"),
-                "detail": obj.get("detail"),
-                "instance": obj.get("instance"),
+                "revision": obj.get("revision"),
+                "period": obj.get("period"),
             }
         )
         return _obj

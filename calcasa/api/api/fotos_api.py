@@ -1,7 +1,5 @@
-# coding: utf-8
-
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -69,12 +67,12 @@ class FotosApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> bytearray:
+    ) -> bytes:
         """Foto op basis van een foto Id.
 
 
         :param id: De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -106,7 +104,7 @@ class FotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
             "404": "NotFoundProblemDetails",
@@ -140,12 +138,12 @@ class FotosApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[bytearray]:
+    ) -> ApiResponse[bytes]:
         """Foto op basis van een foto Id.
 
 
         :param id: De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -177,7 +175,7 @@ class FotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
             "404": "NotFoundProblemDetails",
@@ -216,7 +214,7 @@ class FotosApi:
 
 
         :param id: De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -248,7 +246,7 @@ class FotosApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
             "404": "NotFoundProblemDetails",

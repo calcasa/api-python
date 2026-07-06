@@ -1,7 +1,5 @@
-# coding: utf-8
-
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -610,7 +608,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -681,7 +679,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -752,7 +750,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1145,7 +1143,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1215,7 +1213,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1285,7 +1283,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1406,7 +1404,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param list_operation: (required)
         :type list_operation: list[Operation]
         :param _request_timeout: timeout setting for this request. If one
@@ -1482,7 +1480,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param list_operation: (required)
         :type list_operation: list[Operation]
         :param _request_timeout: timeout setting for this request. If one
@@ -1558,7 +1556,7 @@ class WaarderingenApi:
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
 
         :param id: De waardering Id in de vorm van een UUID. (required)
-        :type id: str
+        :type id: UUID
         :param list_operation: (required)
         :type list_operation: list[Operation]
         :param _request_timeout: timeout setting for this request. If one

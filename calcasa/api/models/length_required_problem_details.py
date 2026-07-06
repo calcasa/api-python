@@ -27,30 +27,43 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from calcasa.api.models.gebiedsdata import Gebiedsdata
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
 
-class Omgevingsdata(BaseModel):
+class LengthRequiredProblemDetails(BaseModel):
     """
-    Omgevingsdata
+    LengthRequiredProblemDetails
     """  # noqa: E501
 
-    buurt: Optional[Gebiedsdata] = None
-    wijk: Optional[Gebiedsdata] = None
-    gemeente: Optional[Gebiedsdata] = None
-    provincie: Optional[Gebiedsdata] = None
-    land: Optional[Gebiedsdata] = None
+    type: Optional[StrictStr] = Field(
+        default=None,
+        description="A URI reference [RFC3986] that identifies the problem type.",
+    )
+    title: Optional[StrictStr] = Field(
+        default=None, description="A short, human-readable summary of the problem type."
+    )
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="The HTTP status code for this occurrence of the problem.",
+    )
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description="A human-readable explanation specific to this occurrence of the problem.",
+    )
+    instance: Optional[StrictStr] = Field(
+        default=None,
+        description="A URI reference that identifies the specific occurrence of the problem.",
+    )
     __properties: ClassVar[List[str]] = [
-        "buurt",
-        "wijk",
-        "gemeente",
-        "provincie",
-        "land",
+        "type",
+        "title",
+        "status",
+        "detail",
+        "instance",
     ]
 
     model_config = ConfigDict(
@@ -70,7 +83,7 @@ class Omgevingsdata(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Omgevingsdata from a JSON string"""
+        """Create an instance of LengthRequiredProblemDetails from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -90,26 +103,36 @@ class Omgevingsdata(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of buurt
-        if self.buurt:
-            _dict["buurt"] = self.buurt.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of wijk
-        if self.wijk:
-            _dict["wijk"] = self.wijk.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of gemeente
-        if self.gemeente:
-            _dict["gemeente"] = self.gemeente.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of provincie
-        if self.provincie:
-            _dict["provincie"] = self.provincie.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of land
-        if self.land:
-            _dict["land"] = self.land.to_dict()
+        # set to None if type (nullable) is None
+        # and model_fields_set contains the field
+        if self.type is None and "type" in self.model_fields_set:
+            _dict["type"] = None
+
+        # set to None if title (nullable) is None
+        # and model_fields_set contains the field
+        if self.title is None and "title" in self.model_fields_set:
+            _dict["title"] = None
+
+        # set to None if status (nullable) is None
+        # and model_fields_set contains the field
+        if self.status is None and "status" in self.model_fields_set:
+            _dict["status"] = None
+
+        # set to None if detail (nullable) is None
+        # and model_fields_set contains the field
+        if self.detail is None and "detail" in self.model_fields_set:
+            _dict["detail"] = None
+
+        # set to None if instance (nullable) is None
+        # and model_fields_set contains the field
+        if self.instance is None and "instance" in self.model_fields_set:
+            _dict["instance"] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Omgevingsdata from a dict"""
+        """Create an instance of LengthRequiredProblemDetails from a dict"""
         if obj is None:
             return None
 
@@ -118,31 +141,11 @@ class Omgevingsdata(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "buurt": (
-                    Gebiedsdata.from_dict(obj["buurt"])
-                    if obj.get("buurt") is not None
-                    else None
-                ),
-                "wijk": (
-                    Gebiedsdata.from_dict(obj["wijk"])
-                    if obj.get("wijk") is not None
-                    else None
-                ),
-                "gemeente": (
-                    Gebiedsdata.from_dict(obj["gemeente"])
-                    if obj.get("gemeente") is not None
-                    else None
-                ),
-                "provincie": (
-                    Gebiedsdata.from_dict(obj["provincie"])
-                    if obj.get("provincie") is not None
-                    else None
-                ),
-                "land": (
-                    Gebiedsdata.from_dict(obj["land"])
-                    if obj.get("land") is not None
-                    else None
-                ),
+                "type": obj.get("type"),
+                "title": obj.get("title"),
+                "status": obj.get("status"),
+                "detail": obj.get("detail"),
+                "instance": obj.get("instance"),
             }
         )
         return _obj

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 
 class DeelWaarderingWebhookPayload(BaseModel):
@@ -42,7 +43,10 @@ class DeelWaarderingWebhookPayload(BaseModel):
 
     callback_name: StrictStr = Field(alias="callbackName")
     event_id: UUID = Field(description="Uniek Id voor deze callback.", alias="eventId")
-    timestamp: datetime = Field(description="Het tijdstip van het event, in UTC.")
+    timestamp: datetime = Field(
+        description="Het tijdstip van het event, in UTC.",
+        json_schema_extra={"examples": ["2021-04-28T12:34:45Z"]},
+    )
     waardering_id: Optional[UUID] = Field(
         default=None,
         description="Het Id van de waardering waarop deze callback betrekking heeft.",
@@ -56,7 +60,8 @@ class DeelWaarderingWebhookPayload(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -67,8 +72,7 @@ class DeelWaarderingWebhookPayload(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

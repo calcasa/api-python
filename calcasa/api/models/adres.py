@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 
 class Adres(BaseModel):
@@ -42,18 +43,27 @@ class Adres(BaseModel):
     straat: Optional[StrictStr] = Field(
         default=None,
         description="De straatnaam zoals geschreven in de BAG (Basisregistratie Adressen en Gebouwen).",
+        json_schema_extra={"examples": ["Voorbeeldstraat"]},
     )
-    huisnummer: Optional[StrictInt] = Field(default=None, description="Het huisnummer.")
+    huisnummer: Optional[StrictInt] = Field(
+        default=None,
+        description="Het huisnummer.",
+        json_schema_extra={"examples": [123]},
+    )
     huisnummertoevoeging: Optional[StrictStr] = Field(
-        default=None, description="De huisnummertoevoeging."
+        default=None,
+        description="De huisnummertoevoeging.",
+        json_schema_extra={"examples": ["A"]},
     )
     postcode: Optional[Annotated[str, Field(strict=True)]] = Field(
         default=None,
         description="De postcode met 4 cijfers en 2 letters zonder spatie.",
+        json_schema_extra={"examples": ["1234AB"]},
     )
     woonplaats: Optional[StrictStr] = Field(
         default=None,
         description="De woonplaats zoals geschreven in de BAG (Basisregistratie Adressen en Gebouwen).",
+        json_schema_extra={"examples": ["Voorbeeldstad"]},
     )
     __properties: ClassVar[List[str]] = [
         "straat",
@@ -69,6 +79,9 @@ class Adres(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}[A-Z]{2}$", value):
             raise ValueError(
                 r"must validate the regular expression /^[0-9]{4}[A-Z]{2}$/"
@@ -76,7 +89,8 @@ class Adres(BaseModel):
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -87,8 +101,7 @@ class Adres(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -1,7 +1,5 @@
-# coding: utf-8
-
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -30,6 +28,10 @@ from typing_extensions import Annotated
 from pydantic import StrictBytes, StrictInt, StrictStr, field_validator
 from typing import List, Optional, Tuple, Union
 from uuid import UUID
+from calcasa.api.models.create_inbound_file_set_request import (
+    CreateInboundFileSetRequest,
+)
+from calcasa.api.models.file_set_limits import FileSetLimits
 from calcasa.api.models.inbound_file_set import InboundFileSet
 from calcasa.api.models.outbound_file_set import OutboundFileSet
 
@@ -71,7 +73,7 @@ class FileSetsApi:
         Confirm an inbound file set after it has been fully uploaded. This will start verification of the file set. When the status is updated, the callback will be triggered with the new status. When validation fails, a new file set must be created. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -138,7 +140,7 @@ class FileSetsApi:
         Confirm an inbound file set after it has been fully uploaded. This will start verification of the file set. When the status is updated, the callback will be triggered with the new status. When validation fails, a new file set must be created. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -205,7 +207,7 @@ class FileSetsApi:
         Confirm an inbound file set after it has been fully uploaded. This will start verification of the file set. When the status is updated, the callback will be triggered with the new status. When validation fails, a new file set must be created. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -304,7 +306,7 @@ class FileSetsApi:
     @validate_call
     def create_inbound_file_set(
         self,
-        inbound_file_set: InboundFileSet,
+        create_inbound_file_set_request: CreateInboundFileSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -321,8 +323,8 @@ class FileSetsApi:
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, an InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
-        :param inbound_file_set: (required)
-        :type inbound_file_set: InboundFileSet
+        :param create_inbound_file_set_request: (required)
+        :type create_inbound_file_set_request: CreateInboundFileSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -346,7 +348,7 @@ class FileSetsApi:
         """  # noqa: E501
 
         _param = self._create_inbound_file_set_serialize(
-            inbound_file_set=inbound_file_set,
+            create_inbound_file_set_request=create_inbound_file_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -371,7 +373,7 @@ class FileSetsApi:
     @validate_call
     def create_inbound_file_set_with_http_info(
         self,
-        inbound_file_set: InboundFileSet,
+        create_inbound_file_set_request: CreateInboundFileSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -388,8 +390,8 @@ class FileSetsApi:
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, an InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
-        :param inbound_file_set: (required)
-        :type inbound_file_set: InboundFileSet
+        :param create_inbound_file_set_request: (required)
+        :type create_inbound_file_set_request: CreateInboundFileSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -413,7 +415,7 @@ class FileSetsApi:
         """  # noqa: E501
 
         _param = self._create_inbound_file_set_serialize(
-            inbound_file_set=inbound_file_set,
+            create_inbound_file_set_request=create_inbound_file_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -438,7 +440,7 @@ class FileSetsApi:
     @validate_call
     def create_inbound_file_set_without_preload_content(
         self,
-        inbound_file_set: InboundFileSet,
+        create_inbound_file_set_request: CreateInboundFileSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -455,8 +457,8 @@ class FileSetsApi:
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, an InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](/api/v1/reference/schemas/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](/api/v1/reference/schemas/OutboundFileSetWebhookPayload) |
 
-        :param inbound_file_set: (required)
-        :type inbound_file_set: InboundFileSet
+        :param create_inbound_file_set_request: (required)
+        :type create_inbound_file_set_request: CreateInboundFileSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -480,7 +482,7 @@ class FileSetsApi:
         """  # noqa: E501
 
         _param = self._create_inbound_file_set_serialize(
-            inbound_file_set=inbound_file_set,
+            create_inbound_file_set_request=create_inbound_file_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -500,7 +502,7 @@ class FileSetsApi:
 
     def _create_inbound_file_set_serialize(
         self,
-        inbound_file_set,
+        create_inbound_file_set_request,
         _request_auth,
         _content_type,
         _headers,
@@ -525,8 +527,8 @@ class FileSetsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if inbound_file_set is not None:
-            _body_params = inbound_file_set
+        if create_inbound_file_set_request is not None:
+            _body_params = create_inbound_file_set_request
 
         # set the HTTP header `Accept`
         if "Accept" not in _header_params:
@@ -583,7 +585,7 @@ class FileSetsApi:
         Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -649,7 +651,7 @@ class FileSetsApi:
         Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -715,7 +717,7 @@ class FileSetsApi:
         Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -811,6 +813,233 @@ class FileSetsApi:
         )
 
     @validate_call
+    def get_file_set_limits(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FileSetLimits:
+        """Get file set limits.
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._get_file_set_limits_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "FileSetLimits",
+            "401": "UnauthorizedProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def get_file_set_limits_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FileSetLimits]:
+        """Get file set limits.
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._get_file_set_limits_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "FileSetLimits",
+            "401": "UnauthorizedProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def get_file_set_limits_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get file set limits.
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._get_file_set_limits_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "FileSetLimits",
+            "401": "UnauthorizedProblemDetails",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _get_file_set_limits_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
+            )
+
+        # authentication setting
+        _auth_settings: List[str] = ["oauth"]
+
+        return self.api_client.param_serialize(
+            method="GET",
+            resource_path="/file-sets/limits",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def get_inbound_file_set_by_id(
         self,
         inbound_file_set_id: UUID,
@@ -830,7 +1059,7 @@ class FileSetsApi:
 
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -895,7 +1124,7 @@ class FileSetsApi:
 
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -960,7 +1189,7 @@ class FileSetsApi:
 
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1072,6 +1301,7 @@ class FileSetsApi:
     ) -> List[InboundFileSet]:
         """Get all inbound file sets.
 
+        This will not include the file details, only the metadata of the file set. Use the GetInboundFileSetById operation to get the details of a specific file set.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1132,6 +1362,7 @@ class FileSetsApi:
     ) -> ApiResponse[List[InboundFileSet]]:
         """Get all inbound file sets.
 
+        This will not include the file details, only the metadata of the file set. Use the GetInboundFileSetById operation to get the details of a specific file set.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1192,6 +1423,7 @@ class FileSetsApi:
     ) -> RESTResponseType:
         """Get all inbound file sets.
 
+        This will not include the file details, only the metadata of the file set. Use the GetInboundFileSetById operation to get the details of a specific file set.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1300,13 +1532,13 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> bytearray:
+    ) -> bytes:
         """Get a specific outbound file content by its index within a file set.
 
         Get a specific outbound file content by its index within a file set. Use the Http Range header to request a specific byte range of the file and Accept-Encoding to specify the compression. If the Range header is not provided, the entire file will be returned.
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
         :param range:
@@ -1347,7 +1579,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -1378,13 +1610,13 @@ class FileSetsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[bytearray]:
+    ) -> ApiResponse[bytes]:
         """Get a specific outbound file content by its index within a file set.
 
         Get a specific outbound file content by its index within a file set. Use the Http Range header to request a specific byte range of the file and Accept-Encoding to specify the compression. If the Range header is not provided, the entire file will be returned.
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
         :param range:
@@ -1425,7 +1657,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -1462,7 +1694,7 @@ class FileSetsApi:
         Get a specific outbound file content by its index within a file set. Use the Http Range header to request a specific byte range of the file and Accept-Encoding to specify the compression. If the Range header is not provided, the entire file will be returned.
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
         :param range:
@@ -1503,7 +1735,7 @@ class FileSetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
         }
@@ -1595,7 +1827,7 @@ class FileSetsApi:
 
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1660,7 +1892,7 @@ class FileSetsApi:
 
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1725,7 +1957,7 @@ class FileSetsApi:
 
 
         :param outbound_file_set_id: (required)
-        :type outbound_file_set_id: str
+        :type outbound_file_set_id: UUID
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1837,6 +2069,7 @@ class FileSetsApi:
     ) -> List[OutboundFileSet]:
         """Get all outbound file sets.
 
+        This will not include the file details, only the metadata of the file set. Use the GetOutboundFileSetById operation to get the details of a specific file set.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1897,6 +2130,7 @@ class FileSetsApi:
     ) -> ApiResponse[List[OutboundFileSet]]:
         """Get all outbound file sets.
 
+        This will not include the file details, only the metadata of the file set. Use the GetOutboundFileSetById operation to get the details of a specific file set.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1957,6 +2191,7 @@ class FileSetsApi:
     ) -> RESTResponseType:
         """Get all outbound file sets.
 
+        This will not include the file details, only the metadata of the file set. Use the GetOutboundFileSetById operation to get the details of a specific file set.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2071,11 +2306,11 @@ class FileSetsApi:
         Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param content_encoding:
         :type content_encoding: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2116,6 +2351,8 @@ class FileSetsApi:
             "400": "InvalidArgumentProblemDetails",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
+            "411": "LengthRequiredProblemDetails",
+            "413": "ContentTooLargeProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -2150,11 +2387,11 @@ class FileSetsApi:
         Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param content_encoding:
         :type content_encoding: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2195,6 +2432,8 @@ class FileSetsApi:
             "400": "InvalidArgumentProblemDetails",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
+            "411": "LengthRequiredProblemDetails",
+            "413": "ContentTooLargeProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -2229,11 +2468,11 @@ class FileSetsApi:
         Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 
         :param inbound_file_set_id: (required)
-        :type inbound_file_set_id: str
+        :type inbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
         :param body: (required)
-        :type body: bytearray
+        :type body: bytes
         :param content_encoding:
         :type content_encoding: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2274,6 +2513,8 @@ class FileSetsApi:
             "400": "InvalidArgumentProblemDetails",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
+            "411": "LengthRequiredProblemDetails",
+            "413": "ContentTooLargeProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout

@@ -1,7 +1,5 @@
-# coding: utf-8
-
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -141,7 +139,7 @@ class ApiException(OpenApiException):
                     self.body = http_resp.data.decode("utf-8")
                 except Exception:
                     pass
-            self.headers = http_resp.getheaders()
+            self.headers = http_resp.headers
 
     @classmethod
     def from_response(
@@ -182,8 +180,11 @@ class ApiException(OpenApiException):
         if self.headers:
             error_message += "HTTP response headers: {0}\n".format(self.headers)
 
-        if self.data or self.body:
-            error_message += "HTTP response body: {0}\n".format(self.data or self.body)
+        if self.body:
+            error_message += "HTTP response body: {0}\n".format(self.body)
+
+        if self.data:
+            error_message += "HTTP response data: {0}\n".format(self.data)
 
         return error_message
 

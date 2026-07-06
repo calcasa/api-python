@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 
 class Bestemmingsdata(BaseModel):
@@ -40,17 +41,21 @@ class Bestemmingsdata(BaseModel):
     """  # noqa: E501
 
     enkelbestemming: Optional[StrictStr] = Field(
-        default=None, description="De enkelbestemming volgens het bestemmingsplan."
+        default=None,
+        description="De enkelbestemming volgens het bestemmingsplan.",
+        json_schema_extra={"examples": ["woongebied"]},
     )
     datum_bestemmingplan: Optional[date] = Field(
         default=None,
         description="De datum waarop dit bestemmingsplan vastgelegd is.",
         alias="datumBestemmingplan",
+        json_schema_extra={"examples": ["2021-04-28"]},
     )
     __properties: ClassVar[List[str]] = ["enkelbestemming", "datumBestemmingplan"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -61,8 +66,7 @@ class Bestemmingsdata(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

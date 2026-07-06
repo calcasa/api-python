@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 
 class FileInfo(BaseModel):
@@ -43,11 +44,17 @@ class FileInfo(BaseModel):
         description="The index of the file within the file set. Zero-based."
     )
     name: StrictStr = Field(
-        description="The name of the file, including its extension. This needs to be unique within the file set."
+        description="The name of the file, including its extension. This needs to be unique within the file set.",
+        json_schema_extra={"examples": ["data.csv"]},
     )
     content_hash: Annotated[str, Field(strict=True)] = Field(
         description="The SHA256 hash of the file contents, represented as an uppercase hexadecimal string. For the outbound file sets this is the expected hash, for inbound file sets this is the actual hash of the file contents.",
         alias="contentHash",
+        json_schema_extra={
+            "examples": [
+                "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+            ]
+        },
     )
     size: StrictInt = Field(
         description="The file size in bytes. For the outbound file sets this is the expected size, for inbound file sets this is the actual size of the file contents."
@@ -67,12 +74,16 @@ class FileInfo(BaseModel):
     @field_validator("content_hash")
     def content_hash_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[A-F0-9]{64}$", value):
             raise ValueError(r"must validate the regular expression /^[A-F0-9]{64}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -83,8 +94,7 @@ class FileInfo(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

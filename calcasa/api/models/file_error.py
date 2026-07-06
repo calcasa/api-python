@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 
 class FileError(BaseModel):
@@ -40,10 +41,15 @@ class FileError(BaseModel):
     """  # noqa: E501
 
     index: StrictInt
-    name: StrictStr
+    name: StrictStr = Field(json_schema_extra={"examples": ["data.csv"]})
     expected_content_hash: Annotated[str, Field(strict=True)] = Field(
         description="The expected SHA256 hash of the file contents, represented as an uppercase hexadecimal string.",
         alias="expectedContentHash",
+        json_schema_extra={
+            "examples": [
+                "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+            ]
+        },
     )
     expected_file_size: StrictInt = Field(
         description="The expected file size in bytes.", alias="expectedFileSize"
@@ -51,6 +57,11 @@ class FileError(BaseModel):
     actual_content_hash: Annotated[str, Field(strict=True)] = Field(
         description="The actual SHA256 hash of the file contents, represented as an uppercase hexadecimal string.",
         alias="actualContentHash",
+        json_schema_extra={
+            "examples": [
+                "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+            ]
+        },
     )
     actual_file_size: StrictInt = Field(
         description="The actual file size in bytes.", alias="actualFileSize"
@@ -67,6 +78,9 @@ class FileError(BaseModel):
     @field_validator("expected_content_hash")
     def expected_content_hash_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[A-F0-9]{64}$", value):
             raise ValueError(r"must validate the regular expression /^[A-F0-9]{64}$/")
         return value
@@ -74,12 +88,16 @@ class FileError(BaseModel):
     @field_validator("actual_content_hash")
     def actual_content_hash_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[A-F0-9]{64}$", value):
             raise ValueError(r"must validate the regular expression /^[A-F0-9]{64}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -90,8 +108,7 @@ class FileError(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

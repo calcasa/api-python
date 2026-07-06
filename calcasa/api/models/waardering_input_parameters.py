@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ from calcasa.api.models.klantwaarde_type import KlantwaardeType
 from calcasa.api.models.product_type import ProductType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 
 class WaarderingInputParameters(BaseModel):
@@ -87,6 +88,7 @@ class WaarderingInputParameters(BaseModel):
     peildatum: Optional[date] = Field(
         default=None,
         description="Optioneel te gebruiken voor de producttypen `modelwaardeRisico`. Peildatum voor de aanvraag. Standaard de datum van vandaag. Supports yyyy-MM-dd or optionally yyyy-MM-ddTHH:mm:ssZ (ISO) with the time stamp assumed to be in UTC and the time is dropped before using the value.",
+        json_schema_extra={"examples": ["2021-04-28"]},
     )
     is_erfpacht: Optional[StrictBool] = Field(
         default=None,
@@ -151,7 +153,8 @@ class WaarderingInputParameters(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -162,8 +165,7 @@ class WaarderingInputParameters(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

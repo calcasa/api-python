@@ -1,7 +1,5 @@
-# coding: utf-8
-
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -529,7 +527,7 @@ class ConfiguratieApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> bytearray:
+    ) -> bytes:
         """Get the self-signed mTLS certificate.
 
         Get the self-signed mTLS certificate.
@@ -564,7 +562,7 @@ class ConfiguratieApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
         }
@@ -591,7 +589,7 @@ class ConfiguratieApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[bytearray]:
+    ) -> ApiResponse[bytes]:
         """Get the self-signed mTLS certificate.
 
         Get the self-signed mTLS certificate.
@@ -626,7 +624,7 @@ class ConfiguratieApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
         }
@@ -688,7 +686,7 @@ class ConfiguratieApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
         }
@@ -762,7 +760,7 @@ class ConfiguratieApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> bytearray:
+    ) -> bytes:
         """Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
 
         Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren
@@ -797,7 +795,7 @@ class ConfiguratieApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
         }
@@ -824,7 +822,7 @@ class ConfiguratieApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[bytearray]:
+    ) -> ApiResponse[bytes]:
         """Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
 
         Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren
@@ -859,7 +857,7 @@ class ConfiguratieApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
         }
@@ -921,7 +919,7 @@ class ConfiguratieApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "bytearray",
+            "200": "bytes",
             "401": "UnauthorizedProblemDetails",
             "403": "PermissionsDeniedProblemDetails",
         }

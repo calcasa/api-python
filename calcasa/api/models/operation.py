@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2025 Calcasa B.V.
+Copyright 2026 Calcasa B.V.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from calcasa.api.models.operation_type import OperationType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 
 class Operation(BaseModel):
@@ -40,13 +41,20 @@ class Operation(BaseModel):
     """  # noqa: E501
 
     op: Optional[OperationType] = None
-    var_from: Optional[StrictStr] = Field(default=None, alias="from")
-    value: Optional[Any] = None
-    path: Optional[StrictStr] = None
+    var_from: Optional[StrictStr] = Field(
+        default=None, alias="from", json_schema_extra={"examples": ["/a/b/c"]}
+    )
+    value: Optional[Any] = Field(
+        default=None, json_schema_extra={"examples": [{"a": "b"}]}
+    )
+    path: Optional[StrictStr] = Field(
+        default=None, json_schema_extra={"examples": ["/d/e/f"]}
+    )
     __properties: ClassVar[List[str]] = ["op", "from", "value", "path"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -57,8 +65,7 @@ class Operation(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

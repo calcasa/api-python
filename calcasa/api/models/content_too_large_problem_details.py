@@ -34,13 +34,15 @@ from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
 
-class ResourceExhaustedProblemDetails(BaseModel):
+class ContentTooLargeProblemDetails(BaseModel):
     """
-    Resource exhausted.
+    ContentTooLargeProblemDetails
     """  # noqa: E501
 
-    resource: Optional[StrictStr] = Field(
-        default=None, json_schema_extra={"examples": ["entity:1234123"]}
+    max_content_length: Optional[StrictInt] = Field(
+        default=None,
+        description="If known the remaining content length in bytes that can be sent to the server. If not known, this property will be null.",
+        alias="maxContentLength",
     )
     type: Optional[StrictStr] = Field(
         default=None,
@@ -62,7 +64,7 @@ class ResourceExhaustedProblemDetails(BaseModel):
         description="A URI reference that identifies the specific occurrence of the problem.",
     )
     __properties: ClassVar[List[str]] = [
-        "resource",
+        "maxContentLength",
         "type",
         "title",
         "status",
@@ -87,7 +89,7 @@ class ResourceExhaustedProblemDetails(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ResourceExhaustedProblemDetails from a JSON string"""
+        """Create an instance of ContentTooLargeProblemDetails from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -107,6 +109,14 @@ class ResourceExhaustedProblemDetails(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if max_content_length (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.max_content_length is None
+            and "max_content_length" in self.model_fields_set
+        ):
+            _dict["maxContentLength"] = None
+
         # set to None if type (nullable) is None
         # and model_fields_set contains the field
         if self.type is None and "type" in self.model_fields_set:
@@ -136,7 +146,7 @@ class ResourceExhaustedProblemDetails(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ResourceExhaustedProblemDetails from a dict"""
+        """Create an instance of ContentTooLargeProblemDetails from a dict"""
         if obj is None:
             return None
 
@@ -145,7 +155,7 @@ class ResourceExhaustedProblemDetails(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "resource": obj.get("resource"),
+                "maxContentLength": obj.get("maxContentLength"),
                 "type": obj.get("type"),
                 "title": obj.get("title"),
                 "status": obj.get("status"),

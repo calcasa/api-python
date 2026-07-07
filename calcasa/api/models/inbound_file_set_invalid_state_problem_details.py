@@ -29,16 +29,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from calcasa.api.models.inbound_file_set_state import InboundFileSetState
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
 
-class InboundFileSetAlreadyConfirmedProblemDetails(BaseModel):
+class InboundFileSetInvalidStateProblemDetails(BaseModel):
     """
-    InboundFileSetAlreadyConfirmedProblemDetails
+    InboundFileSetInvalidStateProblemDetails
     """  # noqa: E501
 
+    state: InboundFileSetState
     type: Optional[StrictStr] = Field(
         default=None,
         description="A URI reference [RFC3986] that identifies the problem type.",
@@ -59,6 +61,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails(BaseModel):
         description="A URI reference that identifies the specific occurrence of the problem.",
     )
     __properties: ClassVar[List[str]] = [
+        "state",
         "type",
         "title",
         "status",
@@ -83,7 +86,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of InboundFileSetAlreadyConfirmedProblemDetails from a JSON string"""
+        """Create an instance of InboundFileSetInvalidStateProblemDetails from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -132,7 +135,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of InboundFileSetAlreadyConfirmedProblemDetails from a dict"""
+        """Create an instance of InboundFileSetInvalidStateProblemDetails from a dict"""
         if obj is None:
             return None
 
@@ -141,6 +144,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails(BaseModel):
 
         _obj = cls.model_validate(
             {
+                "state": obj.get("state"),
                 "type": obj.get("type"),
                 "title": obj.get("title"),
                 "status": obj.get("status"),

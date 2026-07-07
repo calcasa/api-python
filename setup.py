@@ -29,7 +29,7 @@ from setuptools import setup, find_namespace_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "calcasa.api"
-VERSION = "1.6.0-beta4"
+VERSION = "1.6.0-beta5"
 PYTHON_REQUIRES = ">= 3.10"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",

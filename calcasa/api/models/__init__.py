@@ -75,11 +75,11 @@ from calcasa.api.models.funderingsrisico import Funderingsrisico
 from calcasa.api.models.gebiedsdata import Gebiedsdata
 from calcasa.api.models.geldverstrekker import Geldverstrekker
 from calcasa.api.models.inbound_file_set import InboundFileSet
-from calcasa.api.models.inbound_file_set_already_confirmed_problem_details import (
-    InboundFileSetAlreadyConfirmedProblemDetails,
-)
 from calcasa.api.models.inbound_file_set_already_exists_problem_details import (
     InboundFileSetAlreadyExistsProblemDetails,
+)
+from calcasa.api.models.inbound_file_set_invalid_state_problem_details import (
+    InboundFileSetInvalidStateProblemDetails,
 )
 from calcasa.api.models.inbound_file_set_state import InboundFileSetState
 from calcasa.api.models.inbound_file_set_webhook_payload import (

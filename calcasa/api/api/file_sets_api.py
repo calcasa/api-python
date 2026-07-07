@@ -108,7 +108,7 @@ class FileSetsApi:
             "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
-            "409": "InboundFileSetAlreadyConfirmedProblemDetails",
+            "422": "InboundFileSetInvalidStateProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -175,7 +175,7 @@ class FileSetsApi:
             "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
-            "409": "InboundFileSetAlreadyConfirmedProblemDetails",
+            "422": "InboundFileSetInvalidStateProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -242,7 +242,7 @@ class FileSetsApi:
             "200": "InboundFileSet",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
-            "409": "InboundFileSetAlreadyConfirmedProblemDetails",
+            "422": "InboundFileSetInvalidStateProblemDetails",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -2573,6 +2573,16 @@ class FileSetsApi:
             _header_params["Accept"] = self.api_client.select_header_accept(
                 ["application/problem+json"]
             )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/octet-stream"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = ["oauth"]

@@ -35,9 +35,9 @@ from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
 
-class FileError(BaseModel):
+class FileContentError(BaseModel):
     """
-    FileError
+    FileContentError
     """  # noqa: E501
 
     index: StrictInt
@@ -112,7 +112,7 @@ class FileError(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FileError from a JSON string"""
+        """Create an instance of FileContentError from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -136,7 +136,7 @@ class FileError(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FileError from a dict"""
+        """Create an instance of FileContentError from a dict"""
         if obj is None:
             return None
 

@@ -28,26 +28,46 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from calcasa.api.models.outbound_file_set_state import OutboundFileSetState
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
 
-class FileWarning(BaseModel):
+class OutboundFileSetInvalidStateProblemDetails(BaseModel):
     """
-    FileWarning
+    OutboundFileSetInvalidStateProblemDetails
     """  # noqa: E501
 
-    index: StrictInt
-    name: StrictStr = Field(json_schema_extra={"examples": ["data.csv"]})
-    type: StrictStr = Field(
-        description="The type of the warning. Short mostly stable strings that can be used to identify the warning type."
+    state: OutboundFileSetState
+    type: Optional[StrictStr] = Field(
+        default=None,
+        description="A URI reference [RFC3986] that identifies the problem type.",
     )
-    description: StrictStr = Field(
-        description="A description of the warning to be presented to the user."
+    title: Optional[StrictStr] = Field(
+        default=None, description="A short, human-readable summary of the problem type."
     )
-    __properties: ClassVar[List[str]] = ["index", "name", "type", "description"]
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="The HTTP status code for this occurrence of the problem.",
+    )
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description="A human-readable explanation specific to this occurrence of the problem.",
+    )
+    instance: Optional[StrictStr] = Field(
+        default=None,
+        description="A URI reference that identifies the specific occurrence of the problem.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "state",
+        "type",
+        "title",
+        "status",
+        "detail",
+        "instance",
+    ]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -66,7 +86,7 @@ class FileWarning(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FileWarning from a JSON string"""
+        """Create an instance of OutboundFileSetInvalidStateProblemDetails from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -86,11 +106,36 @@ class FileWarning(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if type (nullable) is None
+        # and model_fields_set contains the field
+        if self.type is None and "type" in self.model_fields_set:
+            _dict["type"] = None
+
+        # set to None if title (nullable) is None
+        # and model_fields_set contains the field
+        if self.title is None and "title" in self.model_fields_set:
+            _dict["title"] = None
+
+        # set to None if status (nullable) is None
+        # and model_fields_set contains the field
+        if self.status is None and "status" in self.model_fields_set:
+            _dict["status"] = None
+
+        # set to None if detail (nullable) is None
+        # and model_fields_set contains the field
+        if self.detail is None and "detail" in self.model_fields_set:
+            _dict["detail"] = None
+
+        # set to None if instance (nullable) is None
+        # and model_fields_set contains the field
+        if self.instance is None and "instance" in self.model_fields_set:
+            _dict["instance"] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FileWarning from a dict"""
+        """Create an instance of OutboundFileSetInvalidStateProblemDetails from a dict"""
         if obj is None:
             return None
 
@@ -99,10 +144,12 @@ class FileWarning(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "index": obj.get("index"),
-                "name": obj.get("name"),
+                "state": obj.get("state"),
                 "type": obj.get("type"),
-                "description": obj.get("description"),
+                "title": obj.get("title"),
+                "status": obj.get("status"),
+                "detail": obj.get("detail"),
+                "instance": obj.get("instance"),
             }
         )
         return _obj

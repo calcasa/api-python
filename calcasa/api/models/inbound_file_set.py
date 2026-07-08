@@ -31,8 +31,8 @@ from datetime import date, datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
-from calcasa.api.models.file_error import FileError
-from calcasa.api.models.file_warning import FileWarning
+from calcasa.api.models.file_content_error import FileContentError
+from calcasa.api.models.file_notice import FileNotice
 from calcasa.api.models.inbound_file_info import InboundFileInfo
 from calcasa.api.models.inbound_file_set_state import InboundFileSetState
 from typing import Optional, Set
@@ -75,15 +75,20 @@ class InboundFileSet(BaseModel):
         default=None, description="The files associated with the file set."
     )
     state: InboundFileSetState = Field(
-        description="The current state of the inbound file set. This indicates the processing status of the file set."
+        description="The current state of the inbound file set. This indicates the processing state of the file set."
     )
-    errors: Optional[List[FileError]] = Field(
+    content_errors: Optional[List[FileContentError]] = Field(
         default=None,
-        description="Errors that occurred during the processing of the inbound file set. This is an array of FileError objects that provide details about each error, including the index of the file within the file set, the name of the file, the expected and actual SHA256 hash values, and the expected and actual file sizes.",
+        description="Errors that occurred during the initial processing of the inbound file set. This is an array of FileContentError objects that provide details about each error, including the index of the file within the file set, the name of the file, the expected and actual SHA256 hash values, and the expected and actual file sizes.",
+        alias="contentErrors",
     )
-    warnings: Optional[List[FileWarning]] = Field(
+    errors: Optional[List[FileNotice]] = Field(
         default=None,
-        description="Warnings that occurred during the processing of the inbound file set. This is an array of FileWarning objects that provide details about each warning, including the index of the file within the file set, the name of the file.",
+        description="Warnings that occurred during the processing of the inbound file set. This is an array of FileNotice objects that provide details about each warning, including the index of the file within the file set, the name of the file.",
+    )
+    warnings: Optional[List[FileNotice]] = Field(
+        default=None,
+        description="Warnings that occurred during the processing of the inbound file set. This is an array of FileNotice objects that provide details about each warning, including the index of the file within the file set, the name of the file.",
     )
     __properties: ClassVar[List[str]] = [
         "id",
@@ -95,6 +100,7 @@ class InboundFileSet(BaseModel):
         "period",
         "files",
         "state",
+        "contentErrors",
         "errors",
         "warnings",
     ]
@@ -135,6 +141,7 @@ class InboundFileSet(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set(
             [
@@ -143,6 +150,7 @@ class InboundFileSet(BaseModel):
                 "expires_after",
                 "modified_on",
                 "state",
+                "content_errors",
                 "errors",
                 "warnings",
             ]
@@ -160,6 +168,13 @@ class InboundFileSet(BaseModel):
                 if _item_files:
                     _items.append(_item_files.to_dict())
             _dict["files"] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in content_errors (list)
+        _items = []
+        if self.content_errors:
+            for _item_content_errors in self.content_errors:
+                if _item_content_errors:
+                    _items.append(_item_content_errors.to_dict())
+            _dict["contentErrors"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
         _items = []
         if self.errors:
@@ -188,6 +203,11 @@ class InboundFileSet(BaseModel):
         # and model_fields_set contains the field
         if self.files is None and "files" in self.model_fields_set:
             _dict["files"] = None
+
+        # set to None if errors (nullable) is None
+        # and model_fields_set contains the field
+        if self.errors is None and "errors" in self.model_fields_set:
+            _dict["errors"] = None
 
         # set to None if warnings (nullable) is None
         # and model_fields_set contains the field
@@ -220,13 +240,21 @@ class InboundFileSet(BaseModel):
                     else None
                 ),
                 "state": obj.get("state"),
+                "contentErrors": (
+                    [
+                        FileContentError.from_dict(_item)
+                        for _item in obj["contentErrors"]
+                    ]
+                    if obj.get("contentErrors") is not None
+                    else None
+                ),
                 "errors": (
-                    [FileError.from_dict(_item) for _item in obj["errors"]]
+                    [FileNotice.from_dict(_item) for _item in obj["errors"]]
                     if obj.get("errors") is not None
                     else None
                 ),
                 "warnings": (
-                    [FileWarning.from_dict(_item) for _item in obj["warnings"]]
+                    [FileNotice.from_dict(_item) for _item in obj["warnings"]]
                     if obj.get("warnings") is not None
                     else None
                 ),

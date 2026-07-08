@@ -27,42 +27,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from uuid import UUID
-from calcasa.api.models.inbound_file_set_state import InboundFileSetState
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
 
-class InboundFileSetWebhookPayload(BaseModel):
+class FileNotice(BaseModel):
     """
-    The payload for the webhooks for the inbound file sets.
+    FileNotice
     """  # noqa: E501
 
-    callback_name: StrictStr = Field(alias="callbackName")
-    event_id: UUID = Field(description="Uniek Id voor deze callback.", alias="eventId")
-    timestamp: datetime = Field(
-        description="Het tijdstip van het event, in UTC.",
-        json_schema_extra={"examples": ["2021-04-28T12:34:45Z"]},
+    index: StrictInt
+    name: StrictStr = Field(json_schema_extra={"examples": ["data.csv"]})
+    type: StrictStr = Field(
+        description="The type of the warning. Short mostly stable strings that can be used to identify the warning type."
     )
-    inbound_file_set_id: Optional[UUID] = Field(
-        default=None,
-        description="The ID of the file set to which this callback pertains.",
-        alias="inboundFileSetId",
+    description: StrictStr = Field(
+        description="A description of the warning to be presented to the user."
     )
-    old_state: Optional[InboundFileSetState] = Field(default=None, alias="oldState")
-    new_state: Optional[InboundFileSetState] = Field(default=None, alias="newState")
-    __properties: ClassVar[List[str]] = [
-        "callbackName",
-        "eventId",
-        "timestamp",
-        "inboundFileSetId",
-        "oldState",
-        "newState",
-    ]
+    __properties: ClassVar[List[str]] = ["index", "name", "type", "description"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -81,7 +66,7 @@ class InboundFileSetWebhookPayload(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of InboundFileSetWebhookPayload from a JSON string"""
+        """Create an instance of FileNotice from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -93,13 +78,8 @@ class InboundFileSetWebhookPayload(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
         """
-        excluded_fields: Set[str] = set(
-            [
-                "callback_name",
-            ]
-        )
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -110,7 +90,7 @@ class InboundFileSetWebhookPayload(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of InboundFileSetWebhookPayload from a dict"""
+        """Create an instance of FileNotice from a dict"""
         if obj is None:
             return None
 
@@ -119,12 +99,10 @@ class InboundFileSetWebhookPayload(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "callbackName": obj.get("callbackName"),
-                "eventId": obj.get("eventId"),
-                "timestamp": obj.get("timestamp"),
-                "inboundFileSetId": obj.get("inboundFileSetId"),
-                "oldState": obj.get("oldState"),
-                "newState": obj.get("newState"),
+                "index": obj.get("index"),
+                "name": obj.get("name"),
+                "type": obj.get("type"),
+                "description": obj.get("description"),
             }
         )
         return _obj

@@ -54,11 +54,11 @@ from calcasa.api.models.expired_valuation_problem_details import (
     ExpiredValuationProblemDetails,
 )
 from calcasa.api.models.factuur import Factuur
-from calcasa.api.models.file_error import FileError
+from calcasa.api.models.file_content_error import FileContentError
 from calcasa.api.models.file_info import FileInfo
+from calcasa.api.models.file_notice import FileNotice
 from calcasa.api.models.file_set import FileSet
 from calcasa.api.models.file_set_limits import FileSetLimits
-from calcasa.api.models.file_warning import FileWarning
 from calcasa.api.models.foto import Foto
 from calcasa.api.models.frontend_deeplinks import FrontendDeeplinks
 from calcasa.api.models.fundering_data_bron import FunderingDataBron
@@ -107,6 +107,9 @@ from calcasa.api.models.operation import Operation
 from calcasa.api.models.operation_type import OperationType
 from calcasa.api.models.opnamedata import Opnamedata
 from calcasa.api.models.outbound_file_set import OutboundFileSet
+from calcasa.api.models.outbound_file_set_invalid_state_problem_details import (
+    OutboundFileSetInvalidStateProblemDetails,
+)
 from calcasa.api.models.outbound_file_set_state import OutboundFileSetState
 from calcasa.api.models.outbound_file_set_webhook_payload import (
     OutboundFileSetWebhookPayload,

@@ -556,8 +556,8 @@ class Configuration:
             "Python SDK Debug Report:\n"
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
-            "Version of the API: 1.6.0-beta6\n"
-            "SDK Package Version: 1.6.0-beta6".format(
+            "Version of the API: 1.6.0-beta7\n"
+            "SDK Package Version: 1.6.0-beta7".format(
                 env=sys.platform, pyversion=sys.version
             )
         )

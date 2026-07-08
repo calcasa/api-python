@@ -53,15 +53,15 @@ class OutboundFileSetWebhookPayload(BaseModel):
         description="The ID of the file set to which this callback pertains.",
         alias="outboundFileSetId",
     )
-    old_status: Optional[OutboundFileSetState] = Field(default=None, alias="oldStatus")
-    new_status: Optional[OutboundFileSetState] = Field(default=None, alias="newStatus")
+    old_state: Optional[OutboundFileSetState] = Field(default=None, alias="oldState")
+    new_state: Optional[OutboundFileSetState] = Field(default=None, alias="newState")
     __properties: ClassVar[List[str]] = [
         "callbackName",
         "eventId",
         "timestamp",
         "outboundFileSetId",
-        "oldStatus",
-        "newStatus",
+        "oldState",
+        "newState",
     ]
 
     model_config = ConfigDict(
@@ -123,8 +123,8 @@ class OutboundFileSetWebhookPayload(BaseModel):
                 "eventId": obj.get("eventId"),
                 "timestamp": obj.get("timestamp"),
                 "outboundFileSetId": obj.get("outboundFileSetId"),
-                "oldStatus": obj.get("oldStatus"),
-                "newStatus": obj.get("newStatus"),
+                "oldState": obj.get("oldState"),
+                "newState": obj.get("newState"),
             }
         )
         return _obj

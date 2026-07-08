@@ -38,6 +38,7 @@ from calcasa.api.models.callback import Callback
 from calcasa.api.models.callback_authentication import CallbackAuthentication
 from calcasa.api.models.callback_inschrijving import CallbackInschrijving
 from calcasa.api.models.cbs_indeling import CbsIndeling
+from calcasa.api.models.compression_type import CompressionType
 from calcasa.api.models.content_too_large_problem_details import (
     ContentTooLargeProblemDetails,
 )
@@ -74,6 +75,7 @@ from calcasa.api.models.funderingdata import Funderingdata
 from calcasa.api.models.funderingsrisico import Funderingsrisico
 from calcasa.api.models.gebiedsdata import Gebiedsdata
 from calcasa.api.models.geldverstrekker import Geldverstrekker
+from calcasa.api.models.inbound_file_info import InboundFileInfo
 from calcasa.api.models.inbound_file_set import InboundFileSet
 from calcasa.api.models.inbound_file_set_already_exists_problem_details import (
     InboundFileSetAlreadyExistsProblemDetails,

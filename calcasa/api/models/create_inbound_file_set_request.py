@@ -30,7 +30,7 @@ import json
 from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from calcasa.api.models.file_info import FileInfo
+from calcasa.api.models.inbound_file_info import InboundFileInfo
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -41,8 +41,8 @@ class CreateInboundFileSetRequest(BaseModel):
     CreateInboundFileSetRequest
     """  # noqa: E501
 
-    files: Optional[List[FileInfo]] = Field(
-        default=None, description="The files associated with the file set."
+    files: List[InboundFileInfo] = Field(
+        description="The files associated with the file set."
     )
     type: StrictStr = Field(
         description="The type of the file set. This value should be constant for a given type of file set and should be agreed upon with Calcasa before use. It is used to ensure that the correct processing logic is applied to the file set based on its intended purpose.  The tuple type, revision and period should always be unique."
@@ -101,11 +101,6 @@ class CreateInboundFileSetRequest(BaseModel):
                 if _item_files:
                     _items.append(_item_files.to_dict())
             _dict["files"] = _items
-        # set to None if files (nullable) is None
-        # and model_fields_set contains the field
-        if self.files is None and "files" in self.model_fields_set:
-            _dict["files"] = None
-
         # set to None if period (nullable) is None
         # and model_fields_set contains the field
         if self.period is None and "period" in self.model_fields_set:
@@ -125,7 +120,7 @@ class CreateInboundFileSetRequest(BaseModel):
         _obj = cls.model_validate(
             {
                 "files": (
-                    [FileInfo.from_dict(_item) for _item in obj["files"]]
+                    [InboundFileInfo.from_dict(_item) for _item in obj["files"]]
                     if obj.get("files") is not None
                     else None
                 ),

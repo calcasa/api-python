@@ -25,7 +25,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictBytes, StrictInt, StrictStr, field_validator
+from pydantic import StrictBytes, StrictInt, StrictStr
 from typing import List, Optional, Tuple, Union
 from uuid import UUID
 from calcasa.api.models.create_inbound_file_set_request import (
@@ -2287,8 +2287,8 @@ class FileSetsApi:
         self,
         inbound_file_set_id: UUID,
         file_index: StrictInt,
+        chunk_index: StrictInt,
         body: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        content_encoding: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2303,16 +2303,16 @@ class FileSetsApi:
     ) -> None:
         """Upload a specific file chunk for an inbound file set.
 
-        Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
+        Upload a specific file chunk for an inbound file set. All chunks must be uploaded with consecutive chunk indices, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 
         :param inbound_file_set_id: (required)
         :type inbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
+        :param chunk_index: (required)
+        :type chunk_index: int
         :param body: (required)
         :type body: bytes
-        :param content_encoding:
-        :type content_encoding: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2338,8 +2338,8 @@ class FileSetsApi:
         _param = self._put_file_chunk_serialize(
             inbound_file_set_id=inbound_file_set_id,
             file_index=file_index,
+            chunk_index=chunk_index,
             body=body,
-            content_encoding=content_encoding,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2368,8 +2368,8 @@ class FileSetsApi:
         self,
         inbound_file_set_id: UUID,
         file_index: StrictInt,
+        chunk_index: StrictInt,
         body: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        content_encoding: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2384,16 +2384,16 @@ class FileSetsApi:
     ) -> ApiResponse[None]:
         """Upload a specific file chunk for an inbound file set.
 
-        Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
+        Upload a specific file chunk for an inbound file set. All chunks must be uploaded with consecutive chunk indices, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 
         :param inbound_file_set_id: (required)
         :type inbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
+        :param chunk_index: (required)
+        :type chunk_index: int
         :param body: (required)
         :type body: bytes
-        :param content_encoding:
-        :type content_encoding: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2419,8 +2419,8 @@ class FileSetsApi:
         _param = self._put_file_chunk_serialize(
             inbound_file_set_id=inbound_file_set_id,
             file_index=file_index,
+            chunk_index=chunk_index,
             body=body,
-            content_encoding=content_encoding,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2449,8 +2449,8 @@ class FileSetsApi:
         self,
         inbound_file_set_id: UUID,
         file_index: StrictInt,
+        chunk_index: StrictInt,
         body: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        content_encoding: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2465,16 +2465,16 @@ class FileSetsApi:
     ) -> RESTResponseType:
         """Upload a specific file chunk for an inbound file set.
 
-        Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
+        Upload a specific file chunk for an inbound file set. All chunks must be uploaded with consecutive chunk indices, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 
         :param inbound_file_set_id: (required)
         :type inbound_file_set_id: UUID
         :param file_index: (required)
         :type file_index: int
+        :param chunk_index: (required)
+        :type chunk_index: int
         :param body: (required)
         :type body: bytes
-        :param content_encoding:
-        :type content_encoding: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2500,8 +2500,8 @@ class FileSetsApi:
         _param = self._put_file_chunk_serialize(
             inbound_file_set_id=inbound_file_set_id,
             file_index=file_index,
+            chunk_index=chunk_index,
             body=body,
-            content_encoding=content_encoding,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2525,8 +2525,8 @@ class FileSetsApi:
         self,
         inbound_file_set_id,
         file_index,
+        chunk_index,
         body,
-        content_encoding,
         _request_auth,
         _content_type,
         _headers,
@@ -2551,10 +2551,10 @@ class FileSetsApi:
             _path_params["inboundFileSetId"] = inbound_file_set_id
         if file_index is not None:
             _path_params["fileIndex"] = file_index
+        if chunk_index is not None:
+            _path_params["chunkIndex"] = chunk_index
         # process the query parameters
         # process the header parameters
-        if content_encoding is not None:
-            _header_params["content-encoding"] = content_encoding
         # process the form parameters
         # process the body parameter
         if body is not None:
@@ -2589,7 +2589,7 @@ class FileSetsApi:
 
         return self.api_client.param_serialize(
             method="PUT",
-            resource_path="/file-sets/inbound/{inboundFileSetId}/{fileIndex}",
+            resource_path="/file-sets/inbound/{inboundFileSetId}/{fileIndex}/{chunkIndex}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

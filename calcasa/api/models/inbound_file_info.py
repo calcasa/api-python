@@ -44,8 +44,8 @@ class InboundFileInfo(BaseModel):
     index: StrictInt = Field(
         description="The index of the file within the file set. Zero-based."
     )
-    name: StrictStr = Field(
-        description="The name of the file, including its extension. This needs to be unique within the file set.",
+    name: Annotated[str, Field(min_length=1, strict=True, max_length=128)] = Field(
+        description="The name of the file, including its extension. This needs to be unique within the file set.  This can contain '/' as the directory separator, but the file name cannot start or end with a '/' and cannot contain consecutive '/' characters. Can contain A-Z, a-z, 0-9, a space and '-./{}[]()' characters. The maximum length is 128 characters.",
         json_schema_extra={"examples": ["data.csv"]},
     )
     content_hash: Annotated[str, Field(strict=True)] = Field(
@@ -76,6 +76,18 @@ class InboundFileInfo(BaseModel):
         "contentType",
         "compression",
     ]
+
+    @field_validator("name")
+    def name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
+        if not re.match(r"^[A-Za-z0-9-_\.\[\]\{\}\(\)\/ ]+$", value):
+            raise ValueError(
+                r"must validate the regular expression /^[A-Za-z0-9-_\.\[\]\{\}\(\)\/ ]+$/"
+            )
+        return value
 
     @field_validator("content_hash")
     def content_hash_validate_regular_expression(cls, value):

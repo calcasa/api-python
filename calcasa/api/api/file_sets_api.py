@@ -1580,8 +1580,10 @@ class FileSetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "bytes",
+            "206": "bytes",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
+            "416": None,
             "422": "OutboundFileSetInvalidStateProblemDetails",
         }
         response_data = self.api_client.call_api(
@@ -1659,8 +1661,10 @@ class FileSetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "bytes",
+            "206": "bytes",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
+            "416": None,
             "422": "OutboundFileSetInvalidStateProblemDetails",
         }
         response_data = self.api_client.call_api(
@@ -1738,8 +1742,10 @@ class FileSetsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "bytes",
+            "206": "bytes",
             "401": "UnauthorizedProblemDetails",
             "404": "NotFoundProblemDetails",
+            "416": None,
             "422": "OutboundFileSetInvalidStateProblemDetails",
         }
         response_data = self.api_client.call_api(

@@ -28,8 +28,9 @@ import re  # noqa: F401
 import json
 
 from datetime import date, datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
@@ -59,8 +60,8 @@ class FileSet(BaseModel):
     type: StrictStr = Field(
         description="The type of the file set. This value should be constant for a given type of file set and should be agreed upon with Calcasa before use. It is used to ensure that the correct processing logic is applied to the file set based on its intended purpose.  The tuple type, revision and period should always be unique."
     )
-    revision: StrictInt = Field(
-        description="A revision number for the file set that is incremented for every retry or redelivery. The tuple type, revision and period should always be unique."
+    revision: Annotated[int, Field(strict=True, ge=1)] = Field(
+        description="A revision number for the file set that is incremented for every retry or redelivery. The tuple type, revision and period should always be unique. Starts at 1."
     )
     period: Optional[date] = Field(
         default=None,

@@ -289,7 +289,7 @@ class FileSetsApi:
         _auth_settings: List[str] = ["oauth"]
 
         return self.api_client.param_serialize(
-            method="PUT",
+            method="POST",
             resource_path="/file-sets/inbound/{inboundFileSetId}",
             path_params=_path_params,
             query_params=_query_params,

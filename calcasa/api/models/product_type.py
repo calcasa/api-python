@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class ProductType(str, Enum):
     """
-    Het producttype voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentials. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Geen geldige invoer. Onbekend product type. | | `modelwaardeCalcasa` | Niet beschikbaar op dit moment.<br>            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | `desktopTaxatieHerwaardering` | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. | | `desktopTaxatiePlus` | Desktop taxatie plus aanvraag met Desktop Taxatie Plus rapport. |
+    Het producttype voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentials. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Geen geldige invoer. Onbekend product type. | | `modelwaardeCalcasa` | Niet beschikbaar op dit moment.<br>            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeOnePage` | Modelwaarde aanvraag met Calcasa One Page rapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | `desktopTaxatieHerwaardering` | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. | | `desktopTaxatiePlus` | Desktop taxatie plus aanvraag met Desktop Taxatie Plus rapport. |
     """
 
     """
@@ -38,6 +38,7 @@ class ProductType(str, Enum):
     """
     ONBEKEND = "onbekend"
     MODELWAARDECALCASA = "modelwaardeCalcasa"
+    MODELWAARDEONEPAGE = "modelwaardeOnePage"
     MODELWAARDERISICO = "modelwaardeRisico"
     MODELWAARDEDESKTOPTAXATIE = "modelwaardeDesktopTaxatie"
     DESKTOPTAXATIE = "desktopTaxatie"

@@ -336,7 +336,7 @@ class WaarderingenApi:
     ) -> Waardering:
         """Maak een waardering aan.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
         :param waardering_input_parameters: (required)
         :type waardering_input_parameters: WaarderingInputParameters
@@ -405,7 +405,7 @@ class WaarderingenApi:
     ) -> ApiResponse[Waardering]:
         """Maak een waardering aan.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
         :param waardering_input_parameters: (required)
         :type waardering_input_parameters: WaarderingInputParameters
@@ -474,7 +474,7 @@ class WaarderingenApi:
     ) -> RESTResponseType:
         """Maak een waardering aan.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
         :param waardering_input_parameters: (required)
         :type waardering_input_parameters: WaarderingInputParameters
@@ -1401,7 +1401,7 @@ class WaarderingenApi:
     ) -> Waardering:
         """Patcht een waardering.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID
@@ -1477,7 +1477,7 @@ class WaarderingenApi:
     ) -> ApiResponse[Waardering]:
         """Patcht een waardering.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID
@@ -1553,7 +1553,7 @@ class WaarderingenApi:
     ) -> RESTResponseType:
         """Patcht een waardering.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](/api/v1/reference/schemas/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](/api/v1/reference/schemas/DeelWaarderingWebhookPayload) |
+        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID

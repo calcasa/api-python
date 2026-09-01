@@ -105,7 +105,9 @@ from calcasa.api.models.omgevingsdata import Omgevingsdata
 from calcasa.api.models.onderhoud_staat import OnderhoudStaat
 from calcasa.api.models.operation import Operation
 from calcasa.api.models.operation_type import OperationType
+from calcasa.api.models.opname import Opname
 from calcasa.api.models.opnamedata import Opnamedata
+from calcasa.api.models.opnemer import Opnemer
 from calcasa.api.models.outbound_file_set import OutboundFileSet
 from calcasa.api.models.outbound_file_set_invalid_state_problem_details import (
     OutboundFileSetInvalidStateProblemDetails,
@@ -117,6 +119,8 @@ from calcasa.api.models.outbound_file_set_webhook_payload import (
 from calcasa.api.models.permissions_denied_problem_details import (
     PermissionsDeniedProblemDetails,
 )
+from calcasa.api.models.planning_info import PlanningInfo
+from calcasa.api.models.point import Point
 from calcasa.api.models.problem_details import ProblemDetails
 from calcasa.api.models.product_check import ProductCheck
 from calcasa.api.models.product_check_item import ProductCheckItem

@@ -12,5 +12,6 @@ from calcasa.api.api.file_sets_api import FileSetsApi
 from calcasa.api.api.fotos_api import FotosApi
 from calcasa.api.api.funderingen_api import FunderingenApi
 from calcasa.api.api.geldverstrekkers_api import GeldverstrekkersApi
+from calcasa.api.api.planning_api import PlanningApi
 from calcasa.api.api.rapporten_api import RapportenApi
 from calcasa.api.api.waarderingen_api import WaarderingenApi

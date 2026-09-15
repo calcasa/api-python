@@ -35,6 +35,7 @@ from calcasa.api.models.adres import Adres
 from calcasa.api.models.planning_info import PlanningInfo
 from calcasa.api.models.point import Point
 from calcasa.api.models.product_type import ProductType
+from calcasa.api.models.woning_type import WoningType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -51,6 +52,7 @@ class Opname(BaseModel):
     deadline: datetime = Field(json_schema_extra={"examples": ["2021-04-28T12:34:45Z"]})
     batch_code: StrictStr = Field(alias="batchCode")
     product: ProductType
+    woning_type: WoningType = Field(alias="woningType")
     planning: Optional[PlanningInfo] = None
     __properties: ClassVar[List[str]] = [
         "id",
@@ -59,6 +61,7 @@ class Opname(BaseModel):
         "deadline",
         "batchCode",
         "product",
+        "woningType",
         "planning",
     ]
 
@@ -140,6 +143,7 @@ class Opname(BaseModel):
                 "deadline": obj.get("deadline"),
                 "batchCode": obj.get("batchCode"),
                 "product": obj.get("product"),
+                "woningType": obj.get("woningType"),
                 "planning": (
                     PlanningInfo.from_dict(obj["planning"])
                     if obj.get("planning") is not None

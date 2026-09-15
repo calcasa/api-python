@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class ProductType(str, Enum):
     """
-    Het producttype voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentials. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Geen geldige invoer. Onbekend product type. | | `modelwaardeCalcasa` | Niet beschikbaar op dit moment.<br>            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeOnePage` | Modelwaarde aanvraag met Calcasa One Page rapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | `desktopTaxatieHerwaardering` | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. | | `desktopTaxatiePlus` | Desktop taxatie plus aanvraag met Desktop Taxatie Plus rapport. |
+    Het producttype voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentials. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Geen geldige invoer. Onbekend product type. | | `modelwaardeCalcasa` | Niet beschikbaar op dit moment.<br>            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeOnePage` | Modelwaarde aanvraag met Calcasa One Page rapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | `desktopTaxatieHerwaardering` | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. | | `desktopTaxatiePlus` | Desktop taxatie plus aanvraag met Desktop Taxatie Plus rapport. | | `driveBy` | Calcasa Drive-by taxatie aanvraag met Drive-by rapport. |
     """
 
     """
@@ -44,6 +44,7 @@ class ProductType(str, Enum):
     DESKTOPTAXATIE = "desktopTaxatie"
     DESKTOPTAXATIEHERWAARDERING = "desktopTaxatieHerwaardering"
     DESKTOPTAXATIEPLUS = "desktopTaxatiePlus"
+    DRIVEBY = "driveBy"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

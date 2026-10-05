@@ -63,8 +63,9 @@ class FacturenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> bytes:
-        """Factuur op basis van een waardering Id.
+        """Haal een factuur op.
 
+        Geeft de PDF-factuur terug voor een waardering.
 
         :param id: De Id van een waardering. (required)
         :type id: UUID
@@ -129,8 +130,9 @@ class FacturenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[bytes]:
-        """Factuur op basis van een waardering Id.
+        """Haal een factuur op.
 
+        Geeft de PDF-factuur terug voor een waardering.
 
         :param id: De Id van een waardering. (required)
         :type id: UUID
@@ -195,8 +197,9 @@ class FacturenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Factuur op basis van een waardering Id.
+        """Haal een factuur op.
 
+        Geeft de PDF-factuur terug voor een waardering.
 
         :param id: De Id van een waardering. (required)
         :type id: UUID

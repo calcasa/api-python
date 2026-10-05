@@ -66,8 +66,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PlanningInfo:
-        """Assign opnemer to opname.
+        """Assign an opnemer.
 
+        Wijst een opnemer toe aan een opname.
 
         :param opname_id: (required)
         :type opname_id: UUID
@@ -135,8 +136,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PlanningInfo]:
-        """Assign opnemer to opname.
+        """Assign an opnemer.
 
+        Wijst een opnemer toe aan een opname.
 
         :param opname_id: (required)
         :type opname_id: UUID
@@ -204,8 +206,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Assign opnemer to opname.
+        """Assign an opnemer.
 
+        Wijst een opnemer toe aan een opname.
 
         :param opname_id: (required)
         :type opname_id: UUID
@@ -335,8 +338,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """Delete the planning for an opname.
+        """Delete an opname planning.
 
+        Verwijdert de planning voor een opname.
 
         :param opname_id: (required)
         :type opname_id: UUID
@@ -400,8 +404,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """Delete the planning for an opname.
+        """Delete an opname planning.
 
+        Verwijdert de planning voor een opname.
 
         :param opname_id: (required)
         :type opname_id: UUID
@@ -465,8 +470,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete the planning for an opname.
+        """Delete an opname planning.
 
+        Verwijdert de planning voor een opname.
 
         :param opname_id: (required)
         :type opname_id: UUID
@@ -580,8 +586,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Opname]:
-        """Get the list of opnames.
+        """List opnames.
 
+        Geeft de lijst met opnames terug. Gebruik include_planned om ook geplande opnames op te nemen.
 
         :param include_planned:
         :type include_planned: bool
@@ -644,8 +651,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Opname]]:
-        """Get the list of opnames.
+        """List opnames.
 
+        Geeft de lijst met opnames terug. Gebruik include_planned om ook geplande opnames op te nemen.
 
         :param include_planned:
         :type include_planned: bool
@@ -708,8 +716,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get the list of opnames.
+        """List opnames.
 
+        Geeft de lijst met opnames terug. Gebruik include_planned om ook geplande opnames op te nemen.
 
         :param include_planned:
         :type include_planned: bool
@@ -823,8 +832,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Opnemer]:
-        """Get the list of opnemers.
+        """List opnemers.
 
+        Geeft de lijst met opnemers terug.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -883,8 +893,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Opnemer]]:
-        """Get the list of opnemers.
+        """List opnemers.
 
+        Geeft de lijst met opnemers terug.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -943,8 +954,9 @@ class PlanningApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get the list of opnemers.
+        """List opnemers.
 
+        Geeft de lijst met opnemers terug.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

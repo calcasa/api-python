@@ -68,7 +68,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> InboundFileSet:
-        """Confirm an inbound file set after it has been fully uploaded.
+        """Confirm an inbound file set.
 
         Confirm an inbound file set after it has been fully uploaded. This will start verification of the file set. When the state is updated, the callback will be triggered with the new state. When validation fails, a new file set must be created. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](#models/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](#models/OutboundFileSetWebhookPayload) |
 
@@ -135,7 +135,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[InboundFileSet]:
-        """Confirm an inbound file set after it has been fully uploaded.
+        """Confirm an inbound file set.
 
         Confirm an inbound file set after it has been fully uploaded. This will start verification of the file set. When the state is updated, the callback will be triggered with the new state. When validation fails, a new file set must be created. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](#models/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](#models/OutboundFileSetWebhookPayload) |
 
@@ -202,7 +202,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Confirm an inbound file set after it has been fully uploaded.
+        """Confirm an inbound file set.
 
         Confirm an inbound file set after it has been fully uploaded. This will start verification of the file set. When the state is updated, the callback will be triggered with the new state. When validation fails, a new file set must be created. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](#models/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](#models/OutboundFileSetWebhookPayload) |
 
@@ -319,7 +319,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> InboundFileSet:
-        """Create a new inbound file set.
+        """Create an inbound file set.
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, an InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](#models/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](#models/OutboundFileSetWebhookPayload) |
 
@@ -386,7 +386,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[InboundFileSet]:
-        """Create a new inbound file set.
+        """Create an inbound file set.
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, an InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](#models/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](#models/OutboundFileSetWebhookPayload) |
 
@@ -453,7 +453,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create a new inbound file set.
+        """Create an inbound file set.
 
         Create a new inbound file set and all its included files. If the type, period, and revision combination already exists, an InboundFileSetAlreadyExistsProblemDetails will be returned. If the file set is not confirmed within 24 hours, it will expire and all its uploaded contents will be deleted.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | inbound-file-set | {configuredWebhookUrl}inbound-file-set | [InboundFileSetWebhookPayload](#models/InboundFileSetWebhookPayload) | | outbound-file-set | {configuredWebhookUrl}outbound-file-set | [OutboundFileSetWebhookPayload](#models/OutboundFileSetWebhookPayload) |
 
@@ -580,7 +580,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
+        """Delete an outbound file set.
 
         Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
 
@@ -646,7 +646,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
+        """Delete an outbound file set.
 
         Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
 
@@ -712,7 +712,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
+        """Delete an outbound file set.
 
         Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
 
@@ -1055,8 +1055,9 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> InboundFileSet:
-        """Get a specific inbound file set by its ID.
+        """Get an inbound file set.
 
+        Gets a specific inbound file set by its ID.
 
         :param inbound_file_set_id: (required)
         :type inbound_file_set_id: UUID
@@ -1120,8 +1121,9 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[InboundFileSet]:
-        """Get a specific inbound file set by its ID.
+        """Get an inbound file set.
 
+        Gets a specific inbound file set by its ID.
 
         :param inbound_file_set_id: (required)
         :type inbound_file_set_id: UUID
@@ -1185,8 +1187,9 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get a specific inbound file set by its ID.
+        """Get an inbound file set.
 
+        Gets a specific inbound file set by its ID.
 
         :param inbound_file_set_id: (required)
         :type inbound_file_set_id: UUID
@@ -1299,7 +1302,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[InboundFileSet]:
-        """Get all inbound file sets.
+        """List inbound file sets.
 
         This will not include the file details, only the metadata of the file set. Use the GetInboundFileSetById operation to get the details of a specific file set.
 
@@ -1360,7 +1363,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[InboundFileSet]]:
-        """Get all inbound file sets.
+        """List inbound file sets.
 
         This will not include the file details, only the metadata of the file set. Use the GetInboundFileSetById operation to get the details of a specific file set.
 
@@ -1421,7 +1424,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get all inbound file sets.
+        """List inbound file sets.
 
         This will not include the file details, only the metadata of the file set. Use the GetInboundFileSetById operation to get the details of a specific file set.
 
@@ -1533,7 +1536,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> bytes:
-        """Get a specific outbound file content by its index within a file set.
+        """Download outbound file content.
 
         Get a specific outbound file content by its index within a file set. Use the Http Range header to request a specific byte range of the file and Accept-Encoding to specify the compression. If the Range header is not provided, the entire file will be returned.
 
@@ -1614,7 +1617,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[bytes]:
-        """Get a specific outbound file content by its index within a file set.
+        """Download outbound file content.
 
         Get a specific outbound file content by its index within a file set. Use the Http Range header to request a specific byte range of the file and Accept-Encoding to specify the compression. If the Range header is not provided, the entire file will be returned.
 
@@ -1695,7 +1698,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get a specific outbound file content by its index within a file set.
+        """Download outbound file content.
 
         Get a specific outbound file content by its index within a file set. Use the Http Range header to request a specific byte range of the file and Accept-Encoding to specify the compression. If the Range header is not provided, the entire file will be returned.
 
@@ -1832,8 +1835,9 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OutboundFileSet:
-        """Get a specific outbound file set by its ID.
+        """Get an outbound file set.
 
+        Gets a specific outbound file set by its ID.
 
         :param outbound_file_set_id: (required)
         :type outbound_file_set_id: UUID
@@ -1897,8 +1901,9 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OutboundFileSet]:
-        """Get a specific outbound file set by its ID.
+        """Get an outbound file set.
 
+        Gets a specific outbound file set by its ID.
 
         :param outbound_file_set_id: (required)
         :type outbound_file_set_id: UUID
@@ -1962,8 +1967,9 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get a specific outbound file set by its ID.
+        """Get an outbound file set.
 
+        Gets a specific outbound file set by its ID.
 
         :param outbound_file_set_id: (required)
         :type outbound_file_set_id: UUID
@@ -2076,7 +2082,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[OutboundFileSet]:
-        """Get all outbound file sets.
+        """List outbound file sets.
 
         This will not include the file details, only the metadata of the file set. Use the GetOutboundFileSetById operation to get the details of a specific file set.
 
@@ -2137,7 +2143,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[OutboundFileSet]]:
-        """Get all outbound file sets.
+        """List outbound file sets.
 
         This will not include the file details, only the metadata of the file set. Use the GetOutboundFileSetById operation to get the details of a specific file set.
 
@@ -2198,7 +2204,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get all outbound file sets.
+        """List outbound file sets.
 
         This will not include the file details, only the metadata of the file set. Use the GetOutboundFileSetById operation to get the details of a specific file set.
 
@@ -2310,7 +2316,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """Upload a specific file chunk for an inbound file set.
+        """Upload an inbound file chunk.
 
         Upload a specific file chunk for an inbound file set. All chunks must be uploaded with consecutive chunk indices, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 
@@ -2391,7 +2397,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """Upload a specific file chunk for an inbound file set.
+        """Upload an inbound file chunk.
 
         Upload a specific file chunk for an inbound file set. All chunks must be uploaded with consecutive chunk indices, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 
@@ -2472,7 +2478,7 @@ class FileSetsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Upload a specific file chunk for an inbound file set.
+        """Upload an inbound file chunk.
 
         Upload a specific file chunk for an inbound file set. All chunks must be uploaded with consecutive chunk indices, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 

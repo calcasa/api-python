@@ -66,7 +66,7 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CallbackInschrijving:
-        """Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
+        """Maak of werk een callbackinschrijving bij.
 
         De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimd als ze verlopen.
 
@@ -136,7 +136,7 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CallbackInschrijving]:
-        """Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
+        """Maak of werk een callbackinschrijving bij.
 
         De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimd als ze verlopen.
 
@@ -206,7 +206,7 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
+        """Maak of werk een callbackinschrijving bij.
 
         De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Als er al een inschrijving bestaat voor dit adres dan wordt deze overschreven. De inschrijvingen worden vanzelf opgeruimd als ze verlopen.
 
@@ -344,8 +344,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
+        """Verwijder een callbackinschrijving.
 
+        Verwijdert de callbackinschrijving voor de huidige client, het opgegeven adres en optioneel een geldverstrekker.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -424,8 +425,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
+        """Verwijder een callbackinschrijving.
 
+        Verwijdert de callbackinschrijving voor de huidige client, het opgegeven adres en optioneel een geldverstrekker.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -504,8 +506,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
+        """Verwijder een callbackinschrijving.
 
+        Verwijdert de callbackinschrijving voor de huidige client, het opgegeven adres en optioneel een geldverstrekker.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -639,9 +642,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CallbackInschrijving:
-        """Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
+        """Haal een callbackinschrijving op.
 
-        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft de callbackinschrijving terug voor de huidige client, het opgegeven adres en optioneel een geldverstrekker. Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -720,9 +723,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CallbackInschrijving]:
-        """Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
+        """Haal een callbackinschrijving op.
 
-        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft de callbackinschrijving terug voor de huidige client, het opgegeven adres en optioneel een geldverstrekker. Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -801,9 +804,9 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
+        """Haal een callbackinschrijving op.
 
-        Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft de callbackinschrijving terug voor de huidige client, het opgegeven adres en optioneel een geldverstrekker. Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
         :type bag_nummeraanduiding_id: int
@@ -925,7 +928,7 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[CallbackInschrijving]:
-        """Haal de callback inschrijvingen binnen voor deze client.
+        """Haal callbackinschrijvingen op.
 
         De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -987,7 +990,7 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[CallbackInschrijving]]:
-        """Haal de callback inschrijvingen binnen voor deze client.
+        """Haal callbackinschrijvingen op.
 
         De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -1049,7 +1052,7 @@ class CallbacksApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Haal de callback inschrijvingen binnen voor deze client.
+        """Haal callbackinschrijvingen op.
 
         De callbackobjecten zullen gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 

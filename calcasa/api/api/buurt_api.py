@@ -62,9 +62,9 @@ class BuurtApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Omgevingsdata:
-        """Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+        """Haal buurtgegevens op.
 
-        Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft gegevens terug over een buurt en de bijbehorende wijk, gemeente en land. Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param buurt_code: Een CBS buurt code. (required)
         :type buurt_code: str
@@ -129,9 +129,9 @@ class BuurtApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Omgevingsdata]:
-        """Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+        """Haal buurtgegevens op.
 
-        Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft gegevens terug over een buurt en de bijbehorende wijk, gemeente en land. Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param buurt_code: Een CBS buurt code. (required)
         :type buurt_code: str
@@ -196,9 +196,9 @@ class BuurtApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+        """Haal buurtgegevens op.
 
-        Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft gegevens terug over een buurt en de bijbehorende wijk, gemeente en land. Het omgevingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param buurt_code: Een CBS buurt code. (required)
         :type buurt_code: str

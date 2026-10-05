@@ -70,7 +70,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ProductCheck:
-        """Controleert mogelijke producten.
+        """Controleer mogelijke producten.
 
         Geeft de mogelijke en afgekeurde producten terug voor een waardering op basis van de input parameters. Het BagNummeraanduidingId veld is (ten minste) verplicht. Als er geen enkel product geconfigureerd komt er een exception terug.
 
@@ -138,7 +138,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ProductCheck]:
-        """Controleert mogelijke producten.
+        """Controleer mogelijke producten.
 
         Geeft de mogelijke en afgekeurde producten terug voor een waardering op basis van de input parameters. Het BagNummeraanduidingId veld is (ten minste) verplicht. Als er geen enkel product geconfigureerd komt er een exception terug.
 
@@ -206,7 +206,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Controleert mogelijke producten.
+        """Controleer mogelijke producten.
 
         Geeft de mogelijke en afgekeurde producten terug voor een waardering op basis van de input parameters. Het BagNummeraanduidingId veld is (ten minste) verplicht. Als er geen enkel product geconfigureerd komt er een exception terug.
 
@@ -334,7 +334,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Waardering:
-        """Maak een waardering aan.
+        """Maak een waardering.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
@@ -403,7 +403,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Waardering]:
-        """Maak een waardering aan.
+        """Maak een waardering.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
@@ -472,7 +472,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Maak een waardering aan.
+        """Maak een waardering.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Nadat de waardering aangemaakt is zal deze bevestigd moeten worden. De BagNummeraanduidingId en ProductType velden zijn (ten minste) verplicht.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
@@ -603,9 +603,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Waardering:
-        """Waardering op basis van Id.
+        """Haal een waardering op.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft een waardering terug op basis van de ID. Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID
@@ -674,9 +674,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Waardering]:
-        """Waardering op basis van Id.
+        """Haal een waardering op.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft een waardering terug op basis van de ID. Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID
@@ -745,9 +745,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Waardering op basis van Id.
+        """Haal een waardering op.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft een waardering terug op basis van de ID. Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID
@@ -870,8 +870,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Waardering:
-        """Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
+        """Zoek op rapport-hash.
 
+        Zoekt een waardering op basis van de upper-case hexadecimal SHA-256-hash van een PDF-rapport. Bij een hashcollision wordt de nieuwste waardering teruggegeven.
 
         :param hash: De SHA-256 hash van het bestand, in upper-case hex. (required)
         :type hash: str
@@ -944,8 +945,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Waardering]:
-        """Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
+        """Zoek op rapport-hash.
 
+        Zoekt een waardering op basis van de upper-case hexadecimal SHA-256-hash van een PDF-rapport. Bij een hashcollision wordt de nieuwste waardering teruggegeven.
 
         :param hash: De SHA-256 hash van het bestand, in upper-case hex. (required)
         :type hash: str
@@ -1018,8 +1020,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
+        """Zoek op rapport-hash.
 
+        Zoekt een waardering op basis van de upper-case hexadecimal SHA-256-hash van een PDF-rapport. Bij een hashcollision wordt de nieuwste waardering teruggegeven.
 
         :param hash: De SHA-256 hash van het bestand, in upper-case hex. (required)
         :type hash: str
@@ -1138,9 +1141,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> WaarderingOntwikkeling:
-        """Waardering ontwikkeling op basis van waardering Id.
+        """Haal waarderingsontwikkeling op.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft de ontwikkeling van een waardering terug. Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID
@@ -1208,9 +1211,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[WaarderingOntwikkeling]:
-        """Waardering ontwikkeling op basis van waardering Id.
+        """Haal waarderingsontwikkeling op.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft de ontwikkeling van een waardering terug. Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID
@@ -1278,9 +1281,9 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Waardering ontwikkeling op basis van waardering Id.
+        """Haal waarderingsontwikkeling op.
 
-        Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft de ontwikkeling van een waardering terug. Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param id: De waardering Id in de vorm van een UUID. (required)
         :type id: UUID
@@ -1399,7 +1402,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Waardering:
-        """Patcht een waardering.
+        """Werk een waardering bij.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
@@ -1475,7 +1478,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Waardering]:
-        """Patcht een waardering.
+        """Werk een waardering bij.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
@@ -1551,7 +1554,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Patcht een waardering.
+        """Werk een waardering bij.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.  Op dit moment kan alleen de waarderingsstatus gepatcht worden. Dit endpoint kan gebruikt worden om een waarderingsinitialisatie te bevestigen.  ### Callbacks | Name | Url | Schema | | --- | --- | --- | | waardering | {configuredWebhookUrl}waardering | [WaarderingWebhookPayload](#models/WaarderingWebhookPayload) | | deel-waardering | {configuredWebhookUrl}deel-waardering | [DeelWaarderingWebhookPayload](#models/DeelWaarderingWebhookPayload) |
 
@@ -1687,7 +1690,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Waardering]:
-        """Zoek waardering op basis van input parameters.
+        """Zoek waarderingen.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Alle items kunnen gebruikt worden voor het zoeken, ProductType en BagNummeraanduidingId zijn verplicht.
 
@@ -1755,7 +1758,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Waardering]]:
-        """Zoek waardering op basis van input parameters.
+        """Zoek waarderingen.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Alle items kunnen gebruikt worden voor het zoeken, ProductType en BagNummeraanduidingId zijn verplicht.
 
@@ -1823,7 +1826,7 @@ class WaarderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Zoek waardering op basis van input parameters.
+        """Zoek waarderingen.
 
         Het waarderingsobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie. Alle items kunnen gebruikt worden voor het zoeken, ProductType en BagNummeraanduidingId zijn verplicht.
 

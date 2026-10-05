@@ -63,8 +63,9 @@ class RapportenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> bytes:
-        """Rapport op basis van waardering Id.
+        """Haal een rapport op.
 
+        Geeft het PDF-rapport terug voor een waardering.
 
         :param id: De Id van een waardering. (required)
         :type id: UUID
@@ -129,8 +130,9 @@ class RapportenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[bytes]:
-        """Rapport op basis van waardering Id.
+        """Haal een rapport op.
 
+        Geeft het PDF-rapport terug voor een waardering.
 
         :param id: De Id van een waardering. (required)
         :type id: UUID
@@ -195,8 +197,9 @@ class RapportenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Rapport op basis van waardering Id.
+        """Haal een rapport op.
 
+        Geeft het PDF-rapport terug voor een waardering.
 
         :param id: De Id van een waardering. (required)
         :type id: UUID

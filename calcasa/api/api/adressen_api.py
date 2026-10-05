@@ -68,7 +68,7 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AdresInfo:
-        """Adres info op basis van BAG Nummeraanduiding Id.
+        """Haal adresinformatie op.
 
         De Notities zullen leeg blijven voor dit endpoint. Het adresobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -140,7 +140,7 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AdresInfo]:
-        """Adres info op basis van BAG Nummeraanduiding Id.
+        """Haal adresinformatie op.
 
         De Notities zullen leeg blijven voor dit endpoint. Het adresobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -212,7 +212,7 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Adres info op basis van BAG Nummeraanduiding Id.
+        """Haal adresinformatie op.
 
         De Notities zullen leeg blijven voor dit endpoint. Het adresobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -334,7 +334,7 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AdresInfo:
-        """Zoek adresinformatie op basis van het opgegeven adres.
+        """Zoek adresinformatie.
 
         De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummertoevoeging.
 
@@ -406,7 +406,7 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AdresInfo]:
-        """Zoek adresinformatie op basis van het opgegeven adres.
+        """Zoek adresinformatie.
 
         De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummertoevoeging.
 
@@ -478,7 +478,7 @@ class AdressenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Zoek adresinformatie op basis van het opgegeven adres.
+        """Zoek adresinformatie.
 
         De notities geven aan of de input al dan niet gewijzigd of onbekend is. De enige velden die echt nodig zijn voor een compleet resultaat zijn de postcode, het huisnummer en de huisnummertoevoeging.
 

@@ -67,9 +67,9 @@ class FunderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Funderingdata:
-        """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+        """(Deprecated) Haal funderingsgegevens op.
 
-        Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft funderingsgegevens terug voor de locatie van een adres (BAG Nummeraanduiding ID). Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -143,9 +143,9 @@ class FunderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Funderingdata]:
-        """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+        """(Deprecated) Haal funderingsgegevens op.
 
-        Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft funderingsgegevens terug voor de locatie van een adres (BAG Nummeraanduiding ID). Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -219,9 +219,9 @@ class FunderingenApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """(Deprecated) Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+        """(Deprecated) Haal funderingsgegevens op.
 
-        Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft funderingsgegevens terug voor de locatie van een adres (BAG Nummeraanduiding ID). Het funderingsdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int

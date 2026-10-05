@@ -1,6 +1,6 @@
 [project]
 name = "calcasa.api"
-version = "1.7.0-beta02"
+version = "1.7.0-beta03"
 description = "Calcasa Public API"
 authors = [
   {name = "Calcasa B.V.",email = "info@calcasa.nl"},

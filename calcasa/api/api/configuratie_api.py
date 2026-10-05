@@ -62,7 +62,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CallbackAuthentication:
-        """Haal de geconfigureerde callback authenticatie op voor de huidige client.
+        """Haal callbackauthenticatie op.
 
         Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -124,7 +124,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CallbackAuthentication]:
-        """Haal de geconfigureerde callback authenticatie op voor de huidige client.
+        """Haal callbackauthenticatie op.
 
         Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -186,7 +186,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Haal de geconfigureerde callback authenticatie op voor de huidige client.
+        """Haal callbackauthenticatie op.
 
         Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -295,7 +295,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Callback]:
-        """Haal de geconfigureerde callback URL's op voor de huidige client.
+        """Haal callback-URL's op.
 
         Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -357,7 +357,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Callback]]:
-        """Haal de geconfigureerde callback URL's op voor de huidige client.
+        """Haal callback-URL's op.
 
         Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -419,7 +419,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Haal de geconfigureerde callback URL's op voor de huidige client.
+        """Haal callback-URL's op.
 
         Het callbackobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -528,7 +528,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> bytes:
-        """Get the self-signed mTLS certificate.
+        """Haal het mTLS-certificaat op.
 
         Get the self-signed mTLS certificate.
 
@@ -590,7 +590,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[bytes]:
-        """Get the self-signed mTLS certificate.
+        """Haal het mTLS-certificaat op.
 
         Get the self-signed mTLS certificate.
 
@@ -652,7 +652,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get the self-signed mTLS certificate.
+        """Haal het mTLS-certificaat op.
 
         Get the self-signed mTLS certificate.
 
@@ -761,7 +761,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> bytes:
-        """Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
+        """Haal JWKS-sleutels op.
 
         Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren
 
@@ -823,7 +823,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[bytes]:
-        """Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
+        """Haal JWKS-sleutels op.
 
         Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren
 
@@ -885,7 +885,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
+        """Haal JWKS-sleutels op.
 
         Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren
 
@@ -995,7 +995,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CallbackAuthentication:
-        """Update de geconfigureerde callback authenticatie voor de huidige client.
+        """Werk callbackauthenticatie bij.
 
         Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -1062,7 +1062,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CallbackAuthentication]:
-        """Update de geconfigureerde callback authenticatie voor de huidige client.
+        """Werk callbackauthenticatie bij.
 
         Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -1129,7 +1129,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Update de geconfigureerde callback authenticatie voor de huidige client.
+        """Werk callbackauthenticatie bij.
 
         Het callback-authenticatieobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
@@ -1256,7 +1256,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Callback]:
-        """Configureer callback URL voor een specifieke API versie voor de huidige client.
+        """Configureer een callback-URL.
 
         Indien er al een callback geconfigureerd is voor de opgegeven versie zal deze overschreven worden. Bij het aanroepen van de callback URL zal de CallbackName achter de URL toegevoegd worden. Een lege string of null verwijdert de geconfigureerde URL.
 
@@ -1323,7 +1323,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Callback]]:
-        """Configureer callback URL voor een specifieke API versie voor de huidige client.
+        """Configureer een callback-URL.
 
         Indien er al een callback geconfigureerd is voor de opgegeven versie zal deze overschreven worden. Bij het aanroepen van de callback URL zal de CallbackName achter de URL toegevoegd worden. Een lege string of null verwijdert de geconfigureerde URL.
 
@@ -1390,7 +1390,7 @@ class ConfiguratieApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Configureer callback URL voor een specifieke API versie voor de huidige client.
+        """Configureer een callback-URL.
 
         Indien er al een callback geconfigureerd is voor de opgegeven versie zal deze overschreven worden. Bij het aanroepen van de callback URL zal de CallbackName achter de URL toegevoegd worden. Een lege string of null verwijdert de geconfigureerde URL.
 

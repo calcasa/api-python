@@ -67,9 +67,9 @@ class BodemApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Bodemdata:
-        """Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
+        """Haal bodemkwaliteitsgegevens op.
 
-        Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft bodemkwaliteitsgegevens terug voor de locatie van een adres (BAG Nummeraanduiding ID). Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -139,9 +139,9 @@ class BodemApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Bodemdata]:
-        """Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
+        """Haal bodemkwaliteitsgegevens op.
 
-        Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft bodemkwaliteitsgegevens terug voor de locatie van een adres (BAG Nummeraanduiding ID). Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int
@@ -211,9 +211,9 @@ class BodemApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
+        """Haal bodemkwaliteitsgegevens op.
 
-        Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
+        Geeft bodemkwaliteitsgegevens terug voor de locatie van een adres (BAG Nummeraanduiding ID). Het bodemdataobject zal gefilterd terugkomen, afhankelijk van het client_id dat gebruikt is voor de authenticatie.
 
         :param bag_nummeraanduiding_id: Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
         :type bag_nummeraanduiding_id: int

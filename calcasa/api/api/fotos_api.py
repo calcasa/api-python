@@ -68,8 +68,9 @@ class FotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> bytes:
-        """Foto op basis van een foto Id.
+        """Haal een foto op.
 
+        Geeft een foto terug die onder andere bij waarderingen en referenties wordt gebruikt.
 
         :param id: De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
         :type id: UUID
@@ -139,8 +140,9 @@ class FotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[bytes]:
-        """Foto op basis van een foto Id.
+        """Haal een foto op.
 
+        Geeft een foto terug die onder andere bij waarderingen en referenties wordt gebruikt.
 
         :param id: De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
         :type id: UUID
@@ -210,8 +212,9 @@ class FotosApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Foto op basis van een foto Id.
+        """Haal een foto op.
 
+        Geeft een foto terug die onder andere bij waarderingen en referenties wordt gebruikt.
 
         :param id: De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
         :type id: UUID

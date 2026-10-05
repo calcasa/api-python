@@ -69,8 +69,9 @@ class GeldverstrekkersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Geldverstrekker]:
-        """Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
+        """Haal geldverstrekkers op.
 
+        Geeft alle geldverstrekkers terug die voor aanvragen kunnen worden gebruikt.
 
         :param product_type: Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
         :type product_type: ProductType
@@ -139,8 +140,9 @@ class GeldverstrekkersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Geldverstrekker]]:
-        """Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
+        """Haal geldverstrekkers op.
 
+        Geeft alle geldverstrekkers terug die voor aanvragen kunnen worden gebruikt.
 
         :param product_type: Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
         :type product_type: ProductType
@@ -209,8 +211,9 @@ class GeldverstrekkersApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
+        """Haal geldverstrekkers op.
 
+        Geeft alle geldverstrekkers terug die voor aanvragen kunnen worden gebruikt.
 
         :param product_type: Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
         :type product_type: ProductType
